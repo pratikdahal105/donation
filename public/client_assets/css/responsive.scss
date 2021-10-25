@@ -1,0 +1,928 @@
+/**
+ * Created by Susan Dangol
+*/
+
+@import "components/fonts_and_colors";
+
+/*------------------------------------ Site Wide Starts -----------------------------------*/
+
+/*------------------------------------- Site Wide Ends ------------------------------------*/
+
+/*--------------------------------- Header Wrapper Starts ---------------------------------*/
+/*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+/*-------------------------------- Content Wrapper Starts ---------------------------------*/
+/*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+/*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+/*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+/*----------------------------------- Components Starts -----------------------------------*/
+/*------------------------------------ Components Ends ------------------------------------*/
+
+/*---------------------------------- Slick Slider Starts ----------------------------------*/
+/*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+/*------------------------------------- Mcustom Starts ------------------------------------*/
+/*-------------------------------------- Mcustom Ends -------------------------------------*/
+
+@media all and (max-width: 1600px) {
+  /*------------------------------------ Site Wide Starts -----------------------------------*/
+  .custom-container{
+
+  }
+  /*------------------------------------- Site Wide Ends ------------------------------------*/
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+  /*-------------------------------- Content Wrapper Starts ---------------------------------*/
+  #content-wrapper {
+    #login-page
+    .custom-container {
+      padding-top: 0;
+      padding-bottom: 0;
+      .inner{
+        .login-form {
+          padding: 70px 60px;
+          .form-wrapper {
+            margin-top: 60px;
+            form {
+               .fields {
+                 .form-group {
+                   .form-control {
+                     padding: 18px 24px;
+                   }
+                 }
+               }
+             }
+          }
+        }
+      }
+    }
+
+  }
+  /*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+  /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+  /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+  /*----------------------------------- Components Starts -----------------------------------*/
+  /*------------------------------------ Components Ends ------------------------------------*/
+
+  /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  /*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+  /*------------------------------------- Mcustom Starts ------------------------------------*/
+  /*-------------------------------------- Mcustom Ends -------------------------------------*/
+}
+
+
+@media all and (max-width: 1399px) {
+  /*------------------------------------ Site Wide Starts -----------------------------------*/
+  .custom-container{
+    padding: 50px 100px;
+  }
+  h1 {
+    font-size: 34px;
+  }
+  h2{
+   font-size: 20px
+  }
+  h3{
+    font-size: 16px;
+  }
+  /*------------------------------------- Site Wide Ends ------------------------------------*/
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  #header-wrapper {
+    .custom-container{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .logo-container{
+        img{
+          width: 86%;
+        }
+      }
+    }
+  }
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+  /*-------------------------------- Content Wrapper Starts ---------------------------------*/
+  #content-wrapper {
+    #login-page{
+      .custom-container {
+        .inner {
+          .login-form {
+            padding: 50px 45px;
+            .logo-with-text{
+              .logo-container {
+                margin-bottom: 26px;
+              }
+              .section-title {
+                padding-bottom: 16px;
+              }
+            }
+            .form-wrapper {
+              margin-top: 45px;
+              .section-title{
+                padding-bottom: 25px;
+              }
+              form {
+                .fields {
+                  .form-group {
+                    margin-bottom: 25px;
+                    .form-control {
+                      padding: 14px 20px;
+                      font-size: 16px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+   #home-page {
+     .banner-section {
+       .banner-container {
+         .item{
+           &:first-of-type {
+             padding-right: 40px;
+           }
+           &:last-of-type {
+             padding-left: 40px;
+           }
+         }
+       }
+     }
+     .management-system-section {
+       .management-container {
+         .text-content{
+           padding-right: 40px;
+         }
+       }
+     }
+     .other-services-section {
+       .text-content{
+         padding-right: 40px;
+       }
+     }
+     .ongoing-projects-section {
+       .projects-container {
+         .project-item-wrapper {
+           .project-item {
+             padding: 30px;
+             .text-content {
+               .author {
+                 margin: 12px 0px;
+               }
+             }
+           }
+         }
+       }
+     }
+     .funding-section {
+       .funding-container {
+         .action {
+           .covid-btn{
+             padding: 16px 60px;
+             font-size: 22px;
+           }
+         }
+       }
+     }
+   }
+    #bed-page {
+      .bed-request-section {
+        .nav-tab-wrapper {
+          .nav-pills {
+            li{
+              &:not(:last-of-type) {
+                padding-right: 30px;
+              }
+              a {
+                padding: 8px 20px 8px;
+                width: 160px;
+              }
+            }
+          }
+          .tab-content {
+            .beds-description {
+              .bed-item{
+                &:not(:last-of-type) {
+                  padding-right: 30px;
+                }
+                .inner {
+                  padding: 22px;
+                  width: 260px;
+                }
+              }
+            }
+            table {
+              tr {
+                th, td{
+                  padding: 20px 15px;
+                }
+                td{
+                  &:nth-child(1){
+                    font-size: 16px;
+                  }
+                  &:nth-child(2){
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+  /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+  #footer-wrapper {
+    .footer-container {
+      .logo{
+        .img-container{
+          img{
+            width: 35%;
+          }
+        }
+      }
+      .footer-nav-container {
+        .items {
+          ul {
+            li {
+              padding-bottom: 6px;
+              &:first-of-type{
+                padding-bottom: 16px;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+  /*----------------------------------- Components Starts -----------------------------------*/
+
+  /*------------------------------------ Components Ends ------------------------------------*/
+
+  /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  /*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+  /*------------------------------------- Mcustom Starts ------------------------------------*/
+  /*-------------------------------------- Mcustom Ends -------------------------------------*/
+}
+
+@media all and (max-width: 1199px) {
+  /*------------------------------------ Site Wide Starts -----------------------------------*/
+  .custom-container{
+    padding: 40px 80px;
+  }
+  .section-title {
+    padding-bottom: 24px;
+  }
+  /*------------------------------------- Site Wide Ends ------------------------------------*/
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  #header-wrapper {
+    .custom-container {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      .header-container{
+        .menu-btn{
+          width: 26px;
+        }
+        .logo-container{
+          img{
+            width: 65%;
+          }
+        }
+      }
+
+    }
+  }
+  body{
+    &.show-menu {
+      #header-wrapper {
+        .navigation {
+          width: 400px;
+          padding: 100px 40px 50px;
+          ul {
+            li {
+              a {
+                img {
+                  padding-right: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+  /*-------------------------------- Content Wrapper Starts ---------------------------------*/
+  #content-wrapper {
+    #home-page {
+      .banner-section {
+        .banner-container {
+          .item{
+            &:first-of-type {
+              padding-right: 30px;
+              .progress-bar-wrapper {
+                margin-top: 30px;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .management-system-section {
+        .management-container {
+          .text-content {
+            padding-right: 30px;
+          }
+          .services-wrapper {
+            .service-item {
+              a {
+                height: 180px;
+                width: 180px;
+                .img-container {
+                  margin-bottom: 12px;
+                  text-align: center;
+                  img {
+                    width: 80%;
+                  }
+                }
+                .title{
+                  text-align: center;
+                  padding: 0 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .other-services-section {
+        .text-content {
+          padding-right: 30px;
+        }
+        .other-services-wrapper {
+          padding-left: 30px;
+          .inner{
+            padding: 28px;
+            ul {
+              li{
+                font-size: 14px;
+              }
+                :nth-child(2n) {
+                  padding-left: 16px;
+                }
+              }
+          }
+        }
+        .delivery-img-wrapper{
+          margin-top:35px ;
+        }
+      }
+      .ongoing-projects-section {
+        .projects-container {
+          .project-item-wrapper {
+            margin: -20px;
+            .project-item {
+              padding: 20px;
+              .text-content {
+                .author {
+                  margin: 10px 0px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #bed-page {
+      .bed-request-section {
+        .nav-tab-wrapper {
+          margin-top: 30px;
+          .nav-pills {
+            li{
+              &:not(:last-of-type) {
+                padding-right: 26px;
+              }
+              a {
+                width: 150px;
+              }
+            }
+          }
+          .tab-content {
+            .beds-description {
+              padding: 26px 0px 40px;
+              .bed-item{
+                &:not(:last-of-type) {
+                  padding-right: 26px;
+                }
+                .inner {
+                  padding: 20px;
+                  width: 240px;
+                }
+              }
+            }
+            table {
+              tr {
+                th, td{
+                  padding: 16px 12px;
+                }
+                td{
+                  &:nth-child(1){
+                    font-size: 16px;
+                  }
+                  &:nth-child(2){
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #login-page {
+      .custom-container {
+        .inner {
+          .login-form {
+            .logo-with-text {
+              .logo-container{
+                img{
+                  width: 24%;
+                }
+              }
+
+            }
+            .desc{
+              p{
+                line-height: 20px;
+              }
+            }
+            .form-wrapper {
+              margin-top: 40px;
+              form {
+                .fields {
+                  .form-group {
+                    margin-bottom: 12px;
+                    .form-control {
+                      padding: 12px 16px;
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+  /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+  /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+  /*----------------------------------- Components Starts -----------------------------------*/
+  .covid-btn{
+    padding: 9px 34px;
+    margin-top: 26px;
+  }
+  .common-select{
+    select {
+      height: 42px;
+      padding: 0 8px;
+      background-position-y: 18px;
+    }
+  }
+
+  .common-progress-bar {
+    .progress {
+      height: 25px;
+      .bar {
+        .pct {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  /*------------------------------------ Components Ends ------------------------------------*/
+
+  /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  .slick-dots li button::before {
+    font-size: 10px;
+  }
+  /*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+  /*------------------------------------- Mcustom Starts ------------------------------------*/
+  /*-------------------------------------- Mcustom Ends -------------------------------------*/
+}
+
+@media all and (max-width: 991px) {
+  /*------------------------------------ Site Wide Starts -----------------------------------*/
+  .custom-container{
+    padding: 30px 50px;
+  }
+  .covid-btn {
+    padding: 7px 22px;
+    margin-top: 24px;
+    font-size: 12px;
+  }
+  h1{
+    font-size: 26px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  h3{
+    font-size: 14px;
+  }
+  /*------------------------------------- Site Wide Ends ------------------------------------*/
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+  /*-------------------------------- Content Wrapper Starts ---------------------------------*/
+  #content-wrapper {
+    #home-page {
+      .management-system-section {
+        .management-container {
+          .services-wrapper {
+            .service-item{
+              padding-bottom: 0;
+              a{
+                height: 140px;
+                width: 140px;
+                .img-container {
+                  margin-bottom: 8px;
+                  img {
+                    width: 70%;
+                  }
+                }
+                .title{
+                  p{
+                    line-height: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .other-services-section {
+        .other-services-wrapper {
+          padding-left: 0;
+          .inner {
+            padding: 15px;
+            ul {
+              margin-bottom: -5px;
+              li {
+                font-size: 12px;
+                padding-bottom: 5px;
+                img {
+                  padding-right: 6px;
+                  width: 12%;
+                  image-rendering: -webkit-optimize-contrast;
+                }
+                &:nth-child(2n) {
+                  padding-left: 14px;
+                }
+              }
+            }
+          }
+        }
+        .delivery-img-wrapper {
+          margin-top: 24px;
+        }
+      }
+      .ongoing-projects-section {
+        .projects-container {
+          .project-item-wrapper {
+            margin: -10px;
+            .project-item {
+              padding: 10px;
+              .text-content {
+                padding: 15px;
+                .progress-bar-wrapper {
+                  margin-top: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .funding-section {
+        .funding-container {
+          .action {
+            .covid-btn {
+              padding: 12px 38px;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+    #bed-page {
+      .bed-request-section {
+        .nav-tab-wrapper {
+          .nav-pills {
+            display: none;
+          }
+          .common-select{
+            display: block;
+          }
+          .tab-content {
+            .beds-description {
+              .bed-item{
+                padding-bottom: 15px;
+                &:not(:last-of-type){
+                  padding-right: 15px;
+                }
+
+                .inner{
+                  width: 206px;
+                  padding: 20px 16px;
+                  .text{
+                    padding-left: 14px;
+                  }
+                }
+              }
+            }
+            table {
+              tr {
+                td{
+                  &:nth-child(2){
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #login-page{
+      .custom-container{
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  /*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+  /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+  #footer-wrapper {
+    .footer-container {
+      .logo .img-container img {
+        width: auto;
+      }
+      .footer-nav-container {
+        .items {
+          ul {
+            li{
+              padding-bottom: 0;
+              &:first-of-type {
+                padding-bottom: 9px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+  /*----------------------------------- Components Starts -----------------------------------*/
+
+  /*------------------------------------ Components Ends ------------------------------------*/
+
+  /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  /*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+  /*------------------------------------- Mcustom Starts ------------------------------------*/
+  /*-------------------------------------- Mcustom Ends -------------------------------------*/
+}
+
+@media all and (max-width: 767px) {
+  /*------------------------------------ Site Wide Starts -----------------------------------*/
+  .custom-container{
+  padding: 30px 30px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  .section-title {
+    padding-bottom: 18px;
+  }
+  /*------------------------------------- Site Wide Ends ------------------------------------*/
+
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  #header-wrapper {
+    .custom-container {
+      .header-container {
+        flex-direction: row-reverse;
+        .logo-container {
+          margin-right: 0;
+        }
+        .login-request{
+          display: none;
+        }
+      }
+      .navigation {
+        ul {
+          li {
+            padding-bottom: 26px;
+            a{
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  body{
+    &.show-menu {
+      #header-wrapper {
+        .navigation {
+          width: 100%;
+          padding: 80px 20px 30px;
+        }
+      }
+    }
+  }
+  /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+  /*-------------------------------- Content Wrapper Starts ---------------------------------*/
+  #content-wrapper {
+    #home-page {
+      .banner-section {
+        .banner-container {
+          &.common-flex{
+            flex-wrap: wrap-reverse;
+            .item{
+              &:first-of-type{
+                padding-right: 0;
+                margin-bottom: 0;
+                margin-top: 30px;
+              }
+              &:last-of-type{
+                padding-left: 0;
+
+              }
+            }
+          }
+        }
+      }
+      .management-system-section {
+        .management-container {
+          .text-content{
+            padding-right: 0;
+          }
+          .services-wrapper {
+            .service-item{
+              width: 100%;
+              margin-bottom: 30px;
+              &:nth-child(1), &:nth-child(2)  {
+                a{
+                   margin-left: auto;
+                }
+              }
+              a{
+                margin: auto;
+                height: 180px;
+                width: 180px;
+                img{
+                  width: 100%;
+                  margin-bottom: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .ongoing-projects-section {
+        .projects-container {
+          .project-item-wrapper {
+            .project-item{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    #bed-page {
+      .bed-request-section {
+        .request-container {
+          .area-filter{
+
+            .action{
+              .covid-btn{
+                margin-top: 24px;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+        .nav-tab-wrapper {
+          .tab-content {
+            .beds-description {
+              .bed-item{
+                width: 100%;
+                .inner{
+                  width: 100%;
+                  justify-content: center;
+                  .text{
+                    padding-left: 20px;
+                  }
+                }
+                &:not(:last-of-type){
+                  padding-right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #login-page {
+      .custom-container {
+        padding-right: 0;
+        padding-left: 0;
+        .inner {
+          .img-container{
+            padding-bottom: 100%;
+            margin-bottom: 0;
+
+          }
+          .login-form {
+            padding: 30px 30px 50px;
+            .logo-with-text .logo-container img {
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  /*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+  /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+  #footer-wrapper {
+    .footer-container {
+
+      .logo{
+        width: 100%;
+      }
+      .footer-nav-container{
+        width: 100%;
+        margin-top: 30px;
+        justify-content: initial;
+        .items{
+          width: 50%;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+  /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+  /*----------------------------------- Components Starts -----------------------------------*/
+  .common-flex{
+    .item{
+      width: 100%;
+      &:first-of-type{
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .common-select{
+    select{
+      width: 100%;
+    }
+  }
+  /*------------------------------------ Components Ends ------------------------------------*/
+
+  /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  /*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+  /*------------------------------------- Mcustom Starts ------------------------------------*/
+  /*-------------------------------------- Mcustom Ends -------------------------------------*/
+}
+
+
+

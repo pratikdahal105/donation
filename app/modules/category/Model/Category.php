@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Modules\Category\Model;
+use App\Modules\Campaign\Model\Campaign;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Cviebrock\EloquentSluggable\Sluggable;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    use SoftDeletes, Sluggable;
+    public  $table = 'category';
+
+    protected $fillable = ['id','slug','name','logo','thumbnail','status','deleted_at','created_at','updated_at',];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    public function campaigns(){
+        $this->hasMany(Campaign::class, 'category_id', 'id');
+    }
+}

@@ -1,0 +1,156 @@
+/**
+ * Created by Susan Dangol
+*/
+
+@import "components/fonts_and_colors";
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  font-family: $font-roboto;
+  font-size: 14px;
+  font-weight: 400;
+  color: $black;
+  line-height: 24px;
+  display: block;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{
+  &:link,&:visited{
+    text-decoration: none
+  }
+  &:focus{
+    outline: none
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6{
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  color: $black;
+}
+
+h1{
+  font-size: 36px;
+}
+h2 {
+  font-size: 24px;
+}
+h3{
+  font-size: 18px;
+}
+h5 {
+  font-size:14px ;
+}
+
+p{
+  margin-bottom: 16px;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  li{
+    list-style: none;
+  }
+}
+
+a{
+  text-decoration: none;
+  &:hover, &:focus{
+    text-decoration: none
+  }
+}
+
+#wrapper{
+  min-height: 100%;
+  position: relative;
+}
+
+.slick-slider{
+  .slick-slide{
+    outline: none;
+  }
+}
+
+
+.custom-container{
+  padding: 60px 120px;
+  max-width: 1600px;
+  margin: auto;
+  .small-width-container{
+    max-width: 1200px;
+  }
+  .small-medium-container{
+    max-width: 1500px;
+  }
+}
+.common-flex{
+  display: flex;
+  flex-wrap: wrap;
+  .item{
+    width: 50%;
+  }
+}
+
+.covid-btn{
+  display: inline-block;
+  width: auto!important;
+  outline: none;
+  margin-top: 30px;
+  padding: 11px 40px;
+  background-color: $white;
+  border: 1px solid $black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $black;
+  transition: 0.3s;
+  &.btn-red{
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+    transition: 0.3s;
+    &:hover{
+      background: $white;
+      color: $red;
+    }
+  }
+  &:hover{
+    background: $red;
+    color: $white;
+  }
+}
+
+.center-align{
+  text-align: center;
+  margin: auto;
+}
+
+.section-title{
+  padding-bottom: 30px;
+  h1{
+
+  }
+  h2{
+
+  }
+}
