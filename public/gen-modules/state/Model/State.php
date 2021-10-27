@@ -11,5 +11,5 @@ class State extends Model
     use SoftDeletes;
     public  $table = 'states';
 
-    protected $fillable = ['id','name','country_id',];
+    protected $fillable = ['id','name','country_id','deleted_at',];
 }

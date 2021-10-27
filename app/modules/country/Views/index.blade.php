@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active"><a href="#">Countries</a></li>
         </ol>
         <div class="page-header-actions">
-
+            
             <a href="{{ route('admin.countries.create') }}"  class="btn btn-sm btn-primary btn-outline btn-round"  title="create">
                 <i class="icon wb-plus" aria-hidden="true"></i>
                 <span class="hidden-sm-down">Create</span>
@@ -31,6 +31,7 @@
 							<th >Code</th>
 <th >Name</th>
 <th >Phonecode</th>
+<th >Deleted_at</th>
 
                             <th>Action</th>
                         </tr>
@@ -47,7 +48,7 @@
 
 
 <script>
-    var dataTable;
+    var dataTable; 
     var site_url = window.location.href;
 
     $(function(){
@@ -63,19 +64,17 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "code",name: "code"},
-                { data: "name",name: "name"},
-                { data: "phonecode",name: "phonecode"},
-
-                { data: function(data,b,c,table) {
+                { data: "code",name: "code"},{ data: "name",name: "name"},{ data: "phonecode",name: "phonecode"},{ data: "deleted_at",name: "deleted_at"},
+                
+                { data: function(data,b,c,table) { 
                 var buttons = '';
 
-                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp";
+                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp"; 
 
                 buttons += "<a class='btn btn-sm btn-danger btn-outline' href='"+site_url+"/delete/"+data.id+"' ><i class='icon wb-trash' aria-hidden='true'></i></a>&nbsp;&nbsp";
 
                 return buttons;
-                }, name:'action',searchable: false},
+                }, name:'action',searchable: false},  
             ],
         });
     });

@@ -31,6 +31,7 @@
 							<th >Code</th>
 <th >Name</th>
 <th >Phonecode</th>
+<th >Deleted_at</th>
 
                             <th>Action</th>
                         </tr>
@@ -63,7 +64,7 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "code",name: "code"},{ data: "name",name: "name"},{ data: "phonecode",name: "phonecode"},
+                { data: "code",name: "code"},{ data: "name",name: "name"},{ data: "phonecode",name: "phonecode"},{ data: "deleted_at",name: "deleted_at"},
                 
                 { data: function(data,b,c,table) { 
                 var buttons = '';

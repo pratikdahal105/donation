@@ -22,7 +22,8 @@
                             <div class="form-group">
                                     <label for="code">Code</label><input type="text" value = "{{$country->code}}"  name="code" id="code" class="form-control" ></div><div class="form-group">
                                     <label for="name">Name</label><input type="text" value = "{{$country->name}}"  name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="phonecode">Phonecode</label><input type="text" value = "{{$country->phonecode}}"  name="phonecode" id="phonecode" class="form-control" ></div>
+                                    <label for="phonecode">Phonecode</label><input type="text" value = "{{$country->phonecode}}"  name="phonecode" id="phonecode" class="form-control" ></div><div class="form-group">
+                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$country->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>
 <input type="hidden" name="id" id="id" value = "{{$country->id}}" />
                             {{ csrf_field() }}
                         </div>

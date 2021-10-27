@@ -22,7 +22,8 @@
                             <div class="form-group">
                                     <label for="code">Code</label><input type="text" name="code" id="code" class="form-control" ></div><div class="form-group">
                                     <label for="name">Name</label><input type="text" name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="phonecode">Phonecode</label><input type="text" name="phonecode" id="phonecode" class="form-control" ></div>
+                                    <label for="phonecode">Phonecode</label><input type="text" name="phonecode" id="phonecode" class="form-control" ></div><div class="form-group">
+                                    <label for="deleted_at">Deleted_at</label><input type="text" name="deleted_at" id="deleted_at" class="form-control" ></div>
 <input type="hidden" name="id" id="id"/>
                         </div>
                         {{ csrf_field() }}

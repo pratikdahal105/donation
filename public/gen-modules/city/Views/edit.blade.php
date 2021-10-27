@@ -21,7 +21,8 @@
                             {{method_field('PATCH')}}            
                             <div class="form-group">
                                     <label for="name">Name</label><input type="text" value = "{{$city->name}}"  name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="state_id">State_id</label><input type="text" value = "{{$city->state_id}}"  name="state_id" id="state_id" class="form-control" ></div>
+                                    <label for="state_id">State_id</label><input type="text" value = "{{$city->state_id}}"  name="state_id" id="state_id" class="form-control" ></div><div class="form-group">
+                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$city->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>
 <input type="hidden" name="id" id="id" value = "{{$city->id}}" />
                             {{ csrf_field() }}
                         </div>
