@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active"><a href="#">Cities</a></li>
         </ol>
         <div class="page-header-actions">
-            
+
             <a href="{{ route('admin.cities.create') }}"  class="btn btn-sm btn-primary btn-outline btn-round"  title="create">
                 <i class="icon wb-plus" aria-hidden="true"></i>
                 <span class="hidden-sm-down">Create</span>
@@ -30,8 +30,7 @@
                             <th>SN</th>
 							<th >Name</th>
 <th >State_id</th>
-<th >Deleted_at</th>
-
+{{--<th >Deleted_at</th>--}}
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -47,7 +46,7 @@
 
 
 <script>
-    var dataTable; 
+    var dataTable;
     var site_url = window.location.href;
 
     $(function(){
@@ -63,17 +62,18 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "name",name: "name"},{ data: "state_id",name: "state_id"},{ data: "deleted_at",name: "deleted_at"},
-                
-                { data: function(data,b,c,table) { 
+                { data: "name",name: "name"},{ data: "state_id",name: "state_id"},
+                // { data: "deleted_at",name: "deleted_at"},
+
+                { data: function(data,b,c,table) {
                 var buttons = '';
 
-                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp"; 
+                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp";
 
                 buttons += "<a class='btn btn-sm btn-danger btn-outline' href='"+site_url+"/delete/"+data.id+"' ><i class='icon wb-trash' aria-hidden='true'></i></a>&nbsp;&nbsp";
 
                 return buttons;
-                }, name:'action',searchable: false},  
+                }, name:'action',searchable: false},
             ],
         });
     });

@@ -4,6 +4,7 @@ namespace App\Modules\Campaign\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Model\Category;
+use App\Modules\City\Model\City;
 use Auth;
 use File;
 use Carbon\Carbon;
@@ -154,7 +155,7 @@ class AdminCampaignController extends Controller
      */
     public function edit($id)
     {
-        $campaign = Campaign::findOrFail($id);
+        $campaign = Campaign::findOrFail($id)->with('location')->first();
         $categories = Category::select('name','id')->get();
         $page['title'] = 'Campaign | Update';
         return view("campaign::edit",compact('page','campaign', 'categories'));
@@ -215,5 +216,22 @@ class AdminCampaignController extends Controller
             return redirect()->back();
         }
         return $imageName;
+    }
+    public function getcitiesJson(Request $request){
+        if(!isset($request->searchTerm)){
+            $fetchData = City::select('*')->orderBy('name')->limit(5)->get();
+        }
+        else{
+            $search = $request->searchTerm;
+            $fetchData = City::select('*')->where('name','like','%'. $search .'%')->limit(5)->get();
+        }
+        $data = array();
+        foreach ($fetchData as  $row){
+            $data[] = array(
+              'id' => $row->id,
+                'text' => $row->name
+            );
+        }
+        echo json_encode($data);
     }
 }

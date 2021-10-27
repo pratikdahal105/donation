@@ -36,15 +36,7 @@
                             </ul>
                         </li>
                     @endcan
-                    <li class="site-menu-category">Actions</li>
-                    @can('donations')
-                        <li class="site-menu-item">
-                            <a href="{{ route('admin.donations') }}">
-                                <i class="site-menu-icon wb-check" aria-hidden="true"></i>
-                                <span class="site-menu-title">Donation</span>
-                            </a>
-                        </li>
-                    @endcan
+                    <li class="site-menu-category">Campaign</li>
                     @can('categories')
                         <li class="site-menu-item">
                             <a href="{{ route('admin.categories') }}">
@@ -58,6 +50,40 @@
                             <a href="{{ route('admin.campaigns') }}">
                                 <i class="site-menu-icon wb-list-numbered" aria-hidden="true"></i>
                                 <span class="site-menu-title">Campaign</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('donations')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.donations') }}">
+                                <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                                <span class="site-menu-title">Donation</span>
+                            </a>
+                        </li>
+                    @endcan
+
+                    <li class="site-menu-category">Location</li>
+                    @can('countries')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.countries') }}">
+                                <i class="site-menu-icon fa fa-globe" aria-hidden="true"></i>
+                                <span class="site-menu-title">Country</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('states')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.states') }}">
+                                <i class="site-menu-icon fa fa-compass" aria-hidden="true"></i>
+                                <span class="site-menu-title">State</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('cities')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.cities') }}">
+                                <i class="site-menu-icon fa fa-map-marker" aria-hidden="true"></i>
+                                <span class="site-menu-title">City</span>
                             </a>
                         </li>
                     @endcan

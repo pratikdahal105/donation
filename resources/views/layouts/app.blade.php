@@ -44,6 +44,7 @@
 
   <!-- Scripts -->
   <script src="{{ asset('admin_assets') }}/global/vendor/breakpoints/breakpoints.js"></script>
+
   <script>
     Breakpoints();
   </script>

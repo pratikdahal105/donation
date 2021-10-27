@@ -22,8 +22,12 @@
                             <div class="form-group">
 {{--                                    <label for="slug">Slug</label><input type="text" value = "{{$category->slug}}"  name="slug" id="slug" class="form-control" ></div><div class="form-group">--}}
                                     <label for="name">Name</label><input type="text" value = "{{$category->name}}"  name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="logo">Logo (upload to replace current file)</label><input type="file" accept=".jpeg, .png, .jpg" value = "{{$category->logo}}"  name="logo" id="logo" class="form-control" ></div><div class="form-group">
-                                    <label for="thumbnail">Thumbnail (upload to replace current file)</label><input type="file" accept=".jpeg, .png, .jpg" value = "{{$category->thumbnail}}"  name="thumbnail" id="thumbnail" class="form-control" ></div><div class="form-group">
+                                    <label for="logo">Logo (upload to replace current file)</label><input type="file" accept=".jpeg, .png, .jpg" value = "{{$category->logo}}"  name="logo" id="logo" class="form-control" >
+                                <img src="{{asset('uploads/category/logo/'.$category->logo)}}" width="200" height="200" alt="NO Image" class="img-thumbnail">
+                            </div><div class="form-group">
+                                    <label for="thumbnail">Thumbnail (upload to replace current file)</label><input type="file" accept=".jpeg, .png, .jpg" value = "{{$category->thumbnail}}"  name="thumbnail" id="thumbnail" class="form-control" >
+                                <img src="{{asset('uploads/category/thumbnail/'.$category->thumbnail)}}" width="200" height="200" alt="NO Image" class="img-thumbnail">
+                            </div><div class="form-group">
                                     <label for="status">Status</label><select name="status" id="status" class="form-control">
                                     @if($category->status == 0)
                                         <option value="0" selected>Pending Approval</option>

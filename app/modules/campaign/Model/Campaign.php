@@ -26,10 +26,10 @@ class Campaign extends Model
     }
 
     public function category(){
-        $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function location(){
-        $this->belongsTo(City::class, 'location_id', 'id');
+        return $this->belongsTo(City::class, 'location_id', 'id');
     }
 }
