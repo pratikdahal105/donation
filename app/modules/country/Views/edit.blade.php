@@ -16,14 +16,14 @@
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <form role="form" action="{{ route('admin.countries.update') }}"  method="post">
-                        <div class="box-body">                
-                            {{method_field('PATCH')}}            
+                    <form role="form" action="{{ route('admin.countries.update', $country->id) }}"  method="post">
+                        <div class="box-body">
+                            {{method_field('PATCH')}}
                             <div class="form-group">
-                                    <label for="code">Code</label><input type="text" value = "{{$country->code}}"  name="code" id="code" class="form-control" ></div><div class="form-group">
-                                    <label for="name">Name</label><input type="text" value = "{{$country->name}}"  name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="phonecode">Phonecode</label><input type="text" value = "{{$country->phonecode}}"  name="phonecode" id="phonecode" class="form-control" ></div><div class="form-group">
-                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$country->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>
+                                    <label for="code">Code</label><input type="text" value = "{{$country->code}}"  name="code" id="code" class="form-control" required></div><div class="form-group">
+                                    <label for="name">Name</label><input type="text" value = "{{$country->name}}"  name="name" id="name" class="form-control" required></div><div class="form-group">
+                                    <label for="phonecode">Phonecode</label><input type="text" value = "{{$country->phonecode}}"  name="phonecode" id="phonecode" class="form-control" required></div><div class="form-group">
+{{--                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$country->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>--}}
 <input type="hidden" name="id" id="id" value = "{{$country->id}}" />
                             {{ csrf_field() }}
                         </div>

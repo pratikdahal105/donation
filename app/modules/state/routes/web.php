@@ -12,6 +12,7 @@ Route::group(array('prefix'=>'admin/','module'=>'State','middleware' => ['web','
     Route::get('states/edit/{id}','AdminStateController@edit')->name('admin.states.edit');
     Route::match(['put', 'patch'], 'states/update/{id}','AdminStateController@update')->name('admin.states.update');
     Route::get('states/delete/{id}', 'AdminStateController@destroy')->name('admin.states.edit');
+    Route::get('states/getCountriesJson','AdminStateController@getcountriesJson')->name('admin.states.getcountriesjson');
 });
 
 

@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active"><a href="#">Success_stories</a></li>
         </ol>
         <div class="page-header-actions">
-            
+
             <a href="{{ route('admin.success_stories.create') }}"  class="btn btn-sm btn-primary btn-outline btn-round"  title="create">
                 <i class="icon wb-plus" aria-hidden="true"></i>
                 <span class="hidden-sm-down">Create</span>
@@ -28,14 +28,14 @@
                     <thead>
                         <tr>
                             <th>SN</th>
-							<th >Slug</th>
+{{--							<th >Slug</th>--}}
 <th >Campaign_id</th>
 <th >Title</th>
-<th >Body</th>
+{{--<th >Body</th>--}}
 <th >By</th>
-<th >Deleted_at</th>
+{{--<th >Deleted_at</th>--}}
 <th >Created_at</th>
-<th >Updated_at</th>
+{{--<th >Updated_at</th>--}}
 
                             <th>Action</th>
                         </tr>
@@ -52,7 +52,7 @@
 
 
 <script>
-    var dataTable; 
+    var dataTable;
     var site_url = window.location.href;
 
     $(function(){
@@ -68,17 +68,24 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "slug",name: "slug"},{ data: "campaign_id",name: "campaign_id"},{ data: "title",name: "title"},{ data: "body",name: "body"},{ data: "by",name: "by"},{ data: "deleted_at",name: "deleted_at"},{ data: "created_at",name: "created_at"},{ data: "updated_at",name: "updated_at"},
-                
-                { data: function(data,b,c,table) { 
+                // { data: "slug",name: "slug"},
+                { data: "campaign_id",name: "campaign_id"},
+                { data: "title",name: "title"},
+                // { data: "body",name: "body"},
+                { data: "by",name: "by"},
+                // { data: "deleted_at",name: "deleted_at"},
+                { data: "created_at",name: "created_at"},
+                // { data: "updated_at",name: "updated_at"},
+
+                { data: function(data,b,c,table) {
                 var buttons = '';
 
-                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp"; 
+                buttons += "<a class='btn btn-sm btn-success btn-outline'  title='Edit' href='"+site_url+"/edit/"+data.id+"'><i class='icon wb-pencil' aria-hidden='true'></i></a>&nbsp;&nbsp";
 
                 buttons += "<a class='btn btn-sm btn-danger btn-outline' href='"+site_url+"/delete/"+data.id+"' ><i class='icon wb-trash' aria-hidden='true'></i></a>&nbsp;&nbsp";
 
                 return buttons;
-                }, name:'action',searchable: false},  
+                }, name:'action',searchable: false},
             ],
         });
     });

@@ -56,7 +56,7 @@
                     @can('donations')
                         <li class="site-menu-item">
                             <a href="{{ route('admin.donations') }}">
-                                <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                                <i class="site-menu-icon fa fa-credit-card" aria-hidden="true"></i>
                                 <span class="site-menu-title">Donation</span>
                             </a>
                         </li>
@@ -84,6 +84,24 @@
                             <a href="{{ route('admin.cities') }}">
                                 <i class="site-menu-icon fa fa-map-marker" aria-hidden="true"></i>
                                 <span class="site-menu-title">City</span>
+                            </a>
+                        </li>
+                    @endcan
+
+                    <li class="site-menu-category">Campaign Updates</li>
+                    @can('campaign_updates')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.campaign_updates') }}">
+                                <i class="site-menu-icon fa fa-list-alt" aria-hidden="true"></i>
+                                <span class="site-menu-title">Campaign Update</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('success_stories')
+                        <li class="site-menu-item">
+                            <a href="{{ route('admin.success_stories') }}">
+                                <i class="site-menu-icon fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="site-menu-title">Success Story</span>
                             </a>
                         </li>
                     @endcan

@@ -3,6 +3,7 @@
 namespace App\Modules\State\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Country\Model\Country;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -136,7 +137,8 @@ class AdminStateController extends Controller
      */
     public function edit($id)
     {
-        $state = State::findOrFail($id);
+        $state = State::where('id', $id)->with('country')->first();
+//        dd($state);
         $page['title'] = 'State | Update';
         return view("state::edit",compact('page','state'));
 
@@ -152,7 +154,7 @@ class AdminStateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', '_method');
         $success = State::where('id', $id)->update($data);
         return redirect()->route('admin.states');
 
@@ -171,5 +173,23 @@ class AdminStateController extends Controller
         return redirect()->route('admin.states');
 
         //
+    }
+
+    public function getcountriesJson(Request $request){
+        if(!isset($request->searchTerm)){
+            $fetchData = Country::select('*')->orderBy('name')->limit(5)->get();
+        }
+        else{
+            $search = $request->searchTerm;
+            $fetchData = Country::select('*')->where('name','like','%'. $search .'%')->limit(5)->get();
+        }
+        $data = array();
+        foreach ($fetchData as  $row){
+            $data[] = array(
+                'id' => $row->id,
+                'text' => $row->name
+            );
+        }
+        echo json_encode($data);
     }
 }

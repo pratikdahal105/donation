@@ -3,6 +3,7 @@
 namespace App\Modules\City\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\State\Model\State;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -136,7 +137,7 @@ class AdminCityController extends Controller
      */
     public function edit($id)
     {
-        $city = City::findOrFail($id);
+        $city = City::where('id', $id)->with('state', 'state.country')->first();
         $page['title'] = 'City | Update';
         return view("city::edit",compact('page','city'));
 
@@ -152,7 +153,8 @@ class AdminCityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', '_method', 'country_id');
+//        $data->timestamps = false;
         $success = City::where('id', $id)->update($data);
         return redirect()->route('admin.cities');
 
@@ -171,5 +173,23 @@ class AdminCityController extends Controller
         return redirect()->route('admin.cities');
 
         //
+    }
+
+    public function getstatesJson(Request $request){
+        if(!isset($request->searchTerm)){
+            $fetchData = State::select('*')->where('country_id', $request->country)->orderBy('name')->limit(5)->get();
+        }
+        else{
+            $search = $request->searchTerm;
+            $fetchData = State::select('*')->where('name','like','%'. $search .'%')->where('country_id', $request->country)->limit(5)->get();
+        }
+        $data = array();
+        foreach ($fetchData as  $row){
+            $data[] = array(
+                'id' => $row->id,
+                'text' => $row->name
+            );
+        }
+        echo json_encode($data);
     }
 }

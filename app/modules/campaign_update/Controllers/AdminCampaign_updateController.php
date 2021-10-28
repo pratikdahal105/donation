@@ -152,7 +152,7 @@ class AdminCampaign_updateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', '_method');
         $success = Campaign_update::where('id', $id)->update($data);
         return redirect()->route('admin.campaign_updates');
 

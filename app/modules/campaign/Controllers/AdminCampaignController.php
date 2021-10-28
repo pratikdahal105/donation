@@ -155,7 +155,7 @@ class AdminCampaignController extends Controller
      */
     public function edit($id)
     {
-        $campaign = Campaign::findOrFail($id)->with('location')->first();
+        $campaign = Campaign::where('id',$id)->with('location')->first();
         $categories = Category::select('name','id')->get();
         $page['title'] = 'Campaign | Update';
         return view("campaign::edit",compact('page','campaign', 'categories'));

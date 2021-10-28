@@ -152,7 +152,7 @@ class AdminCountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', '_method');
         $success = Country::where('id', $id)->update($data);
         return redirect()->route('admin.countries');
 

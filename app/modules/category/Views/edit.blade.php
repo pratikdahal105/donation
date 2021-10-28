@@ -30,11 +30,11 @@
                             </div><div class="form-group">
                                     <label for="status">Status</label><select name="status" id="status" class="form-control">
                                     @if($category->status == 0)
-                                        <option value="0" selected>Pending Approval</option>
-                                        <option value="1">Approved</option>
+                                        <option value="0" selected>Inactive</option>
+                                        <option value="1">Active</option>
                                     @else
-                                        <option value="0">Pending Approval</option>
-                                        <option value="1" selected>Approved</option>
+                                        <option value="0">Inactive</option>
+                                        <option value="1" selected>Active</option>
                                     @endif
                                 </select>  </div><div class="form-group">
 {{--                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$category->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">--}}

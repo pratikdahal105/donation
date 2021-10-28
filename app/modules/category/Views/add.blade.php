@@ -25,10 +25,10 @@
                                     <label for="name">Name</label><input type="text" name="name" id="name" class="form-control" ></div><div class="form-group">
                                     <label for="logo">Logo</label><input type="file" name="logo" id="logo" class="form-control" ></div><div class="form-group">
                                     <label for="thumbnail">Thumbnail</label><input type="file" accept=".jpeg, .png, .jpg" name="thumbnail" id="thumbnail" class="form-control" ></div><div class="form-group">
-                                    <label for="status">Status</label><select name="status" id="status" class="form-control">
-                                        <option value="0" selected>Pending Approval</option>
-                                        <option value="1">Approved</option>
-                                    </select></div>
+{{--                                    <label for="status">Status</label><select name="status" id="status" class="form-control">--}}
+{{--                                        <option value="0" selected>Pending Approval</option>--}}
+{{--                                        <option value="1">Approved</option>--}}
+{{--                                    </select></div>--}}
 {{--                                <div class="form-group">--}}
 {{--                                    <label for="deleted_at">Deleted_at</label><input type="text" name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">--}}
 {{--                                    <label for="created_at">Created_at</label><input type="text" name="created_at" id="created_at" class="form-control" ></div><div class="form-group">--}}

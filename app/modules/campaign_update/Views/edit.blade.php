@@ -16,15 +16,15 @@
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <form role="form" action="{{ route('admin.campaign_updates.update') }}"  method="post">
-                        <div class="box-body">                
-                            {{method_field('PATCH')}}            
+                    <form role="form" action="{{ route('admin.campaign_updates.update', $campaign_update->id) }}"  method="post">
+                        <div class="box-body">
+                            {{method_field('PATCH')}}
                             <div class="form-group">
                                     <label for="campaign_id">Campaign_id</label><input type="text" value = "{{$campaign_update->campaign_id}}"  name="campaign_id" id="campaign_id" class="form-control" ></div><div class="form-group">
                                     <label for="body">Body</label><input type="text" value = "{{$campaign_update->body}}"  name="body" id="body" class="form-control" ></div><div class="form-group">
-                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$campaign_update->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">
-                                    <label for="created_at">Created_at</label><input type="text" value = "{{$campaign_update->created_at}}"  name="created_at" id="created_at" class="form-control" ></div><div class="form-group">
-                                    <label for="updated_at">Updated_at</label><input type="text" value = "{{$campaign_update->updated_at}}"  name="updated_at" id="updated_at" class="form-control" ></div>
+{{--                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$campaign_update->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">--}}
+{{--                                    <label for="created_at">Created_at</label><input type="text" value = "{{$campaign_update->created_at}}"  name="created_at" id="created_at" class="form-control" ></div><div class="form-group">--}}
+{{--                                    <label for="updated_at">Updated_at</label><input type="text" value = "{{$campaign_update->updated_at}}"  name="updated_at" id="updated_at" class="form-control" ></div>--}}
 <input type="hidden" name="id" id="id" value = "{{$campaign_update->id}}" />
                             {{ csrf_field() }}
                         </div>

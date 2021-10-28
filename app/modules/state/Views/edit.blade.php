@@ -16,13 +16,19 @@
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <form role="form" action="{{ route('admin.states.update') }}"  method="post">
-                        <div class="box-body">                
-                            {{method_field('PATCH')}}            
+                    <form role="form" action="{{ route('admin.states.update', $state->id) }}"  method="post">
+                        <div class="box-body">
+                            {{method_field('PATCH')}}
                             <div class="form-group">
-                                    <label for="name">Name</label><input type="text" value = "{{$state->name}}"  name="name" id="name" class="form-control" ></div><div class="form-group">
-                                    <label for="country_id">Country_id</label><input type="text" value = "{{$state->country_id}}"  name="country_id" id="country_id" class="form-control" ></div><div class="form-group">
-                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$state->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>
+                                <div class="form-group">
+                                    <label for="country_id">Country</label>
+                                    <select class="form-control" name="country_id" id="country_id"  style="width: 100%" required>
+                                        <option value="{{$state->country->id}}" selected>{{$state->country->name}}</option>
+                                    </select>
+                                </div>
+                                    <label for="name">Name</label><input type="text" value = "{{$state->name}}"  name="name" id="name" class="form-control" required></div><div class="form-group">
+{{--                                    <label for="country_id">Country_id</label><input type="text" value = "{{$state->country_id}}"  name="country_id" id="country_id" class="form-control" ></div><div class="form-group">--}}
+{{--                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$state->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div>--}}
 <input type="hidden" name="id" id="id" value = "{{$state->id}}" />
                             {{ csrf_field() }}
                         </div>
@@ -35,4 +41,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#country_id").select2({
+                minimumInputLength: 2,
+                ajax: {
+                    url: '{{route('admin.states.getcountriesjson')}}',
+                    dataType: 'json',
+                    type: "GET",
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+    </script>
 @endsection
