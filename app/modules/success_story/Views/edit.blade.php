@@ -20,10 +20,14 @@
                         <div class="box-body">
                             {{method_field('PATCH')}}
                             <div class="form-group">
-{{--                                    <label for="slug">Slug</label><input type="text" value = "{{$success_story->slug}}"  name="slug" id="slug" class="form-control" ></div><div class="form-group">--}}
-                                    <label for="campaign_id">Campaign_id</label><input type="text" value = "{{$success_story->campaign_id}}"  name="campaign_id" id="campaign_id" class="form-control" ></div><div class="form-group">
+                                <label for="name">Campaign_id</label>
+                                <select class="form-control" name="campaign_id" id="campaign_id"  style="width: 100%" required>
+                                    <option value="{{$success_story->campaign->id}}" selected>{{$success_story->campaign->slug}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                     <label for="title">Title</label><input type="text" value = "{{$success_story->title}}"  name="title" id="title" class="form-control" ></div><div class="form-group">
-                                    <label for="body">Body</label><input type="text" value = "{{$success_story->body}}"  name="body" id="body" class="form-control" ></div><div class="form-group">
+                                <label for="body">Body</label><textarea type="text" name="body" id="body" class="form-control" >{{$success_story->body}}</textarea></div><div class="form-group">
                                     <label for="by">By</label><input type="text" value = "{{$success_story->by}}"  name="by" id="by" class="form-control" ></div><div class="form-group">
 {{--                                    <label for="deleted_at">Deleted_at</label><input type="text" value = "{{$success_story->deleted_at}}"  name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">--}}
 {{--                                    <label for="created_at">Created_at</label><input type="text" value = "{{$success_story->created_at}}"  name="created_at" id="created_at" class="form-control" ></div><div class="form-group">--}}
@@ -40,4 +44,34 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        $(document).ready(function() {
+            $('#body').summernote();
+        });
+
+        $(document).ready(function(){
+            $("#campaign_id").select2({
+                minimumInputLength: 2,
+                ajax: {
+                    url: '{{route('admin.success_stories.getcampaignjson')}}',
+                    dataType: 'json',
+                    type: "GET",
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+    </script>
 @endsection

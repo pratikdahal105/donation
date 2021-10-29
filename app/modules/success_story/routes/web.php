@@ -12,6 +12,7 @@ Route::group(array('prefix'=>'admin/','module'=>'Success_story','middleware' => 
     Route::get('success_stories/edit/{id}','AdminSuccess_storyController@edit')->name('admin.success_stories.edit');
     Route::match(['put', 'patch'], 'success_stories/update/{id}','AdminSuccess_storyController@update')->name('admin.success_stories.update');
     Route::get('success_stories/delete/{id}', 'AdminSuccess_storyController@destroy')->name('admin.success_stories.edit');
+    Route::get('success_stories/getCampaignJson', 'AdminSuccess_storyController@getcampaignJson')->name('admin.success_stories.getcampaignjson');
 });
 
 

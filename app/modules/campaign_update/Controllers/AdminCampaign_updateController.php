@@ -136,7 +136,7 @@ class AdminCampaign_updateController extends Controller
      */
     public function edit($id)
     {
-        $campaign_update = Campaign_update::findOrFail($id);
+        $campaign_update = Campaign_update::where('id',$id)->with('campaign')->first();
         $page['title'] = 'Campaign_update | Update';
         return view("campaign_update::edit",compact('page','campaign_update'));
 
@@ -152,7 +152,7 @@ class AdminCampaign_updateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token', '_method');
+        $data = $request->except('_token', '_method', 'files');
         $success = Campaign_update::where('id', $id)->update($data);
         return redirect()->route('admin.campaign_updates');
 

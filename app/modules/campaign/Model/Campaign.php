@@ -2,8 +2,10 @@
 
 namespace App\Modules\Campaign\Model;
 use App\Modules\Bank_detail\Model\Bank_detail;
+use App\Modules\Campaign_update\Model\Campaign_update;
 use App\Modules\Category\Model\Category;
 use App\Modules\City\Model\City;
+use App\Modules\Success_story\Model\Success_story;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -31,5 +33,13 @@ class Campaign extends Model
 
     public function location(){
         return $this->belongsTo(City::class, 'location_id', 'id');
+    }
+
+    public function success_story(){
+        return $this->hasOne(Success_story::class, 'campaign_id', 'id');
+    }
+
+    public function campaign_updates(){
+        return $this->hasMany(Campaign_update::class, 'campaign_id', 'id');
     }
 }

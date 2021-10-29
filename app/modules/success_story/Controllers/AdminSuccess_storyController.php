@@ -3,6 +3,7 @@
 namespace App\Modules\Success_story\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Campaign\Model\Campaign;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -136,7 +137,7 @@ class AdminSuccess_storyController extends Controller
      */
     public function edit($id)
     {
-        $success_story = Success_story::findOrFail($id);
+        $success_story = Success_story::where('id',$id)->with('campaign')->first();
         $page['title'] = 'Success_story | Update';
         return view("success_story::edit",compact('page','success_story'));
 
@@ -152,7 +153,7 @@ class AdminSuccess_storyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token', '_method');
+        $data = $request->except('_token', '_method', 'files');
         $success = Success_story::where('id', $id)->update($data);
         return redirect()->route('admin.success_stories');
 
@@ -171,5 +172,23 @@ class AdminSuccess_storyController extends Controller
         return redirect()->route('admin.success_stories');
 
         //
+    }
+
+    public function getcampaignJson(Request $request){
+        if(!isset($request->searchTerm)){
+            $fetchData = Campaign::select('*')->orderBy('name')->limit(5)->get();
+        }
+        else{
+            $search = $request->searchTerm;
+            $fetchData = Campaign::select('*')->where('slug','like','%'. $search .'%')->limit(5)->get();
+        }
+        $data = array();
+        foreach ($fetchData as  $row){
+            $data[] = array(
+                'id' => $row->id,
+                'text' => $row->slug
+            );
+        }
+        echo json_encode($data);
     }
 }
