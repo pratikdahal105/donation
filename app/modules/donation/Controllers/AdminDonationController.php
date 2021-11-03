@@ -2,6 +2,7 @@
 
 namespace App\Modules\Donation\Controllers;
 
+use App\Core_modules\User\Model\User;
 use App\Http\Controllers\Controller;
 use Auth;
 use DB;
@@ -112,6 +113,8 @@ class AdminDonationController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
+        $data['reference_no'] = $this->referenceNumber();
+        $data['slug'] = base64_encode($data['reference_no']);
         $success = Donation::Create($data);
         return redirect()->route('admin.donations');
         //
@@ -136,7 +139,7 @@ class AdminDonationController extends Controller
      */
     public function edit($id)
     {
-        $donation = Donation::findOrFail($id);
+        $donation = Donation::where('id',$id)->with('campaign', 'user')->first();
         $page['title'] = 'Donation | Update';
         return view("donation::edit",compact('page','donation'));
 
@@ -152,7 +155,7 @@ class AdminDonationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', '_method');
         $success = Donation::where('id', $id)->update($data);
         return redirect()->route('admin.donations');
 
@@ -171,5 +174,33 @@ class AdminDonationController extends Controller
         return redirect()->route('admin.donations');
 
         //
+    }
+
+    public function getuserJson(Request $request){
+        if(!isset($request->searchTerm)){
+            $fetchData = User::select('*')->orderBy('name')->limit(5)->get();
+        }
+        else{
+            $search = $request->searchTerm;
+            $fetchData = User::select('*')->where('email','like','%'. $search .'%')->limit(5)->get();
+        }
+        $data = array();
+        foreach ($fetchData as  $row){
+            $data[] = array(
+                'id' => $row->id,
+                'text' => $row->email
+            );
+        }
+        echo json_encode($data);
+    }
+
+    public function referenceNumber(){
+        $reference = date("Y").uniqid();
+        if(Donation::where('reference_no', $reference)->exists()){
+            return $this->referenceNumber();
+        }
+        else{
+            return $reference;
+        }
     }
 }

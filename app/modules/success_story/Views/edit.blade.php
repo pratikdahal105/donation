@@ -47,10 +47,6 @@
 
     <script>
 
-        $(document).ready(function() {
-            $('#body').summernote();
-        });
-
         $(document).ready(function(){
             $("#campaign_id").select2({
                 minimumInputLength: 2,

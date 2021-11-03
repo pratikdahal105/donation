@@ -31,6 +31,15 @@
   .custom-container{
 
   }
+  .remove-padding-top{
+    padding-top: 0;
+  }
+  .remove-padding-bottom{
+    padding-bottom: 0;
+  }
+
+
+
   /*------------------------------------- Site Wide Ends ------------------------------------*/
 
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
@@ -40,8 +49,6 @@
   #content-wrapper {
     #login-page
     .custom-container {
-      padding-top: 0;
-      padding-bottom: 0;
       .inner{
         .login-form {
           padding: 70px 60px;
@@ -91,6 +98,23 @@
   }
   h3{
     font-size: 16px;
+  }
+  .remove-padding-top{
+    padding-top: 0;
+  }
+  .remove-padding-bottom{
+    padding-bottom: 0;
+  }
+
+
+  .add-padding-bottom {
+    &.large {
+      padding-bottom: 100px;
+    }
+    &.medium {
+      padding-bottom: 50px;
+    }
+
   }
   /*------------------------------------- Site Wide Ends ------------------------------------*/
 
@@ -287,6 +311,22 @@
   }
   .section-title {
     padding-bottom: 24px;
+  }
+  .remove-padding-top{
+    padding-top: 0;
+  }
+  .remove-padding-bottom{
+    padding-bottom: 0;
+  }
+
+
+  .add-padding-bottom {
+    &.large {
+      padding-bottom: 80px;
+    }
+    &.medium {
+      padding-bottom: 40px;
+    }
   }
   /*------------------------------------- Site Wide Ends ------------------------------------*/
 
@@ -551,6 +591,25 @@
   h3{
     font-size: 14px;
   }
+  .remove-padding-top{
+    padding-top: 0;
+  }
+  .remove-padding-bottom{
+    padding-bottom: 0;
+  }
+
+
+  .add-padding-bottom {
+    &.large {
+      padding-bottom: 60px;
+    }
+    &.medium {
+      padding-bottom: 30px;
+    }
+    &.small{
+      padding-bottom: 20px;
+    }
+  }
   /*------------------------------------- Site Wide Ends ------------------------------------*/
 
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
@@ -729,6 +788,8 @@
   .section-title {
     padding-bottom: 18px;
   }
+
+
   /*------------------------------------- Site Wide Ends ------------------------------------*/
 
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/

@@ -30,7 +30,7 @@ class CreateCampaignTable extends Migration
             $table->boolean('stop_limit')->nullable();
             $table->boolean('status')->default(0);
             $table->integer('minimum_tip')->default(0);
-            $table->text('search')->nullable();
+            $table->longText('search')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

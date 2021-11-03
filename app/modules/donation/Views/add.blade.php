@@ -20,14 +20,34 @@
                     <form role="form" action="{{ route('admin.donations.store') }}"  method="post">
                         <div class="box-body">
                             <div class="form-group">
-{{--                                    <label for="slug">Slug</label><input type="text" name="slug" id="slug" class="form-control" ></div><div class="form-group">--}}
-{{--                                    <label for="reference_no">Reference_no</label><input type="text" name="reference_no" id="reference_no" class="form-control" ></div><div class="form-group">--}}
-                                    <label for="user_id">User_id</label><input type="number" name="user_id" id="user_id" class="form-control" ></div><div class="form-group">
-                                    <label for="campaign_id">Campaign_id</label><input type="number" name="campaign_id" id="campaign_id" class="form-control" ></div><div class="form-group">
-                                    <label for="amount">Amount</label><input type="number" name="number" id="amount" class="form-control" ></div><div class="form-group">
-                                    <label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks" class="form-control" ></div><div class="form-group">
-                                    <label for="anonymous">Anonymous</label><input type="number" name="anonymous" id="anonymous" class="form-control" ></div><div class="form-group">
-                                    <label for="status">Status</label><input type="number" name="status" id="status" class="form-control" ></div><div class="form-group">
+                                <label for="name">User_id</label>
+                                <select class="form-control" name="user_id" id="user_id"  style="width: 100%" required>
+                                    <option value="" disabled selected>-- Select User --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Campaign_id</label>
+                                <select class="form-control" name="campaign_id" id="campaign_id"  style="width: 100%" required>
+                                    <option value="" disabled selected>-- Select Campaign --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="amount">Amount</label><input type="number" name="amount" id="amount" class="form-control" ></div><div class="form-group">
+                                    <label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks" class="form-control" ></div>
+                            <div class="form-group">
+                                <label for="anonymous">Anonymous</label>
+                                <select name="anonymous" id="anonymous" class="form-control">
+                                    <option value="0" selected>Not Anonymous</option>
+                                    <option value="1">Anonymous</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="1" selected>Complete</option>
+                                    <option value="0">Canceled/Refunded</option>
+                                </select>
+                            </div><div class="form-group">
 {{--                                    <label for="deleted_at">Deleted_at</label><input type="text" name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">--}}
 {{--                                    <label for="created_at">Created_at</label><input type="text" name="created_at" id="created_at" class="form-control" ></div><div class="form-group">--}}
 {{--                                    <label for="updated_at">Updated_at</label><input type="text" name="updated_at" id="updated_at" class="form-control" ></div>--}}
@@ -43,4 +63,52 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#campaign_id").select2({
+                minimumInputLength: 2,
+                ajax: {
+                    url: '{{route('admin.success_stories.getcampaignjson')}}',
+                    dataType: 'json',
+                    type: "GET",
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $("#user_id").select2({
+                minimumInputLength: 2,
+                ajax: {
+                    url: '{{route('admin.donations.getuserjson')}}',
+                    dataType: 'json',
+                    type: "GET",
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+    </script>
 @endsection

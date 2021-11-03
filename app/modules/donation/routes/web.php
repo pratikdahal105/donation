@@ -12,6 +12,7 @@ Route::group(array('prefix'=>'admin/','module'=>'Donation','middleware' => ['web
     Route::get('donations/edit/{id}','AdminDonationController@edit')->name('admin.donations.edit');
     Route::match(['put', 'patch'], 'donations/update/{id}','AdminDonationController@update')->name('admin.donations.update');
     Route::get('donations/delete/{id}', 'AdminDonationController@destroy')->name('admin.donations.edit');
+    Route::get('donations/getCampaignJson', 'AdminDonationController@getuserJson')->name('admin.donations.getuserjson');
 });
 
 

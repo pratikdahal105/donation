@@ -74,10 +74,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-a:link, a:visited {
-  text-decoration: none; }
-a:focus {
-  outline: none; }
+a {
+  color: black; }
+  a:link, a:visited {
+    text-decoration: none; }
+  a:focus {
+    outline: none; }
+  a:hover {
+    color: initial; }
+
+.remove-padding-top {
+  padding-top: 0; }
+
+.remove-padding-bottom {
+  padding-bottom: 0; }
+
+.add-padding-bottom.large {
+  padding-bottom: 120px; }
+.add-padding-bottom.medium {
+  padding-bottom: 60px; }
+.add-padding-bottom.small {
+  padding-bottom: 30px; }
 
 h1, h2, h3, h4, h5, h6 {
   padding: 0;

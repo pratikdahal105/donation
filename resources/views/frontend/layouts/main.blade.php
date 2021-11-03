@@ -23,15 +23,12 @@
 
 
     <!----------------------- Fonts Starts ---------------------->
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!------------------------ Fonts Ends ----------------------->
 
 
     <!-------------------- Components Starts -------------------->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--    <link href="css/bowercomponent/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="{{asset('client_assets')}}/css/bowercomponent/slick-theme.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/bowercomponent/slick.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/bowercomponent/jquery.mCustomScrollbar.min.css" rel="stylesheet">
@@ -43,16 +40,6 @@
     <link href="{{asset('client_assets')}}/css/global.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/thestyles.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/responsive.css" rel="stylesheet">
-    <!--------------------- Site Style Ends --------------------->
-
-
-    <!-------------------- Site Style Starts -------------------->
-    <link href="{{asset('client_assets')}}/css/global.css?v=<?php echo $cssVersion; ?>" rel="stylesheet">
-    <link href="{{asset('client_assets')}}/css/thestyles.css?v=<?php echo $cssVersion; ?>" rel="stylesheet">
-    <link href="{{asset('client_assets')}}/css/responsive.css?v=<?php echo $cssVersion; ?>" rel="stylesheet">
-    <link href="{{asset('client_assets')}}/alertifyjs/css/alertify.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link href="{{asset('client_assets')}}/css/jquery.steps.css" rel="stylesheet">
     <!--------------------- Site Style Ends --------------------->
 
 </head>

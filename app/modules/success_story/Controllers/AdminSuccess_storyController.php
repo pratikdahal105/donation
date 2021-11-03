@@ -5,6 +5,7 @@ namespace App\Modules\Success_story\Controllers;
 use App\Http\Controllers\Controller;
 use App\Modules\Campaign\Model\Campaign;
 use Auth;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -113,6 +114,7 @@ class AdminSuccess_storyController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
+        $data['slug'] = SlugService::createSlug(Success_story::class, 'slug', $request->title);
         $success = Success_story::Create($data);
         return redirect()->route('admin.success_stories');
         //

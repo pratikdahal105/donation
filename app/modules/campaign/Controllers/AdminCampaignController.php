@@ -5,6 +5,7 @@ namespace App\Modules\Campaign\Controllers;
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Model\Category;
 use App\Modules\City\Model\City;
+use App\Modules\Country\Model\Country;
 use Auth;
 use File;
 use Carbon\Carbon;
@@ -119,7 +120,9 @@ class AdminCampaignController extends Controller
     {
         $data = $request->except('_token');
         $data['slug'] = SlugService::createSlug(Campaign::class, 'slug', $request->campaign_name);
-        $data['user_id'] = Auth::id();
+        $city = City::where('id', $data['location_id'])->with('state.country')->first();
+        $data['search'] = $data['campaign_name'].','.$data['created_for'].','.$city->name.','.$city->state->name.','.$city->state->country->name.','.$data['body'].','.$data['target_amount'];
+//        $data['user_id'] = Auth::id();
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $uploadPath = public_path('uploads/campaign/thumbnail/');
@@ -174,6 +177,8 @@ class AdminCampaignController extends Controller
     {
         $campaign = Campaign::where('id', $id)->first();
         $data = $request->except('_token', '_method', 'thumbnail', 'logo');
+        $city = City::where('id', $data['location_id'])->with('state.country')->first();
+        $data['search'] = $data['campaign_name'].','.$data['created_for'].','.$city->name.','.$city->state->name.','.$city->state->country->name.','.$data['body'].','.$data['target_amount'];
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $uploadPath = public_path('uploads/campaign/thumbnail/');

@@ -5,53 +5,53 @@
 
     <!--------------------------------- Header Wrapper Starts ---------------------------------->
     <header id="header-wrapper">
-        <div class="custom-container">
-            <div class="header-container">
-
-                <div class="menu-btn">
-                    <a href="#">
-                        <span class="bar1"></span>
-                        <span class="bar2"></span>
-                        <span class="bar3"></span>
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="{{route('frontend.home')}}">
-                        <img src="{{asset('client_assets')}}/img/logo/agni-logo.png" alt="site-logo                                          ">
-                    </a>
-                </div>
-                <div class="login-request">
-                    <div class="login">
-                        <a href="#">
-                            <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
-                            <span> Login</span>
+        <header id="header-wrapper">
+            <div class="custom-container">
+                <div class="header-container">
+                    <div class="menu-items">
+                        <ul>
+                            <li><a href="">Discover <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
+                                <ul>
+                                    <li><a href="">Fundraisers</a></li>
+                                    <li><a href="">Success Stories</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Fundraiser for <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
+                                <ul>
+                                    <li><a href="">Memorial</a></li>
+                                    <li><a href="">Medical</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span><img src="{{asset('client_assets')}}/images/search.png" ></span>
+                                <input type="text" placeholder="Search">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo-container">
+                        <a href="index.php">
+                            <img src="{{asset('client_assets')}}/img/logo/agni-logo.png" alt="site-logo">
                         </a>
                     </div>
-                    <div class="request">
-                        <a href="#" class="covid-btn btn-red">Request</a>
+                    <div class="login-request">
+                        <div class="login">
+                            <a href="">
+                                <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
+                                <span> Login</span>
+                            </a>
+                        </div>
+                        <div class="request">
+                            <a href="" class="covid-btn btn-red">Request</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <div class="close-btn">
+                        <img src="{{asset('client_assets')}}/img/icons/close.png">
                     </div>
                 </div>
             </div>
-            <div class="navigation">
-                <ul class="nav-list">
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/09-Doctor.png" alt="">Doctor Contact Details</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/28-Hospital.png" alt="">ICU/Ventilators/BEDS</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/27-Placeholder.png" alt="">Online Pharmacy</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/29-Test%20Tube.png" alt="">Plasma</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/15-Serum.png" alt="">Remdesivir Supplier</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/19-monitor.png" alt="">Ventilator Service</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/04-Oxygen%20Tank.png" alt="">Oxygen Supplier</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/14-Medicine.png" alt="">Sanitizing Service</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/Group%202953.png" alt="">Online Groceries</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/Group%202954.png" alt="">Cooked Food</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/Group.png" alt="">Herbal Products</a></li>
-                    <li><a href=""><img src="{{asset('client_assets')}}/img/menu-icon/07-Ambulance.png" alt="">Ambulance Service</a></li>
-                </ul>
-                <div class="close-btn">
-                    <img src="{{asset('client_assets')}}/img/icons/close.png" alt="">
-                </div>
-            </div>
-        </div>
+        </header>
     </header>
     <!---------------------------------- Header Wrapper Ends ----------------------------------->
 

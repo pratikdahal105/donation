@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'FrontController@index')->name('frontend.home');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['name' => 'Home'], function (){
+    Route::get('/', 'Frontend\FrontController@index')->name('frontend.home');
+    Route::get('campaignDetail\{slug}', 'Frontend\CampaignController@campaignDetail')->name('frontend.campaign.detail');
+});

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Modules\Campaign\Model;
+use App\Core_modules\User\Model\User;
 use App\Modules\Bank_detail\Model\Bank_detail;
 use App\Modules\Campaign_update\Model\Campaign_update;
 use App\Modules\Category\Model\Category;
 use App\Modules\City\Model\City;
+use App\Modules\Donation\Model\Donation;
 use App\Modules\Success_story\Model\Success_story;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,5 +43,13 @@ class Campaign extends Model
 
     public function campaign_updates(){
         return $this->hasMany(Campaign_update::class, 'campaign_id', 'id');
+    }
+
+    public function donations(){
+        return $this->hasMany(Donation::class, 'campaign_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
