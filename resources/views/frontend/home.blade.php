@@ -13,7 +13,7 @@
                             <p>In scelerisque tempus viverra mollis ullamcorper quis. Tristique praesent ante volutpat, ac dolor massa ac a. Vestibulum, nibh leo.</p>
                         </div>
                         <div class="action">
-                            <a href="" class="covid-btn btn-red">Request</a>
+                            <a href="{{route('frontend.campaign.request')}}" class="covid-btn btn-red">Request</a>
                         </div>
 
                     </div>
@@ -46,36 +46,42 @@
 {{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
-                        @foreach($top as $key => $campaign)
+                        @php($key = 0)
+                        @foreach($top as $campaign)
                             @if($key <= 6)
-                                <div class="project-item">
-                                    <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
-                                        <div class="img-container">
-                                            <img src="{{asset('uploads/campaign/thumbnail/'.$campaign->thumbnail)}}" alt="">
-                                        </div>
-                                        <div class="text-content">
-                                            <div class="title">
-                                                <h5>{{$campaign->campaign_name}}</h5>
+                                @if($campaign->sum < $campaign->target_amount)
+                                    <div class="project-item">
+                                        <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
+                                            <div class="img-container">
+                                                <img src="{{asset('uploads/campaign/thumbnail/'.$campaign->thumbnail)}}" alt="">
                                             </div>
-                                            <div class="author">
-                                                <h5>For {{$campaign->created_for}}</h5>
-                                            </div>
-{{--                                            <div class="description">--}}
-{{--                                                <p>{{str_limit($campaign->body, 30)}}</p>--}}
-{{--                                            </div>--}}
-                                            <div class="progress-bar-wrapper common-progress-bar">
-                                                <div class="progress">
-                                                    <div class="bar progress-bar-striped-custom" data-value="{{$campaign->sum}}" max-value="{{$campaign->target_amount}}">
-                                                        <div class="pct">
-                                                            Rs. {{$campaign->sum}}
+                                            <div class="text-content">
+                                                <div class="title">
+                                                    <h5>{{$campaign->campaign_name}}</h5>
+                                                </div>
+                                                <div class="author">
+                                                    <h5>For {{$campaign->created_for}}</h5>
+                                                </div>
+    {{--                                            <div class="description">--}}
+    {{--                                                <p>{{str_limit($campaign->body, 30)}}</p>--}}
+    {{--                                            </div>--}}
+                                                <div class="progress-bar-wrapper common-progress-bar">
+                                                    <div class="progress">
+                                                        <div class="bar progress-bar-striped-custom" data-value="{{$campaign->sum}}" max-value="{{$campaign->target_amount}}">
+                                                            <div class="pct">
+                                                                Rs. {{$campaign->sum}}
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <p>Rs. {{$campaign->target_amount}}</p>
                                                 </div>
-                                                <p>Rs. {{$campaign->target_amount}}</p>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                    @php($key = $key + 1)
+                                @else
+                                    @continue
+                                @endif
                             @else
                                 @break
                             @endif
@@ -244,7 +250,7 @@
                     <div class="project-item-wrapper">
                         @foreach($campaigns as $campaign)
                                 <div class="project-item">
-                                    <a href="">
+                                    <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
                                         <div class="img-container">
                                             <img src="{{asset('uploads/campaign/thumbnail/'.$campaign->thumbnail)}}" alt="">
                                         </div>
@@ -280,7 +286,7 @@
                         <h3>Do you need funding?</h3>
                     </div>
                     <div class="action">
-                        <a href="" class="covid-btn btn-red">Request Funding</a>
+                        <a href="{{route('frontend.campaign.request')}}" class="covid-btn btn-red">Request Funding</a>
                     </div>
                 </div>
             </div>

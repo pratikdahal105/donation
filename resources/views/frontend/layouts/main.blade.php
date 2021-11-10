@@ -33,6 +33,7 @@
     <link href="{{asset('client_assets')}}/css/bowercomponent/slick.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/bowercomponent/jquery.mCustomScrollbar.min.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/bowercomponent/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
     <!--------------------- Components Ends --------------------->
 
 
@@ -41,6 +42,12 @@
     <link href="{{asset('client_assets')}}/css/thestyles.css" rel="stylesheet">
     <link href="{{asset('client_assets')}}/css/responsive.css" rel="stylesheet">
     <!--------------------- Site Style Ends --------------------->
+
+    <!-------------------- Site Script Starts -------------------->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <!-------------------- Site Script Ends -------------------->
 
 </head>
 @include('frontend.includes.header')

@@ -29,19 +29,32 @@
                         </ul>
                     </div>
                     <div class="logo-container">
-                        <a href="index.php">
+                        <a href="{{route('frontend.home')}}">
                             <img src="{{asset('client_assets')}}/img/logo/agni-logo.png" alt="site-logo">
                         </a>
                     </div>
                     <div class="login-request">
-                        <div class="login">
-                            <a href="">
-                                <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
-                                <span> Login</span>
-                            </a>
-                        </div>
+                        @guest
+                            <div class="login">
+                                <a href="{{route('login')}}">
+                                    <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
+                                    <span> Login</span>
+                                </a>
+                            </div>
+                        @endguest
+                        @auth
+                            <div class="login">
+{{--                                <a href="">--}}
+                                    <form action="{{route('logout')}}" id="logout_form" method="POST">
+                                        @csrf
+                                    </form>
+                                    <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
+                                    <a href="#" onclick="submitLogoutForm()">{{Auth::user()->name}}</a>
+{{--                                </a>--}}
+                            </div>
+                        @endauth
                         <div class="request">
-                            <a href="" class="covid-btn btn-red">Request</a>
+                            <a href="{{route('frontend.campaign.request')}}" class="covid-btn btn-red">Request</a>
                         </div>
                     </div>
                 </div>
@@ -59,3 +72,9 @@
 
     <!-------------------------------- Content Wrapper Starts ---------------------------------->
     <div id="content-wrapper">
+
+        <script>
+            function submitLogoutForm() {
+                $("#logout_form").submit();
+            }
+        </script>
