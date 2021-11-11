@@ -16,6 +16,7 @@
                                 </div>
                                 <div class="author">
                                     <h3>For {{$campaign->created_for}}</h3>
+                                    <b> ({{$campaign->created_at->diffForHumans()}}) </b>
                                 </div>
                                 <div class="description">
                                     <p>{!! $campaign->body !!}</p>

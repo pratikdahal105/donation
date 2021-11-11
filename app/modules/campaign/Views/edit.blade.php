@@ -44,7 +44,6 @@
                                     <label for="thumbnail">Thumbnail (upload to replace current file)</label><input type="file" accept=".jpeg, .png, .jpg" value = "{{$campaign->thumbnail}}"  name="thumbnail" id="thumbnail" class="form-control" >
                                 <img src="{{asset('uploads/campaign/thumbnail/'.$campaign->thumbnail)}}" width="200" height="200" alt="NO Image" class="img-thumbnail">
                             </div><div class="form-group">
-                                    <label for="video_url">Video_url</label><input type="text" value = "{{$campaign->video_url}}"  name="video_url" id="video_url" class="form-control" ></div><div class="form-group">
                                 <label for="body">Body</label><textarea rows="10" type="text"  name="body" id="body" class="form-control" >{{$campaign->body}}</textarea></div><div class="form-group">
                                     <label for="target_amount">Target_amount</label><input type="number" value = "{{$campaign->target_amount}}"  name="target_amount" id="target_amount" class="form-control" ></div><div class="form-group">
                                     <label for="created_for">Created_for</label><input type="text" value = "{{$campaign->created_for}}"  name="created_for" id="created_for" class="form-control" ></div><div class="form-group">

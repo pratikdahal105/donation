@@ -43,7 +43,6 @@
                                     </div>
                             <div class="form-group">
                                     <label for="thumbnail">Thumbnail</label><input type="file" accept=".jpeg, .png, .jpg" name="thumbnail" id="thumbnail" class="form-control" ></div><div class="form-group">
-                                    <label for="video_url">Video_url</label><input type="text" name="video_url" id="video_url" class="form-control" ></div><div class="form-group">
                                 <label for="body">Body</label><textarea rows="10" type="text" name="body" id="body" class="form-control" ></textarea></div><div class="form-group">
                                     <label for="target_amount">Target_amount</label><input type="number" name="target_amount" id="target_amount" class="form-control" ></div><div class="form-group">
                                     <label for="created_for">Created_for</label><input type="text" name="created_for" id="created_for" class="form-control" ></div><div class="form-group">

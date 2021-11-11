@@ -1,33 +1,15 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <style>
-        .container {
-            width: auto;
-            max-width: 680px;
-            padding: 0 15px;
-        }
-
-        .progress {
-            margin-bottom:0;
-            margin-top:6px;
-            margin-left:10px;
-        }
-
-        .btn.focus {
-            outline:thin dotted #333;
-            outline:5px auto -webkit-focus-ring-color;
-            outline-offset:-2px;
-        }
-
-        .btn.hover {
-            color:#ffffff;
-            background-color:#3276b1;
-            border-color:#285e8e;
-        }
-    </style>
+    @include('frontend.includes.message')
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            Make sure all fields marked with <span style="color: red">* </span>is filled!
+        </div>
+    @endif
     <div id="request-page" class="color-bg">
         <div class="form-wrapper">
-            <form id="msform" action="" enctype="multipart/form-data" method="POST">
+            <form id="msform" action="{{route('frontend.campaign.create')}}" enctype="multipart/form-data" method="POST">
+                @csrf
                 <fieldset>
                     <div class="form-content">
                         <div class="section-title">
@@ -38,27 +20,45 @@
                                 <label for="">Where do you live?</label>
                                 <select name="country" id="country">
                                     @foreach($countries as $country)
-                                        @if($country->id == 153)
-                                            <option value="{{$country->id}}" selected>{{$country->name}}</option>
+                                        @if(!old('country'))
+                                            @if($country->id == 153)
+                                                <option value="{{$country->id}}" selected>{{$country->name}}</option>
+                                            @else
+                                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                            @endif
                                         @else
-                                            <option value="{{$country->id}}">{{$country->name}}</option>
+                                            @if($country->id == old('country'))
+                                                <option value="{{$country->id}}" selected>{{$country->name}}</option>
+                                            @else
+                                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </select>
                             </div>
                             <div class="search">
-                                <span><img src="{{asset('client_assets')}}/images/search.png" ></span>
+                                <span><img src="{{asset('client_assets')}}/images/search.png" ></span><span style="color:red">*</span>
 {{--                                <input type="text" placeholder="City Name">--}}
-                                <select class="form-control" name="city_id" id="city_id"  style="width: 100%" required>
+                                <select class="form-control" name="location_id" id="location_id"  style="width: 100%">
 {{--                                    <option value="" disabled selected>-- Select City --</option>--}}
                                 </select>
                             </div>
                             <div class="item">
                                 <label for="">What are you fundraising for?</label>
-                                <select name="category" id="category">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
+                                <select name="category_id" id="category_id">
+                                    @if(!old('category'))
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    @else
+                                        @foreach($categories as $category)
+                                            @if($category->id == old('category'))
+                                                <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                                            @else
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -68,12 +68,12 @@
                 <fieldset>
                     <div class="form-content">
                         <div class="section-title">
-                            <h3>Set your fundraising goal</h3>
+                            <h3>Set your fundraising goal <span style="color:red">*</span></h3>
                         </div>
                         <div class="information">
                             <div class="amount">
                                 <span>Rs.</span>
-                                <input type="number" id="amount" name="amount">
+                                <input type="number" id="target_amount" name="target_amount" value="{{old('amount')}}">
                             </div>
                         </div>
                     </div>
@@ -83,29 +83,22 @@
                 </fieldset>
                 <fieldset>
                     <div class="section-title">
-                        <h3>Add a Photo or Video</h3>
+                        <h3>Add a Thumbnail <span style="color:red">*</span></h3>
                     </div>
-                    <div class="container">
-{{--                        <div class="page-header">--}}
-{{--                            <h1>Simple Ajax Uploader</h1>--}}
-{{--                            <h3>Basic Example</h3>--}}
-{{--                        </div>--}}
-                        <div class="row" style="padding-top:10px;">
-                            <div class="col-xs-2">
-                                <button id="uploadBtn" class="btn btn-large btn-primary">Choose File</button>
-                            </div>
-                            <div class="col-xs-10">
-                                <div id="progressOuter" class="progress progress-striped active" style="display:none;">
-                                    <div id="progressBar" class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="information">
+                        <div class="img-container">
+                            <input id="thumbnail" type="file" name="thumbnail" onchange="PreviewThumbnail();" />
+                            <img id="thumbnailPreview" style="width: 100px; height: 100px;" />
                         </div>
-                        <div class="row" style="padding-top:10px;">
-                            <div class="col-xs-10">
-                                <div id="msgBox">
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="section-title">
+                        <h3>Add a Logo if Organization</h3>
+                    </div>
+                    <div class="information">
+                        <div class="img-container">
+                            <input id="logo" type="file" name="logo" onchange="PreviewLogo();" />
+                            <img id="logoPreview" style="width: 100px; height: 100px;" />
                         </div>
                     </div>
 
@@ -119,12 +112,12 @@
                         </div>
                         <div class="information">
                             <div class="item">
-                                <label for="">What is your fundraiser title?</label>
-                                <input type="text" placeholder="Enter Title">
+                                <label for="">What is your fundraiser title?  <span style="color:red">*</span></label>
+                                <input type="text" id="campaign_name" name="campaign_name" placeholder="Enter Title" value="{{old('title')}}">
                             </div>
                             <div class="item">
-                                <label for="">Why are you fundraising?</label>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                <label for="">Why are you fundraising? <span style="color:red">*</span></label>
+                                <textarea name="body" id="body" cols="30" rows="10">{!! old('body') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -138,35 +131,42 @@
                             <h3>Your almost there</h3>
                         </div>
                         <div class="information">
-                            <input type="text" placeholder="Mailing address">
-                            <label for="">Postcode</label>
-                            <input type="text">
-                            <label for="">City</label>
-                            <input type="text">
-                            <label for="">Province</label>
-                            <input type="text">
-                            <label for="">Country</label>
-                            <input type="text">
+                            <label for="">Who is this fundraiser for?</label>
+                            <input type="text" id="created_for" name="created_for" placeholder="(Leave blank if it is for yourself!)" value="{{old('for')}}">
+                            <label for="">Stop Fundraiser</label>
+                            <select name="stop_limit" id="stop_limit">
+                                @if(old('stop_limit') == 0)
+                                    <option value="0" selected>At Target Amount</option>
+                                    <option value="1">Allow Unlimited Donations</option>
+                                @else
+                                    <option value="0">At Target Amount</option>
+                                    <option value="1" selected>Allow Unlimited Donations</option>
+                                @endif
+                            </select>
+{{--                            <label for="">Province</label>--}}
+{{--                            <input type="text">--}}
+{{--                            <label for="">Country</label>--}}
+{{--                            <input type="text">--}}
                         </div>
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous common-btn covid-btn btn-red" value="Back" />
-                    <input type="button" name="next" class="next action-button common-btn covid-btn btn-red" value="Next" />
+                    <button type="submit" class="action-button common-btn covid-btn btn-red">Next</button>
                 </fieldset>
-                <fieldset>
-                    <div class="form-card">
-                        <h2 class="fs-title text-center">Thank You</h2> <br>
-                        <div class="row justify-content-center">
-                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                        </div>
-                    </div>
-                </fieldset>
+{{--                <fieldset>--}}
+{{--                    <div class="form-card">--}}
+{{--                        <h2 class="fs-title text-center">Thank You</h2> <br>--}}
+{{--                        <div class="row justify-content-center">--}}
+{{--                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </fieldset>--}}
             </form>
         </div>
     </div>
 
     <script>
         $(document).ready(function(){
-            $("#city_id").select2({
+            $("#location_id").select2({
                 placeholder: "Select Your City",
                 minimumInputLength: 2,
                 ajax: {
@@ -189,66 +189,23 @@
             });
         });
 
-        function escapeTags( str ) {
-            return String( str )
-                .replace( /&/g, '&amp;' )
-                .replace( /"/g, '&quot;' )
-                .replace( /'/g, '&#39;' )
-                .replace( /</g, '&lt;' )
-                .replace( />/g, '&gt;' );
+        function PreviewThumbnail() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("thumbnail").files[0]);
+
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("thumbnailPreview").src = oFREvent.target.result;
+            };
         }
 
-        window.onload = function() {
+        function PreviewLogo() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("logo").files[0]);
 
-            var btn = document.getElementById('uploadBtn'),
-                progressBar = document.getElementById('progressBar'),
-                progressOuter = document.getElementById('progressOuter'),
-                msgBox = document.getElementById('msgBox');
-
-            var uploader = new ss.SimpleUpload({
-                button: btn,
-                url: 'file_upload.php',
-                name: 'uploadfile',
-                multipart: true,
-                hoverClass: 'hover',
-                focusClass: 'focus',
-                responseType: 'json',
-                startXHR: function() {
-                    progressOuter.style.display = 'block'; // make progress bar visible
-                    this.setProgressBar( progressBar );
-                },
-                onSubmit: function() {
-                    msgBox.innerHTML = ''; // empty the message box
-                    btn.innerHTML = 'Uploading...'; // change button text to "Uploading..."
-                },
-                onComplete: function( filename, response ) {
-                    btn.innerHTML = 'Choose Another File';
-                    progressOuter.style.display = 'none'; // hide progress bar when upload is completed
-
-                    if ( !response ) {
-                        msgBox.innerHTML = 'Unable to upload file';
-                        return;
-                    }
-
-                    if ( response.success === true ) {
-                        msgBox.innerHTML = '<strong>' + escapeTags( filename ) + '</strong>' + ' successfully uploaded.';
-
-                    } else {
-                        if ( response.msg )  {
-                            msgBox.innerHTML = escapeTags( response.msg );
-
-                        } else {
-                            msgBox.innerHTML = 'An error occurred and the upload failed.';
-                        }
-                    }
-                },
-                onError: function() {
-                    progressOuter.style.display = 'none';
-                    msgBox.innerHTML = 'Unable to upload file';
-                }
-            });
-        };
-
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("logoPreview").src = oFREvent.target.result;
+            };
+        }
     </script>
 
 @endsection

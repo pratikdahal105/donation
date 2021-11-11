@@ -21,7 +21,6 @@ class CreateCampaignTable extends Migration
             $table->string('campaign_name')->nullable();
             $table->bigInteger('location_id')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('video_url')->nullable();
             $table->longText('body')->nullable();
             $table->integer('target_amount')->nullable();
             $table->string('created_for')->nullable();

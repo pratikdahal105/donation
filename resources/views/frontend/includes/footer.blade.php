@@ -57,7 +57,6 @@
 <!-------------------------------------- Wrapper Ends -------------------------------------->
 
 {{--<script type="text/javascript" src="{{asset('client_assets')}}/js/jquery.min.js"></script>--}}
-<script type="text/javascript" src="{{asset('client_assets')}}/js/SimpleAjaxUploader.js"></script>
 <script type="text/javascript" src="{{asset('client_assets')}}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{asset('client_assets')}}/js/slick.min.js"></script>
 <script type="text/javascript" src="{{asset('client_assets')}}/js/jquery.mCustomScrollbar.concat.min.js"></script>
