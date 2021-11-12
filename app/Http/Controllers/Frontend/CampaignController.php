@@ -28,6 +28,7 @@ class CampaignController extends Controller
             'campaign_name' => 'required',
             'body' => 'required',
             'stop_limit' => 'required',
+            'created_for' => 'required',
          ]);
 //        $data = $request->except('_token');
         $data['location_id'] = $request->location_id;

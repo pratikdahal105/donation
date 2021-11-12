@@ -53,7 +53,7 @@ class AdminSuccess_storyController extends Controller
                     $query->orWhere($val[0],$val[1],$val[2]);
                 }
             }
-        })->limit($request->length)->offset($request->start)->get();
+        })->limit($request->length)->offset($request->start)->orderBy('id', 'Desc')->get();
 
         //To count the total values present
         $total = $success_story->get();

@@ -18,8 +18,10 @@
                             </li>
                             <li><a href="">Fundraiser for <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
                                 <ul>
-                                    <li><a href="">Memorial</a></li>
-                                    <li><a href="">Medical</a></li>
+                                    @foreach($categories as $category)
+                                        <li><a href="{{route('frontend.campaign.category',$category->slug)}}">{{$category->name}}</a></li>
+                                    @endforeach
+                                        <li><a href="">See All</a></li>
                                 </ul>
                             </li>
                             <li>

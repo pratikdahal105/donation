@@ -22,7 +22,7 @@ class CreateCampaignTable extends Migration
             $table->bigInteger('location_id')->nullable();
             $table->string('thumbnail')->nullable();
             $table->longText('body')->nullable();
-            $table->integer('target_amount')->nullable();
+            $table->bigInteger('target_amount')->nullable();
             $table->string('created_for')->nullable();
             $table->string('logo')->nullable();
             $table->date('publish_date')->nullable();

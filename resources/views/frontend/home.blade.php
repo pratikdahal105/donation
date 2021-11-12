@@ -37,7 +37,7 @@
                 <div class="projects-container common-projects">
                     <div class="text-content">
                         <div class="section-title">
-                            <h1>Top Funraisers</h1>
+                            <h1>Top Fundraisers</h1>
                         </div>
 {{--                        <div class="description">--}}
 {{--                            <p>Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat.--}}
@@ -183,6 +183,9 @@
         </section>
         <section class="common-stories-section">
             <div class="custom-container">
+                <div class="section-title text-center">
+                    <h1>Success Stories</h1>
+                </div>
                 <div class="stories-slider">
                     @foreach($success_stories as $success_story)
                     <div class="story-item">

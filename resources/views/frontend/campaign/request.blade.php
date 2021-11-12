@@ -1,13 +1,16 @@
 @extends('frontend.layouts.main')
 @section('content')
-    @include('frontend.includes.message')
-    @if ($errors->any())
-        <div class="alert alert-danger" role="alert">
-            Make sure all fields marked with <span style="color: red">* </span>is filled!
-        </div>
-    @endif
     <div id="request-page" class="color-bg">
         <div class="form-wrapper">
+            @include('frontend.includes.message')
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Make sure all fields marked with <span style="color: red">* </span>is filled!
+                    <a type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <h4 aria-hidden="true">&times;</h4>
+                    </a>
+                </div>
+            @endif
             <form id="msform" action="{{route('frontend.campaign.create')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <fieldset>
@@ -46,13 +49,13 @@
                             <div class="item">
                                 <label for="">What are you fundraising for?</label>
                                 <select name="category_id" id="category_id">
-                                    @if(!old('category'))
+                                    @if(!old('category_id'))
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     @else
                                         @foreach($categories as $category)
-                                            @if($category->id == old('category'))
+                                            @if($category->id == old('category_id'))
                                                 <option value="{{$category->id}}" selected>{{$category->name}}</option>
                                             @else
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
@@ -73,7 +76,7 @@
                         <div class="information">
                             <div class="amount">
                                 <span>Rs.</span>
-                                <input type="number" id="target_amount" name="target_amount" value="{{old('amount')}}">
+                                <input type="number" id="target_amount" name="target_amount" value="{{old('target_amount')}}">
                             </div>
                         </div>
                     </div>
@@ -113,7 +116,7 @@
                         <div class="information">
                             <div class="item">
                                 <label for="">What is your fundraiser title?  <span style="color:red">*</span></label>
-                                <input type="text" id="campaign_name" name="campaign_name" placeholder="Enter Title" value="{{old('title')}}">
+                                <input type="text" id="campaign_name" name="campaign_name" placeholder="Enter Title" value="{{old('campaign_name')}}">
                             </div>
                             <div class="item">
                                 <label for="">Why are you fundraising? <span style="color:red">*</span></label>
@@ -131,8 +134,8 @@
                             <h3>Your almost there</h3>
                         </div>
                         <div class="information">
-                            <label for="">Who is this fundraiser for?</label>
-                            <input type="text" id="created_for" name="created_for" placeholder="(Leave blank if it is for yourself!)" value="{{old('for')}}">
+                            <label for="">Who is this fundraiser for? <span style="color:red">*</span></label>
+                            <input type="text" id="created_for" name="created_for" value="{{old('created_for')}}">
                             <label for="">Stop Fundraiser</label>
                             <select name="stop_limit" id="stop_limit">
                                 @if(old('stop_limit') == 0)
