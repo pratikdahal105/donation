@@ -18,10 +18,14 @@
                             </li>
                             <li><a href="">Fundraiser for <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
                                 <ul>
-                                    @foreach($categories as $category)
-                                        <li><a href="{{route('frontend.campaign.category',$category->slug)}}">{{$category->name}}</a></li>
+                                    @foreach($categories as $key => $category)
+                                        @if($key < 5)
+                                            <li><a href="{{route('frontend.campaign.category',$category->slug)}}">{{$category->name}}</a></li>
+                                        @else
+                                            @break
+                                        @endif
                                     @endforeach
-                                        <li><a href="">See All</a></li>
+                                        <li><a href="{{route('frontend.all.category')}}">See All</a></li>
                                 </ul>
                             </li>
                             <li>

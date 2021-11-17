@@ -7,7 +7,7 @@
                 <div class="banner-wrapper">
                     <div class="banner-text">
                         <div class="section-title">
-                            <h1>Get help with {{$campaign->first()->category_name}} fundraising</h1>
+                            <h1>Get help with {{$category_first->name}} fundraising</h1>
                         </div>
 {{--                        <div class="description">--}}
 {{--                            <h5>With us, you can get immediate help with medical bills.</h5>--}}
@@ -17,23 +17,19 @@
                         </div>
                     </div>
                     <div class="img-container">
-                        <img src="{{asset('uploads/category/thumbnail/'.$campaign->first()->thumbnail)}}">
+                        <img src="{{asset('uploads/category/thumbnail/'.$category_first->thumbnail)}}">
                     </div>
                 </div>
             </div>
         </section>
+        @if($top->first())
         <section class="ongoing-projects-section">
             <div class="custom-container">
                 <div class="projects-container common-projects">
                     <div class="text-content">
                         <div class="section-title">
-                            <h1>Trending in {{$campaign->first()->category_name}} fundraising</h1>
+                            <h1>Trending in {{$category_first->name}} fundraising</h1>
                         </div>
-                        {{--                        <div class="description">--}}
-                        {{--                            <p>Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat.--}}
-                        {{--                                Vitae, laoreet commodo tellus nunc facilisis tincidunt nisl, quam sagittis. Laoreet iaculis posuere id sapien--}}
-                        {{--                                condimentum cras.</p>--}}
-                        {{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
                         @php($key = 0)
@@ -78,15 +74,16 @@
                 </div>
             </div>
         </section>
+        @endif
         <section class="fund-information-section">
             <div class="custom-container">
                 <div class="section-title">
-                    <h1>In online {{$campaign->first()->category_name}} fundraising</h1>
+                    <h1>In online {{$category_first->name}} fundraising</h1>
                 </div>
                 <div class="fund-information">
                     <div class="info-item">
-                        <h4>{{count($campaign)-1}}+</h4>
-                        <p>{{$campaign->first()->category_name}} fundraisers</p>
+                        <h4>{{count($category_first->campaigns)-1}}+</h4>
+                        <p>{{$category_first->name}} fundraisers</p>
                     </div>
                     <div class="info-item">
                         <h4>Rs. {{$campaign_sum - 10}}+</h4>
@@ -113,7 +110,7 @@
                 <div class="projects-container common-projects">
                     <div class="text-content">
                         <div class="section-title">
-                            <h1>Campaigns in {{$campaign->first()->category_name}} fundraising</h1>
+                            <h1>Campaigns in {{$category_first->name}} fundraising</h1>
                         </div>
 {{--                        <div class="description">--}}
 {{--                            <p>Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat.--}}
@@ -122,7 +119,8 @@
 {{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
-                        @foreach($campaigns as $campaign)
+                        @foreach($category_first->campaigns as $key => $campaign)
+                            @if($key <= 6)
                             <div class="project-item">
                                 <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
                                     <div class="img-container">
@@ -148,7 +146,10 @@
                                     </div>
                                 </a>
                             </div>
-                        @endforeach
+                        @else
+                                @break
+                        @endif
+                    @endforeach
                     </div>
                 </div>
             </div>

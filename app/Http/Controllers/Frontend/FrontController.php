@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Campaign\Model\Campaign;
+use App\Modules\Category\Model\Category;
 use App\Modules\Donation\Model\Donation;
 use App\Modules\Success_story\Model\Success_story;
 use Illuminate\Http\Request;
@@ -51,8 +52,9 @@ class FrontController extends Controller
             ->where('status', 1)
             ->get();
         $campaigns = Campaign::with('donations')->where('status', 1)->orderBy('id', 'Desc')->limit(6)->get();
+        $categories = Category::all();
         $success_stories = Success_story::with('campaign')->limit(3)->get();
 
-        return view('frontend.home')->with(compact('page', 'campaigns', 'success_stories', 'top'));
+        return view('frontend.home')->with(compact('page', 'campaigns', 'success_stories', 'top', 'categories'));
     }
 }

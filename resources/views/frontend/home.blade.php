@@ -94,89 +94,93 @@
             <div class="custom-container">
                 <div class="management-container common-flex">
                     <div class="section-title">
-                        <h1>The leader in online fundraising</h1>
+                        <h1>Explore Fundraisers</h1>
                     </div>
                     <div class="services-wrapper">
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Worldwide leader</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
+                        @foreach($categories as $category)
+                            <div class="service-item">
+                                <div class="inner">
+                                    <a href="{{route('frontend.campaign.category',$category->slug)}}">
+                                        <div class="img-container">
+                                            <img src="{{asset('uploads/category/logo/'.$category->logo)}}" height="100" width="100" alt="">
+                                        </div>
+                                        <div class="title">
+                                            <p>{{$category->name}}</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Simple setup</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="inner">
-                                <div class="img-container">
-                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">
-                                </div>
-                                <div class="title">
-                                    <p>Oxygen Availability</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Simple setup</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="service-item">--}}
+{{--                            <div class="inner">--}}
+{{--                                <div class="img-container">--}}
+{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="title">--}}
+{{--                                    <p>Oxygen Availability</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -192,10 +196,11 @@
                         <div class="text-section">
                             <div class="section-title">
                                 <h1>{{$success_story->title}}</h1>
-                                <h3>{{$success_story->by}}</h3>
+{{--                                <h3>{{$success_story->by}}</h3>--}}
                             </div>
                             <div class="story">
                                 <p>"{{$success_story->body}}"</p>
+                                <p>- {{$success_story->by}} </p>
 {{--                                <p>John raised $19k to help kids earn books with exercise.</p>--}}
                             </div>
                         </div>

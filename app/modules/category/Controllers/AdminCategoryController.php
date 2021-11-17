@@ -194,8 +194,8 @@ class AdminCategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::where('id', $id)->first();
-        File::delete(public_path('uploads/category/logo/').$category->logo);
-        File::delete(public_path('uploads/category/thumbnail/').$category->thumbnail);
+//        File::delete(public_path('uploads/category/logo/').$category->logo);
+//        File::delete(public_path('uploads/category/thumbnail/').$category->thumbnail);
         $success = $category->delete();
         return redirect()->route('admin.categories');
 

@@ -206,8 +206,8 @@ class AdminCampaignController extends Controller
     public function destroy($id)
     {
         $campaign = Campaign::where('id', $id)->first();
-        File::delete(public_path('uploads/campaign/logo/').$campaign->logo);
-        File::delete(public_path('uploads/campaign/thumbnail/').$campaign->thumbnail);
+//        File::delete(public_path('uploads/campaign/logo/').$campaign->logo);
+//        File::delete(public_path('uploads/campaign/thumbnail/').$campaign->thumbnail);
         $success = $campaign->delete();
         return redirect()->route('admin.campaigns');
 

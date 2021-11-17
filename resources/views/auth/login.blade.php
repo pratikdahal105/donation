@@ -7,7 +7,7 @@
             <img class="brand-img" src="{{ asset('admin_assets') }}/assets//images/logo.png" alt="...">
             <h2 class="brand-text">{{ __('Login') }}</h2>
           </div>
-          <p>Sign into your pages account</p>
+{{--          <p>Sign into your pages account</p>--}}
             @if(Session::has('message'))
                 <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message') }}</p>
             @endif
@@ -35,12 +35,12 @@
                                     </span>
                                 @enderror
             </div>
-            <div class="form-group clearfix">
-              <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label for="remember">Remember me</label>
-              </div>
-            </div>
+{{--            <div class="form-group clearfix">--}}
+{{--              <div class="checkbox-custom checkbox-inline checkbox-primary float-left">--}}
+{{--                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+{{--                <label for="remember">Remember me</label>--}}
+{{--              </div>--}}
+{{--            </div>--}}
             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
           </form>
 
