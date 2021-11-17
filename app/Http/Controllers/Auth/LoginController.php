@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -51,7 +51,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(auth()->attempt(array( $fieldType => $input['username'], 'password' => $input['password'])))
         {
-            return redirect()->route('home');
+            return redirect()->intended($this->redirectPath());
         }else{
             Session::flash('message', 'Username And Password does not Match.');
             return redirect()->route('login');

@@ -12,8 +12,8 @@
                         <ul>
                             <li><a href="">Discover <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
                                 <ul>
-                                    <li><a href="">Fundraisers</a></li>
-                                    <li><a href="">Success Stories</a></li>
+                                    <li><a href="{{route('frontend.all.discover')}}">Fundraisers</a></li>
+{{--                                    <li><a href="">Success Stories</a></li>--}}
                                 </ul>
                             </li>
                             <li><a href="">Fundraiser for <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
@@ -55,7 +55,7 @@
                                         @csrf
                                     </form>
                                     <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
-                                    <a href="#" onclick="submitLogoutForm()">{{Auth::user()->name}}</a>
+                                    <a href="#" onclick="submitLogoutForm()">{{Auth::user()->name}} <i class="fa fa-arrow-circle-o-down"></i></a>
 {{--                                </a>--}}
                             </div>
                         @endauth

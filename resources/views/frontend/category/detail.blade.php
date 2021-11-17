@@ -34,7 +34,7 @@
                     <div class="project-item-wrapper">
                         @php($key = 0)
 {{--                        @php(dd($top))--}}
-                        @foreach($top as $value)
+                        @foreach($top->take(6) as $value)
                             @if($key <= 6)
                                 @if($value->sum < $value->target_amount)
                                     <div class="project-item">
@@ -119,8 +119,8 @@
 {{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
-                        @foreach($category_first->campaigns as $key => $campaign)
-                            @if($key <= 6)
+                        @foreach($category_first->campaigns->sortByDesc('created_at')->take(6) as $campaign)
+{{--                            @if($key <= 6)--}}
                             <div class="project-item">
                                 <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
                                     <div class="img-container">
@@ -146,9 +146,9 @@
                                     </div>
                                 </a>
                             </div>
-                        @else
-                                @break
-                        @endif
+{{--                        @else--}}
+{{--                                @break--}}
+{{--                        @endif--}}
                     @endforeach
                     </div>
                 </div>

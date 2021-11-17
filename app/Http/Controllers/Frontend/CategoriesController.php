@@ -38,4 +38,10 @@ class CategoriesController extends Controller
             ->get();
         return view('frontend.category.allCategory', compact('page', 'categories', 'top'));
     }
+
+    public function discoverCategory(){
+        $categories = Category::with('campaigns.donations')->get();
+        $page['title'] = 'Campaign | All Categories';
+        return view('frontend.category.discover', compact('page', 'categories'));
+    }
 }
