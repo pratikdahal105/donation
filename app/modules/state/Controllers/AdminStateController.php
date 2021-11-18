@@ -52,7 +52,7 @@ class AdminStateController extends Controller
                     $query->orWhere($val[0],$val[1],$val[2]);
                 }
             }
-        })->limit($request->length)->offset($request->start)->get();
+        })->with('country')->limit($request->length)->offset($request->start)->get();
 
         //To count the total values present
         $total = $state->get();

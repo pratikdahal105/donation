@@ -72,7 +72,14 @@
                 { data: "name",name: "name"},
                 // { data: "logo",name: "logo"},
                 // { data: "thumbnail",name: "thumbnail"},
-                { data: "status",name: "status"},
+                { data: function (data) {
+                        if(data.status == 1){
+                            return 'Active'
+                        }else{
+                            return 'Inactive'
+                        }
+                    }, name: 'status'
+                },
                 // { data: "deleted_at",name: "deleted_at"},
                 // { data: "created_at",name: "created_at"},
                 // { data: "updated_at",name: "updated_at"},

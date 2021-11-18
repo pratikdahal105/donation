@@ -29,22 +29,22 @@
                         <tr>
                             <th>SN</th>
 {{--							<th >Slug</th>--}}
-<th >Category_id</th>
+<th >Category</th>
 {{--<th >User_id</th>--}}
-<th >Campaign_name</th>
-<th >Location_id</th>
+<th >Name</th>
+<th >City</th>
 {{--<th >Thumbnail</th>--}}
 {{--<th >Video_url</th>--}}
 {{--<th >Body</th>--}}
-<th >Target_amount</th>
+<th >Target Amount</th>
 {{--<th >Created_for</th>--}}
 {{--<th >Logo</th>--}}
 {{--<th >Stop_limit</th>--}}
 <th >Status</th>
-<th >Minimum_tip</th>
+<th >Tip(%)</th>
 {{--<th >Search</th>--}}
 {{--<th >Deleted_at</th>--}}
-<th >Created_at</th>
+<th >Created At</th>
 {{--<th >Updated_at</th>--}}
 
                             <th>Action</th>
@@ -79,10 +79,16 @@
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
                 // { data: "slug",name: "slug"},
-                { data: "category_id",name: "category_id"},
+                // { data: "category_id",name: "category_id"},
+                { data: function(data){
+                     return data.category.name
+                    },name: "category_id"},
                 // { data: "user_id",name: "user_id"},
                 { data: "campaign_name",name: "campaign_name"},
-                { data: "location_id",name: "location_id"},
+                // { data: "location_id",name: "location_id"},
+                { data: function(data){
+                        return data.location.name
+                    },name: "location_id"},
                 // { data: "thumbnail",name: "thumbnail"},
                 // { data: "video_url",name: "video_url"},
                 // { data: "body",name: "body"},
@@ -90,7 +96,14 @@
                 // { data: "created_for",name: "created_for"},
                 // { data: "logo",name: "logo"},
                 // { data: "stop_limit",name: "stop_limit"},
-                { data: "status",name: "status"},
+                { data: function (data) {
+                        if(data.status == 1){
+                            return 'Active'
+                        }else{
+                            return 'Inactive'
+                        }
+                    }, name: 'status'
+                },
                 { data: "minimum_tip",name: "minimum_tip"},
                 // { data: "search",name: "search"},
                 // { data: "deleted_at",name: "deleted_at"},

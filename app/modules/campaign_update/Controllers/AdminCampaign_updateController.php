@@ -51,11 +51,10 @@ class AdminCampaign_updateController extends Controller
                     $query->orWhere($val[0],$val[1],$val[2]);
                 }
             }
-        })->limit($request->length)->offset($request->start)->orderBy('id', 'Desc')->get();
+        })->with('campaign')->limit($request->length)->offset($request->start)->orderBy('id', 'Desc')->get();
 
         //To count the total values present
         $total = $campaign_update->get();
-
 
         echo json_encode(['draw'=>$request['draw'],'recordsTotal'=>count($total),'recordsFiltered'=>count($filterTotal),'data'=>$rows]);
 

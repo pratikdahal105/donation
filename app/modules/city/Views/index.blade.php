@@ -29,7 +29,7 @@
                         <tr>
                             <th>SN</th>
 							<th >Name</th>
-<th >State_id</th>
+<th >State</th>
 {{--<th >Deleted_at</th>--}}
                             <th>Action</th>
                         </tr>
@@ -62,7 +62,9 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "name",name: "name"},{ data: "state_id",name: "state_id"},
+                { data: "name",name: "name"},{ data: function(data){
+                        return data.state.name
+                    },name: "state_id"},
                 // { data: "deleted_at",name: "deleted_at"},
 
                 { data: function(data,b,c,table) {

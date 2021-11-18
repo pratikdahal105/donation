@@ -90,7 +90,7 @@
                             <div class="btn-section">
                                 <a href="#" class="covid-btn btn-red">Share</a>
                                 @if(!($campaign->donations->sum('amount')>$campaign->target_amount && $campaign->stop_limit == 0))
-                                <a href="#" class="covid-btn btn-red">Donate Now</a>
+                                <a href="{{route('paywithpaypal')}}" class="covid-btn btn-red">Donate Now</a>
                                 @endif
                             </div>
                             @if($campaign->donations->first())

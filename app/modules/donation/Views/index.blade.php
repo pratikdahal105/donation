@@ -29,7 +29,7 @@
                         <tr>
                             <th>SN</th>
 {{--							<th >Slug</th>--}}
-<th >Reference_no</th>
+<th >Reference No</th>
 {{--<th >User_id</th>--}}
 {{--<th >Campaign_id</th>--}}
 <th >Amount</th>

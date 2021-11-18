@@ -25,3 +25,9 @@ Route::group(['name' => 'Home'], function (){
     Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
     Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
 });
+
+Route::group(['name' => 'Paypal'], function () {
+    Route::get('paywithpaypal', array('as' => 'paywithpaypal', 'uses' => 'Frontend\PaypalController@payWithPaypal',));
+    Route::post('paypal', array('as' => 'paypal', 'uses' => 'Frontend\PaypalController@postPaymentWithpaypal',));
+    Route::get('paypal', array('as' => 'status', 'uses' => 'Frontend\PaypalController@getPaymentStatus',));
+});

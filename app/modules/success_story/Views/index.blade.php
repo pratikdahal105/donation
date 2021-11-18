@@ -29,12 +29,12 @@
                         <tr>
                             <th>SN</th>
 {{--							<th >Slug</th>--}}
-<th >Campaign_id</th>
+<th >Campaign</th>
 <th >Title</th>
 {{--<th >Body</th>--}}
 <th >By</th>
 {{--<th >Deleted_at</th>--}}
-<th >Created_at</th>
+<th >Created At</th>
 {{--<th >Updated_at</th>--}}
 
                             <th>Action</th>
@@ -69,7 +69,9 @@
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
                 // { data: "slug",name: "slug"},
-                { data: "campaign_id",name: "campaign_id"},
+                { data: function (data) {
+                        return data.campaign.campaign_name
+                    },name: "campaign_id"},
                 { data: "title",name: "title"},
                 // { data: "body",name: "body"},
                 { data: "by",name: "by"},

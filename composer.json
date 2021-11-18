@@ -17,6 +17,7 @@
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
+        "paypal/rest-api-sdk-php": "^1.14",
         "spatie/laravel-permission": "^3.17",
         "yajra/laravel-datatables": "^1.5"
     },
