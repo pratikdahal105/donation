@@ -218,16 +218,166 @@
   }
 }
 
+#resp-header-wrapper{
+  display: none;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  .custom-container{
+    padding-top:30px ;
+    padding-bottom:30px ;
+    .header-container{
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      .menu-btn {
+        text-align: center;
+        cursor: pointer;
+        width: 30px;
+        height: auto;
+        a {
+          display: inline-block;
+          width: 100%;
+          span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            transition: all .4s ease-in-out;
+            &:not(:last-of-type) {
+              margin-bottom: 5px;
+            }
+          }
+        }
+        //&.active {
+        //  span {
+        //    &.bar1 {
+        //      transform: translateY(8px) rotate(-45deg);
+        //    }
+        //    &.bar2 {
+        //      opacity: 0;
+        //      visibility: hidden;
+        //      transform: scaleX(2);
+        //    }
+        //    &.bar3 {
+        //      transform: translateY(-6px) rotate(-135deg);
+        //    }
+        //  }
+        //}
+      }
+      .logo-container{
+        margin-right: -180px;
+      }
+      .login-request{
+        display: flex;
+        align-items: center;
+        .login{
+          span{
+            font-weight: 700;
+            text-decoration: underline;
+            color: $black;
+          }
+        }
+        .covid-btn{
+          margin-top: 0;
+          margin-left: 20px;
+        }
+      }
+
+    }
+    .navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      z-index: 9999;
+      visibility:hidden;
+      background: $white;
+      -ms-box-shadow: 0 0 20px rgba(0,0,0,.3);
+      -o-box-shadow: 0 0 20px rgba(0,0,0,.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3 );
+      padding: 50px 80px;
+      transition: all .4s ease-in-out;
+      padding-top: 100px;
+      &:after{
+        position: absolute;
+        content: '';
+        height: 40px;
+        width: 40px;
+        top: 0;
+        right: 0;
+      }
+      ul{
+        overflow-Y: scroll;
+        height: 100%;
+        position: relative;
+        li{
+          padding-bottom: 35px;
+          a{
+            color: $black;
+            font-size: 18px;
+            font-weight: 700;
+            img{
+              padding-right: 30px;
+            }
+          }
+          &.menu-item-has-children{
+            padding-bottom: 0;
+            ul{
+              padding: 20px;
+              padding-bottom:0;
+              overflow-Y:initial;
+            }
+          }
+          input{
+            border: none;
+            border-bottom: 1px solid;
+          }
+        }
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px grey;
+          border-radius: 10px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: grey;
+          border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: #b30000;
+        }
+      }
+      .close-btn{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 body{
   background: #fff;
   &.show-menu{
     overflow-y: hidden;
-    #header-wrapper{
-      .navigation{
-        visibility: visible;
-        opacity: 1;
-        width: 600px;
-        height: 100%;
+    #resp-header-wrapper{
+      .custom-container {
+        .navigation {
+          visibility: visible;
+          opacity: 1;
+          width: 600px;
+          height: 100%;
+        }
       }
     }
   }
@@ -294,7 +444,7 @@ body{
 
               img {
                 width: 100%;
-                height: 660px;
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
               }
@@ -318,13 +468,13 @@ body{
                 display: flex;
                 border-bottom: 1px solid grey;
                 margin-bottom: 50px;
-
+                align-items: center;
                 .img-container {
                   padding-bottom: 30px;
-                  width: 10%;
+                  width: 25%;
 
                   img {
-                    height: 100%;
+                    height: 95px;
                   }
                 }
 
@@ -569,7 +719,138 @@ body{
       }
     }
   }
+  #donation-inner-page{
+    .donation-wrapper{
+      max-width: 1110px;
+      margin: auto;
+      display: flex;
+      .donate-info-section{
+        width: 70%;
+        box-shadow: 0px 0px 7px 0px lightgrey;
+        padding: 35px;
+        margin-right: 80px;
+        .donation-info {
+          display: flex;
+          align-items: center;
+          padding-bottom: 25px;
+          .img-container {
+            width: 50%;
+            height: 300px;
+            box-shadow: 12px 12px 10px 0px grey;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+          }
 
+          .info {
+            width: 50%;
+            padding-left: 30px;
+            p{
+              &:first-of-type{
+                font-weight: bold;
+              }
+            }
+            span{
+              font-weight: bold;
+            }
+          }
+        }
+        .donation-amount{
+          padding-bottom: 25px;
+          h3{
+            padding-bottom: 15px;
+          }
+          .donation{
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            border: 1px solid;
+            width: 50%;
+            span{
+              width: 15%;
+              padding-left: 10px;
+            }
+            input{
+              width: 83%;
+              border: none;
+              height: 45px;
+              &:focus-visible{
+                outline: none;
+              }
+            }
+          }
+        }
+        .tip-section{
+          padding-bottom: 25px;
+          h3{
+            padding-bottom: 15px;
+          }
+          p{
+            margin-top: 8px;
+          }
+          span{
+            font-weight: bold;
+            font-size: 25px;
+          }
+        }
+        .optional-section{
+          label{
+            width: 95%;
+          }
+        }
+      }
+      .donation-summary{
+        width: 30%;
+        tr, td{
+          border-bottom: none;
+        }
+        tr{
+          &:last-of-type{
+            border-top: 1px solid lightgrey;
+          }
+        }
+      }
+    }
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      border-radius: 50%;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 1;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 23px;
+      height: 24px;
+      border: 0;
+      background: #c10020;
+      cursor: pointer;
+      position: relative;
+      border-radius: 50%;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 23px;
+      height: 24px;
+      border-radius: 50%;
+      border: 0;
+      background: #c10020;
+      cursor: pointer;
+    }
+    .covid-btn{
+      margin-top: 20px;
+      width: 100% !important;
+    }
+  }
 }
 /*--------------------------------- Content Wrapper Ends ----------------------------------*/
 
@@ -687,12 +968,11 @@ body{
 .common-projects{
   .text-content{
     max-width: 1000px;
-    margin-bottom: 42px;
   }
   .project-item-wrapper{
     display: flex;
     flex-wrap: wrap;
-    margin: -40px;
+    margin: 0 -40px -40px -40px;
     .project-item{
       width: 33.33%;
       padding: 40px;
@@ -774,6 +1054,7 @@ body{
     align-items: center;
     .text-section{
       width: 50%;
+      padding-right: 70px;
     }
     .img-container{
       width: 50%;

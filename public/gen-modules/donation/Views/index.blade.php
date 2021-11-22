@@ -39,6 +39,7 @@
 <th >Deleted_at</th>
 <th >Created_at</th>
 <th >Updated_at</th>
+<th >Tip</th>
 
                             <th>Action</th>
                         </tr>
@@ -71,7 +72,7 @@
                 { data: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 },name: "sn", searchable: false },
-                { data: "slug",name: "slug"},{ data: "reference_no",name: "reference_no"},{ data: "user_id",name: "user_id"},{ data: "campaign_id",name: "campaign_id"},{ data: "amount",name: "amount"},{ data: "remarks",name: "remarks"},{ data: "anonymous",name: "anonymous"},{ data: "status",name: "status"},{ data: "deleted_at",name: "deleted_at"},{ data: "created_at",name: "created_at"},{ data: "updated_at",name: "updated_at"},
+                { data: "slug",name: "slug"},{ data: "reference_no",name: "reference_no"},{ data: "user_id",name: "user_id"},{ data: "campaign_id",name: "campaign_id"},{ data: "amount",name: "amount"},{ data: "remarks",name: "remarks"},{ data: "anonymous",name: "anonymous"},{ data: "status",name: "status"},{ data: "deleted_at",name: "deleted_at"},{ data: "created_at",name: "created_at"},{ data: "updated_at",name: "updated_at"},{ data: "tip",name: "tip"},
                 
                 { data: function(data,b,c,table) { 
                 var buttons = '';

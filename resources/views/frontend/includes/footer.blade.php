@@ -13,33 +13,33 @@
                 </div>
             </div>
             <div class="footer-nav-container">
-                <div class="items">
-                    <ul>
-                        <li><a href="#">Request</a></li>
-                        <li><a href="">Bed</a></li>
-                        <li><a href="">oxygen</a></li>
-                        <li><a href="">ventilator</a></li>
-                        <li><a href="">icu</a></li>
-                        <li><a href="">plasma</a></li>
-                        <li><a href=""></a></li>
-                    </ul>
-                </div>
-                <div class="items">
-                    <ul>
-                        <li><a href="">services</a></li>
-                        <li><a href="">sanitize</a></li>
-                        <li><a href="">oxygen</a></li>
-                        <li><a href="">delivery</a></li>
-                        <li><a href="">consulting</a></li>
-                        <li><a href="">grocery</a></li>
-                        <li><a href="">cooked food</a></li>
-                    </ul>
-                </div>
+{{--                <div class="items">--}}
+{{--                    <ul>--}}
+{{--                        <li><a href="#">Request</a></li>--}}
+{{--                        <li><a href="">Bed</a></li>--}}
+{{--                        <li><a href="">oxygen</a></li>--}}
+{{--                        <li><a href="">ventilator</a></li>--}}
+{{--                        <li><a href="">icu</a></li>--}}
+{{--                        <li><a href="">plasma</a></li>--}}
+{{--                        <li><a href=""></a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <div class="items">--}}
+{{--                    <ul>--}}
+{{--                        <li><a href="">services</a></li>--}}
+{{--                        <li><a href="">sanitize</a></li>--}}
+{{--                        <li><a href="">oxygen</a></li>--}}
+{{--                        <li><a href="">delivery</a></li>--}}
+{{--                        <li><a href="">consulting</a></li>--}}
+{{--                        <li><a href="">grocery</a></li>--}}
+{{--                        <li><a href="">cooked food</a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
                 <div class="items">
                     <ul>
                         <li><a href="">Fundraiser</a></li>
-                        <li><a href="">initiate</a></li>
-                        <li><a href="">donate</a></li>
+                        <li><a href="{{route('frontend.campaign.request')}}">initiate</a></li>
+                        <li><a href="{{route('frontend.all.discover')}}">donate</a></li>
                     </ul>
                 </div>
                 <div class="items">

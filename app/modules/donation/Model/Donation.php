@@ -13,7 +13,7 @@ class Donation extends Model
     use SoftDeletes;
     public  $table = 'donation';
 
-    protected $fillable = ['id','slug','reference_no','user_id','campaign_id','amount','remarks','anonymous','status','deleted_at','created_at','updated_at',];
+    protected $fillable = ['id','slug','reference_no','user_id','campaign_id','amount', 'tip', 'remarks','anonymous','status','deleted_at','created_at','updated_at',];
 
     public function campaign(){
         return $this->belongsTo(Campaign::class, 'campaign_id', 'id');

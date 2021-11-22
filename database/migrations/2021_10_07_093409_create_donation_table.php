@@ -19,7 +19,8 @@ class CreateDonationTable extends Migration
             $table->string('reference_no')->nullable();
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('campaign_id')->nullable();
-            $table->integer('amount')->nullable();
+            $table->float('amount')->nullable();
+            $table->float('tip')->nullable();
             $table->text('remarks')->nullable();
             $table->boolean('anonymous')->default(0);
             $table->boolean('status')->default(1);

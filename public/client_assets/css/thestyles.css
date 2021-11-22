@@ -194,11 +194,113 @@
         right: 30px;
         cursor: pointer; }
 
+#resp-header-wrapper {
+  display: none;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); }
+  #resp-header-wrapper .custom-container {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+    #resp-header-wrapper .custom-container .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #resp-header-wrapper .custom-container .header-container .menu-btn {
+        text-align: center;
+        cursor: pointer;
+        width: 30px;
+        height: auto; }
+        #resp-header-wrapper .custom-container .header-container .menu-btn a {
+          display: inline-block;
+          width: 100%; }
+          #resp-header-wrapper .custom-container .header-container .menu-btn a span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            transition: all .4s ease-in-out; }
+            #resp-header-wrapper .custom-container .header-container .menu-btn a span:not(:last-of-type) {
+              margin-bottom: 5px; }
+      #resp-header-wrapper .custom-container .header-container .logo-container {
+        margin-right: -180px; }
+      #resp-header-wrapper .custom-container .header-container .login-request {
+        display: flex;
+        align-items: center; }
+        #resp-header-wrapper .custom-container .header-container .login-request .login span {
+          font-weight: 700;
+          text-decoration: underline;
+          color: black; }
+        #resp-header-wrapper .custom-container .header-container .login-request .covid-btn {
+          margin-top: 0;
+          margin-left: 20px; }
+    #resp-header-wrapper .custom-container .navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      z-index: 9999;
+      visibility: hidden;
+      background: white;
+      -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      padding: 50px 80px;
+      transition: all .4s ease-in-out;
+      padding-top: 100px; }
+      #resp-header-wrapper .custom-container .navigation:after {
+        position: absolute;
+        content: '';
+        height: 40px;
+        width: 40px;
+        top: 0;
+        right: 0; }
+      #resp-header-wrapper .custom-container .navigation ul {
+        overflow-Y: scroll;
+        height: 100%;
+        position: relative;
+        /* Track */
+        /* Handle */
+        /* Handle on hover */ }
+        #resp-header-wrapper .custom-container .navigation ul li {
+          padding-bottom: 35px; }
+          #resp-header-wrapper .custom-container .navigation ul li a {
+            color: black;
+            font-size: 18px;
+            font-weight: 700; }
+            #resp-header-wrapper .custom-container .navigation ul li a img {
+              padding-right: 30px; }
+          #resp-header-wrapper .custom-container .navigation ul li.menu-item-has-children {
+            padding-bottom: 0; }
+            #resp-header-wrapper .custom-container .navigation ul li.menu-item-has-children ul {
+              padding: 20px;
+              padding-bottom: 0;
+              overflow-Y: initial; }
+          #resp-header-wrapper .custom-container .navigation ul li input {
+            border: none;
+            border-bottom: 1px solid; }
+        #resp-header-wrapper .custom-container .navigation ul::-webkit-scrollbar {
+          width: 6px; }
+        #resp-header-wrapper .custom-container .navigation ul::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px grey;
+          border-radius: 10px; }
+        #resp-header-wrapper .custom-container .navigation ul::-webkit-scrollbar-thumb {
+          background: grey;
+          border-radius: 10px; }
+        #resp-header-wrapper .custom-container .navigation ul::-webkit-scrollbar-thumb:hover {
+          background: #b30000; }
+      #resp-header-wrapper .custom-container .navigation .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer; }
+
 body {
   background: #fff; }
   body.show-menu {
     overflow-y: hidden; }
-    body.show-menu #header-wrapper .navigation {
+    body.show-menu #resp-header-wrapper .custom-container .navigation {
       visibility: visible;
       opacity: 1;
       width: 600px;
@@ -239,7 +341,7 @@ body {
         height: 660px; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .img-container img {
           width: 100%;
-          height: 660px;
+          height: 100%;
           object-fit: cover;
           object-position: center; }
       #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .title {
@@ -251,12 +353,13 @@ body {
       #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item {
         display: flex;
         border-bottom: 1px solid grey;
-        margin-bottom: 50px; }
+        margin-bottom: 50px;
+        align-items: center; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container {
           padding-bottom: 30px;
-          width: 10%; }
+          width: 25%; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container img {
-            height: 100%; }
+            height: 95px; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text {
           padding-bottom: 30px; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text .amount {
@@ -409,6 +512,101 @@ body {
       text-align: left; }
       #content-wrapper #request-page #msform .form-content.last input {
         margin-bottom: 15px; }
+#content-wrapper #donation-inner-page .donation-wrapper {
+  max-width: 1110px;
+  margin: auto;
+  display: flex; }
+  #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section {
+    width: 70%;
+    box-shadow: 0px 0px 7px 0px lightgrey;
+    padding: 35px;
+    margin-right: 80px; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info {
+      display: flex;
+      align-items: center;
+      padding-bottom: 25px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info .img-container {
+        width: 50%;
+        height: 300px;
+        box-shadow: 12px 12px 10px 0px grey; }
+        #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info .img-container img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info .info {
+        width: 50%;
+        padding-left: 30px; }
+        #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info .info p:first-of-type {
+          font-weight: bold; }
+        #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-info .info span {
+          font-weight: bold; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount {
+      padding-bottom: 25px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount h3 {
+        padding-bottom: 15px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount .donation {
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        border: 1px solid;
+        width: 50%; }
+        #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount .donation span {
+          width: 15%;
+          padding-left: 10px; }
+        #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount .donation input {
+          width: 83%;
+          border: none;
+          height: 45px; }
+          #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .donation-amount .donation input:focus-visible {
+            outline: none; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .tip-section {
+      padding-bottom: 25px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .tip-section h3 {
+        padding-bottom: 15px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .tip-section p {
+        margin-top: 8px; }
+      #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .tip-section span {
+        font-weight: bold;
+        font-size: 25px; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donate-info-section .optional-section label {
+      width: 95%; }
+  #content-wrapper #donation-inner-page .donation-wrapper .donation-summary {
+    width: 30%; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donation-summary tr, #content-wrapper #donation-inner-page .donation-wrapper .donation-summary td {
+      border-bottom: none; }
+    #content-wrapper #donation-inner-page .donation-wrapper .donation-summary tr:last-of-type {
+      border-top: 1px solid lightgrey; }
+#content-wrapper #donation-inner-page .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 50%;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+#content-wrapper #donation-inner-page .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: #c10020;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%; }
+#content-wrapper #donation-inner-page .slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border-radius: 50%;
+  border: 0;
+  background: #c10020;
+  cursor: pointer; }
+#content-wrapper #donation-inner-page .covid-btn {
+  margin-top: 20px;
+  width: 100% !important; }
 
 /*--------------------------------- Content Wrapper Ends ----------------------------------*/
 /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
@@ -481,12 +679,11 @@ body {
       font-weight: 500; }
 
 .common-projects .text-content {
-  max-width: 1000px;
-  margin-bottom: 42px; }
+  max-width: 1000px; }
 .common-projects .project-item-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: -40px; }
+  margin: 0 -40px -40px -40px; }
   .common-projects .project-item-wrapper .project-item {
     width: 33.33%;
     padding: 40px; }
@@ -539,7 +736,8 @@ body {
   display: flex;
   align-items: center; }
   .common-stories-section .story-item .text-section {
-    width: 50%; }
+    width: 50%;
+    padding-right: 70px; }
   .common-stories-section .story-item .img-container {
     width: 50%; }
     .common-stories-section .story-item .img-container img {

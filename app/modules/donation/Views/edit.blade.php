@@ -32,7 +32,8 @@
                                 </select>
                             </div></div><div class="form-group">
                                     <label for="amount">Amount</label><input type="number" value = "{{$donation->amount}}"  name="amount" id="amount" class="form-control" ></div><div class="form-group">
-                                    <label for="remarks">Remarks</label><input type="text" value = "{{$donation->remarks}}"  name="remarks" id="remarks" class="form-control" ></div>
+                            <label for="tip">Tip</label><input type="number" value = "{{$donation->tip}}"  name="tip" id="tip" class="form-control" ></div>
+                        <label for="remarks">Remarks</label><input type="text" value = "{{$donation->remarks}}"  name="remarks" id="remarks" class="form-control" ></div>
                             <div class="form-group">
                                 <label for="anonymous">Anonymous</label>
                                 <select name="anonymous" id="anonymous" class="form-control">

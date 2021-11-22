@@ -30,7 +30,8 @@
                                     <label for="status">Status</label><input type="text" name="status" id="status" class="form-control" ></div><div class="form-group">
                                     <label for="deleted_at">Deleted_at</label><input type="text" name="deleted_at" id="deleted_at" class="form-control" ></div><div class="form-group">
                                     <label for="created_at">Created_at</label><input type="text" name="created_at" id="created_at" class="form-control" ></div><div class="form-group">
-                                    <label for="updated_at">Updated_at</label><input type="text" name="updated_at" id="updated_at" class="form-control" ></div>
+                                    <label for="updated_at">Updated_at</label><input type="text" name="updated_at" id="updated_at" class="form-control" ></div><div class="form-group">
+                                    <label for="tip">Tip</label><input type="text" name="tip" id="tip" class="form-control" ></div>
 <input type="hidden" name="id" id="id"/>
                         </div>
                         {{ csrf_field() }}

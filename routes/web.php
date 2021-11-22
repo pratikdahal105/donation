@@ -24,10 +24,12 @@ Route::group(['name' => 'Home'], function (){
     Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware('auth');
     Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
     Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
+    Route::post('donationRequest', 'Frontend\DonationController@donationRequest')->name('frontend.donation.request')->middleware('auth');
+    Route::get('makeDonation/{slug}', 'Frontend\DonationController@donate')->name('frontend.donation.form')->middleware('auth');
 });
 
 Route::group(['name' => 'Paypal'], function () {
-    Route::get('paywithpaypal', array('as' => 'paywithpaypal', 'uses' => 'Frontend\PaypalController@payWithPaypal',));
-    Route::post('paypal', array('as' => 'paypal', 'uses' => 'Frontend\PaypalController@postPaymentWithpaypal',));
+//    Route::get('paywithpaypal/{slug}', array('as' => 'paywithpaypal', 'uses' => 'Frontend\PaypalController@payWithPaypal',));
+    Route::get('paypalPost', array('as' => 'paypalPost', 'uses' => 'Frontend\PaypalController@postPaymentWithpaypal',));
     Route::get('paypal', array('as' => 'status', 'uses' => 'Frontend\PaypalController@getPaymentStatus',));
 });
