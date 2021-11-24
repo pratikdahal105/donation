@@ -75,6 +75,9 @@
           #header-wrapper .custom-container .header-container .menu-items ul li {
             position: relative;
             margin-left: 20px; }
+#header-wrapper .custom-container .header-container .menu-items ul li ul li {
+  margin-left: 0;
+}
             #header-wrapper .custom-container .header-container .menu-items ul li a {
               padding-bottom: 15px;
               font-weight: 700; }
@@ -88,7 +91,8 @@
               box-shadow: 0px 2px 4px 0px;
               background-color: white;
               top: 35px;
-              border-radius: 2px; }
+              border-radius: 2px;
+              z-index: 999}
               #header-wrapper .custom-container .header-container .menu-items ul li:hover ul li {
                 padding: 15px 20px; }
                 #header-wrapper .custom-container .header-container .menu-items ul li:hover ul li:last-of-type {
@@ -127,10 +131,35 @@
       #header-wrapper .custom-container .header-container .login-request {
         display: flex;
         align-items: center; }
-        #header-wrapper .custom-container .header-container .login-request .login span {
-          font-weight: 700;
-          text-decoration: underline;
-          color: black; }
+        #header-wrapper .custom-container .header-container .login-request .login {
+          position: relative;
+          padding: 10px 0; }
+          #header-wrapper .custom-container .header-container .login-request .login span {
+            font-weight: 700;
+            text-decoration: underline;
+            color: black; }
+          #header-wrapper .custom-container .header-container .login-request .login .login-dropdown {
+            position: absolute;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 1px lightgrey;
+            left: -48px;
+            width: max-content;
+            display: none;
+            z-index: 999;
+            top: 40px; }
+            #header-wrapper .custom-container .header-container .login-request .login .login-dropdown .img-container {
+              display: flex;
+              align-items: center;
+              margin-bottom: 12px; }
+              #header-wrapper .custom-container .header-container .login-request .login .login-dropdown .img-container img {
+                width: 30%; }
+              #header-wrapper .custom-container .header-container .login-request .login .login-dropdown .img-container h5 {
+                margin-left: 10px; }
+            #header-wrapper .custom-container .header-container .login-request .login .login-dropdown .options-section p a:hover {
+              color: #c10020; }
+          #header-wrapper .custom-container .header-container .login-request .login:hover .login-dropdown {
+            display: block; }
         #header-wrapper .custom-container .header-container .login-request .covid-btn {
           margin-top: 0;
           margin-left: 20px; }
@@ -193,6 +222,24 @@
         top: 30px;
         right: 30px;
         cursor: pointer; }
+  #header-wrapper .search-bar {
+    display: none;
+    position: absolute;
+    bottom: -172%;
+    left: 0;
+    width: 350px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 1px lightgrey;
+    flex-wrap: wrap;
+    z-index: 99999999999999999999; }
+    #header-wrapper .search-bar span {
+      width: 100%;
+      padding-bottom: 10px; }
+    #header-wrapper .search-bar input {
+      width: 100%;
+      border-radius: 5px;
+      padding: 8px; }
 
 #resp-header-wrapper {
   display: none;
@@ -309,6 +356,11 @@ body {
     background: #E5E5E5; }
     body.login #header-wrapper, body.login #footer-wrapper {
       display: none; }
+  body.show-search #header-wrapper .header-container {
+    position: relative; }
+  body.show-search #header-wrapper .search-bar {
+    display: flex;
+    transition: all .4s ease-in-out; }
 
 /*--------------------------------- Header Wrapper Starts ---------------------------------*/
 /*-------------------------------- Content Wrapper Starts ---------------------------------*/
@@ -607,6 +659,8 @@ body {
 #content-wrapper #donation-inner-page .covid-btn {
   margin-top: 20px;
   width: 100% !important; }
+#content-wrapper #fundraisers-page .projects-container .btn-section, #content-wrapper .common-page .projects-container .btn-section {
+  text-align: end; }
 
 /*--------------------------------- Content Wrapper Ends ----------------------------------*/
 /*--------------------------------- Footer Wrapper Starts ---------------------------------*/

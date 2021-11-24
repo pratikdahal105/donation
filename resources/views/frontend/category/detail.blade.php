@@ -119,8 +119,7 @@
 {{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
-                        @foreach($category_first->campaigns->sortByDesc('created_at')->take(6) as $campaign)
-{{--                            @if($key <= 6)--}}
+                        @foreach($category_first->campaigns->sortByDesc('created_at')->where('status', 1)->take(6) as $campaign)
                             <div class="project-item">
                                 <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
                                     <div class="img-container">
@@ -146,10 +145,10 @@
                                     </div>
                                 </a>
                             </div>
-{{--                        @else--}}
-{{--                                @break--}}
-{{--                        @endif--}}
-                    @endforeach
+                        @endforeach
+                    </div>
+                    <div class="btn-section text-center">
+                        <a href="#" class="covid-btn btn-red">Load More</a>
                     </div>
                 </div>
             </div>

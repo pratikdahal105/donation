@@ -13,7 +13,6 @@
                             <li><a href="">Discover <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
                                 <ul>
                                     <li><a href="{{route('frontend.all.discover')}}">Fundraisers</a></li>
-{{--                                    <li><a href="">Success Stories</a></li>--}}
                                 </ul>
                             </li>
                             <li><a href="">Fundraiser for <span><img src="{{asset('client_assets')}}/images/dropdown.png"></span></a>
@@ -29,8 +28,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <span><img src="{{asset('client_assets')}}/images/search.png" ></span>
-                                <input type="text" placeholder="Search">
+                                <a class="search-btn" href="#"><span><img src="{{asset('client_assets')}}/images/search.png" > Search</span></a>
                             </li>
                         </ul>
                     </div>
@@ -49,19 +47,35 @@
                             </div>
                         @endguest
                         @auth
-                            <div class="login">
-{{--                                <a href="">--}}
-                                    <form action="{{route('logout')}}" id="logout_form" method="POST">
-                                        @csrf
-                                    </form>
-                                    <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
-                                    <a href="#" onclick="submitLogoutForm()">{{Auth::user()->name}} <i class="fa fa-arrow-circle-o-down"></i></a>
-{{--                                </a>--}}
-                            </div>
+                                <div class="login">
+                                    <a href="#">
+                                        <img src="{{asset('client_assets')}}/img/icons/user.png" alt="">
+                                        <span> {{Auth::user()->name}}</span>
+                                    </a>
+                                    <div class="login-dropdown">
+                                        <div class="img-container">
+                                            <img src="{{asset('client_assets')}}/img/icons/round-account.png" alt="">
+                                            <h5>{{Auth::user()->name}}</h5>
+                                        </div>
+                                        <div class="options-section">
+                                            <p><a href="">Manage my account</a></p>
+                                            <p><a href="">My Donation</a></p>
+                                            <p><a href="{{route('frontend.campaign.request')}}">New Fundraiser</a></p>
+                                            <p><a href="#" onclick="submitLogoutForm()">Logout</a></p>
+                                            <form action="{{route('logout')}}" id="logout_form" method="POST">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                         @endauth
                         <div class="request">
                             <a href="{{route('frontend.campaign.request')}}" class="covid-btn btn-red">Request</a>
                         </div>
+                    </div>
+                    <div class="search-bar">
+                        <span><img src="{{asset('client_assets')}}/images/search.png" > Search Here</span>
+                        <input type="text">
                     </div>
                 </div>
                 <div class="navigation">

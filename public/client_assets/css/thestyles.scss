@@ -49,6 +49,7 @@
                 background-color: white;
                 top: 35px;
                 border-radius: 2px;
+                z-index: 999;
                 li{
                   padding: 15px 20px;
                   &:last-of-type{
@@ -127,10 +128,48 @@
         display: flex;
         align-items: center;
         .login{
+          position: relative;
+          padding: 10px 0;
           span{
             font-weight: 700;
             text-decoration: underline;
             color: $black;
+          }
+          .login-dropdown{
+            position: absolute;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 1px lightgrey;
+            left: -48px;
+            width: max-content;
+            display: none;
+            z-index: 999;
+            top: 40px;
+            .img-container{
+              display: flex;
+              align-items: center;
+              margin-bottom: 12px;
+              img{
+                width: 30%;
+              }
+              h5{
+                margin-left: 10px;
+              }
+            }
+            .options-section{
+              p{
+                a{
+                  &:hover{
+                    color: #c10020;
+                  }
+                }
+              }
+            }
+          }
+          &:hover{
+            .login-dropdown{
+              display: block;
+            }
           }
         }
         .covid-btn{
@@ -216,6 +255,28 @@
       }
     }
   }
+  .search-bar{
+    display: none;
+    position: absolute;
+    bottom: -172%;
+    left: 0;
+    width: 350px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 1px lightgrey;
+    flex-wrap: wrap;
+    z-index: 99999999999999999999;
+    span{
+      width: 100%;
+      padding-bottom: 10px;
+    }
+    input{
+      width: 100%;
+      border-radius: 5px;
+      padding: 8px;
+    }
+  }
+
 }
 
 #resp-header-wrapper{
@@ -385,6 +446,17 @@ body{
     background: #E5E5E5;
     #header-wrapper, #footer-wrapper{
       display: none;
+    }
+  }
+  &.show-search{
+    #header-wrapper{
+      .header-container{
+        position: relative;
+      }
+      .search-bar{
+        display: flex;
+        transition: all .4s ease-in-out;
+      }
     }
   }
 }
@@ -849,6 +921,13 @@ body{
     .covid-btn{
       margin-top: 20px;
       width: 100% !important;
+    }
+  }
+  #fundraisers-page, .common-page{
+    .projects-container{
+      .btn-section{
+        text-align: end;
+      }
     }
   }
 }

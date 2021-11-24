@@ -45,7 +45,7 @@
                                 <h1>All Donations</h1>
                             </div>
                             <div class="donation-items-section">
-                                @foreach($campaign->donations->sortByDesc('created_at') as $donation)
+                                @foreach($campaign->donations->sortByDesc('created_at')->take(6) as $donation)
                                 <div class="donation-item">
                                     <div class="img-container">
                                         <img src="{{asset('client_assets')}}/img/menu-icon/09-Doctor.png">

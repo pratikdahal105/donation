@@ -61,6 +61,12 @@ function addClassInit() {
         $("body").removeClass("show-menu");
     });
 
+    $(".search-btn").click(function(){
+        $(".search-btn").toggleClass("active");
+        $("body").toggleClass("show-search");
+    });
+
+
     $('.common-select').on('change', function (e) {
         var $optionSelected = $("option:selected", this);
         $optionSelected.tab('show')
@@ -77,7 +83,6 @@ function addClassInit() {
 }
 
 function navInit() {
-
 }
 
 function mcustomInit() {
@@ -94,14 +99,6 @@ function mcustomInit() {
 
     });
 }
-
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
 
 
 

@@ -77,24 +77,37 @@
 
   /*------------------------------------- Site Wide Ends ------------------------------------*/
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  #header-wrapper .custom-container .header-container .menu-items {
+    width: 40%; }
+  #header-wrapper .custom-container .header-container .logo-container {
+    width: 30%; }
+
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
   /*-------------------------------- Content Wrapper Starts ---------------------------------*/
-  #content-wrapper #login-page
-  .custom-container .inner .login-form {
+  #content-wrapper #login-page .custom-container .inner .login-form {
     padding: 70px 60px; }
-    #content-wrapper #login-page
-    .custom-container .inner .login-form .form-wrapper {
+    #content-wrapper #login-page .custom-container .inner .login-form .form-wrapper {
       margin-top: 60px; }
-      #content-wrapper #login-page
-      .custom-container .inner .login-form .form-wrapper form .fields .form-group .form-control {
+      #content-wrapper #login-page .custom-container .inner .login-form .form-wrapper form .fields .form-group .form-control {
         padding: 18px 24px; }
+  #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .img-container {
+    height: 550px; }
 
   /*--------------------------------- Content Wrapper Ends ----------------------------------*/
   /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
   /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
   /*----------------------------------- Components Starts -----------------------------------*/
+  .common-page .banner-section .banner-wrapper .img-container img {
+    height: 485px; }
+
+  .common-stories-section .story-item .img-container img {
+    height: 480px; }
+
   /*------------------------------------ Components Ends ------------------------------------*/
   /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  .slick-slider img {
+    height: 535px; }
+
   /*----------------------------------- Slick Slider Ends -----------------------------------*/
   /*------------------------------------- Mcustom Starts ------------------------------------*/
   /*-------------------------------------- Mcustom Ends -------------------------------------*/ }
@@ -128,8 +141,6 @@
   #header-wrapper .custom-container {
     padding-top: 20px;
     padding-bottom: 20px; }
-    #header-wrapper .custom-container .logo-container img {
-      width: 86%; }
 
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
   /*-------------------------------- Content Wrapper Starts ---------------------------------*/
@@ -148,37 +159,6 @@
         #content-wrapper #login-page .custom-container .inner .login-form .form-wrapper form .fields .form-group .form-control {
           padding: 14px 20px;
           font-size: 16px; }
-  #content-wrapper #home-page .banner-section .banner-container .item:first-of-type {
-    padding-right: 40px; }
-  #content-wrapper #home-page .banner-section .banner-container .item:last-of-type {
-    padding-left: 40px; }
-  #content-wrapper #home-page .management-system-section .management-container .text-content {
-    padding-right: 40px; }
-  #content-wrapper #home-page .other-services-section .text-content {
-    padding-right: 40px; }
-  #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item {
-    padding: 30px; }
-    #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item .text-content .author {
-      margin: 12px 0px; }
-  #content-wrapper #home-page .funding-section .funding-container .action .covid-btn {
-    padding: 16px 60px;
-    font-size: 22px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .nav-pills li:not(:last-of-type) {
-    padding-right: 30px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .nav-pills li a {
-    padding: 8px 20px 8px;
-    width: 160px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item:not(:last-of-type) {
-    padding-right: 30px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner {
-    padding: 22px;
-    width: 260px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr th, #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td {
-    padding: 20px 15px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td:nth-child(1) {
-    font-size: 16px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td:nth-child(2) {
-    font-size: 20px; }
 
   /*--------------------------------- Content Wrapper Ends ----------------------------------*/
   /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
@@ -192,6 +172,13 @@
 
   /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
   /*----------------------------------- Components Starts -----------------------------------*/
+  .common-management-system-section .management-container .text-content {
+    padding-right: 40px; }
+
+  .common-funding-section .funding-container .action .covid-btn {
+    padding: 16px 60px;
+    font-size: 22px; }
+
   /*------------------------------------ Components Ends ------------------------------------*/
   /*---------------------------------- Slick Slider Starts ----------------------------------*/
   /*----------------------------------- Slick Slider Ends -----------------------------------*/
@@ -218,13 +205,16 @@
 
   /*------------------------------------- Site Wide Ends ------------------------------------*/
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
-  #header-wrapper .custom-container {
-    padding-top: 16px;
-    padding-bottom: 16px; }
-    #header-wrapper .custom-container .header-container .menu-btn {
-      width: 26px; }
-    #header-wrapper .custom-container .header-container .logo-container img {
-      width: 65%; }
+  #resp-header-wrapper {
+    display: block; }
+    #resp-header-wrapper .custom-container {
+      padding-top: 16px;
+      padding-bottom: 16px; }
+      #resp-header-wrapper .custom-container .header-container .menu-btn {
+        width: 26px; }
+
+  #header-wrapper {
+    display: none; }
 
   body.show-menu #header-wrapper .navigation {
     width: 400px;
@@ -239,56 +229,6 @@
     #content-wrapper #home-page .banner-section .banner-container .item:first-of-type .progress-bar-wrapper {
       margin-top: 30px;
       width: 100%; }
-  #content-wrapper #home-page .management-system-section .management-container .text-content {
-    padding-right: 30px; }
-  #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a {
-    height: 180px;
-    width: 180px; }
-    #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .img-container {
-      margin-bottom: 12px;
-      text-align: center; }
-      #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .img-container img {
-        width: 80%; }
-    #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .title {
-      text-align: center;
-      padding: 0 15px; }
-  #content-wrapper #home-page .other-services-section .text-content {
-    padding-right: 30px; }
-  #content-wrapper #home-page .other-services-section .other-services-wrapper {
-    padding-left: 30px; }
-    #content-wrapper #home-page .other-services-section .other-services-wrapper .inner {
-      padding: 28px; }
-      #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul li {
-        font-size: 14px; }
-      #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul :nth-child(2n) {
-        padding-left: 16px; }
-  #content-wrapper #home-page .other-services-section .delivery-img-wrapper {
-    margin-top: 35px; }
-  #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper {
-    margin: -20px; }
-    #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item {
-      padding: 20px; }
-      #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item .text-content .author {
-        margin: 10px 0px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper {
-    margin-top: 30px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .nav-pills li:not(:last-of-type) {
-      padding-right: 26px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .nav-pills li a {
-      width: 150px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description {
-      padding: 26px 0px 40px; }
-      #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item:not(:last-of-type) {
-        padding-right: 26px; }
-      #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner {
-        padding: 20px;
-        width: 240px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr th, #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td {
-      padding: 16px 12px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td:nth-child(1) {
-      font-size: 16px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td:nth-child(2) {
-      font-size: 20px; }
   #content-wrapper #login-page .custom-container .inner .login-form .logo-with-text .logo-container img {
     width: 24%; }
   #content-wrapper #login-page .custom-container .inner .login-form .desc p {
@@ -300,11 +240,52 @@
       #content-wrapper #login-page .custom-container .inner .login-form .form-wrapper form .fields .form-group .form-control {
         padding: 12px 16px;
         font-size: 14px; }
+  #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item {
+    padding-right: 30px;
+    padding-bottom: 40px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .img-container {
+      height: 390px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .title {
+      margin: 10px 0; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .author {
+      margin-bottom: 10px; }
+  #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item {
+    margin-bottom: 30px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container {
+      width: 35%; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container img {
+        height: 80px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text {
+      padding-bottom: 20px; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text .amount {
+        padding-bottom: 5px; }
+  #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper {
+    padding: 20px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .btn-section {
+      padding-bottom: 15px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .progress-bar-wrapper .progress {
+      margin-top: 15px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation {
+      padding-top: 15px; }
+      #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .title {
+        padding-bottom: 10px; }
+      #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .btn-section {
+        padding-bottom: 0; }
 
   /*--------------------------------- Content Wrapper Ends ----------------------------------*/
   /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
   /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
   /*----------------------------------- Components Starts -----------------------------------*/
+  .common-projects .project-item-wrapper {
+    margin: 0 -20px -20px -20px; }
+    .common-projects .project-item-wrapper .project-item {
+      padding: 20px; }
+
+  .common-page .banner-section .banner-wrapper .banner-text {
+    padding-right: 50px; }
+  .common-page .banner-section .banner-wrapper .img-container img {
+    height: 385px; }
+
   .covid-btn {
     padding: 9px 34px;
     margin-top: 26px; }
@@ -319,10 +300,37 @@
     .common-progress-bar .progress .bar .pct {
       margin-top: 0px; }
 
+  .common-projects .project-item-wrapper .project-item img {
+    height: 215px; }
+
+  .common-stories-section .story-item .text-section {
+    padding-right: 50px; }
+  .common-stories-section .story-item .img-container img {
+    height: 348px; }
+
+  .common-management-system-section .management-container .text-content {
+    padding-right: 30px; }
+  .common-management-system-section .management-container .services-wrapper .service-item {
+    width: 33.33%; }
+    .common-management-system-section .management-container .services-wrapper .service-item a {
+      height: 180px;
+      width: 180px; }
+      .common-management-system-section .management-container .services-wrapper .service-item a .img-container {
+        margin-bottom: 12px;
+        text-align: center; }
+        .common-management-system-section .management-container .services-wrapper .service-item a .img-container img {
+          width: 80%; }
+      .common-management-system-section .management-container .services-wrapper .service-item a .title {
+        text-align: center;
+        padding: 0 15px; }
+
   /*------------------------------------ Components Ends ------------------------------------*/
   /*---------------------------------- Slick Slider Starts ----------------------------------*/
   .slick-dots li button::before {
     font-size: 10px; }
+
+  .slick-slider img {
+    height: 395px; }
 
   /*----------------------------------- Slick Slider Ends -----------------------------------*/
   /*------------------------------------- Mcustom Starts ------------------------------------*/
@@ -359,67 +367,73 @@
   .add-padding-bottom.small {
     padding-bottom: 20px; }
 
+  .covid-btn {
+    margin-top: 15px; }
+
+  body.show-menu #resp-header-wrapper .custom-container .navigation {
+    width: 100%;
+    padding: 75px 35px; }
+
   /*------------------------------------- Site Wide Ends ------------------------------------*/
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
+  #resp-header-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 999; }
+    #resp-header-wrapper .custom-container {
+      padding-top: 16px;
+      padding-bottom: 16px; }
+      #resp-header-wrapper .custom-container .header-container .menu-btn {
+        width: 26px; }
+      #resp-header-wrapper .custom-container .header-container .logo-container img {
+        width: 65%; }
+
+  body.show-menu #header-wrapper .navigation {
+    width: 400px;
+    padding: 100px 40px 50px; }
+    body.show-menu #header-wrapper .navigation ul li a img {
+      padding-right: 15px; }
+
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
   /*-------------------------------- Content Wrapper Starts ---------------------------------*/
-  #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item {
-    padding-bottom: 0; }
-    #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a {
-      height: 140px;
-      width: 140px; }
-      #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .img-container {
-        margin-bottom: 8px; }
-        #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .img-container img {
-          width: 70%; }
-      #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a .title p {
-        line-height: 20px; }
-  #content-wrapper #home-page .other-services-section .other-services-wrapper {
-    padding-left: 0; }
-    #content-wrapper #home-page .other-services-section .other-services-wrapper .inner {
-      padding: 15px; }
-      #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul {
-        margin-bottom: -5px; }
-        #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul li {
-          font-size: 12px;
-          padding-bottom: 5px; }
-          #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul li img {
-            padding-right: 6px;
-            width: 12%;
-            image-rendering: -webkit-optimize-contrast; }
-          #content-wrapper #home-page .other-services-section .other-services-wrapper .inner ul li:nth-child(2n) {
-            padding-left: 14px; }
-  #content-wrapper #home-page .other-services-section .delivery-img-wrapper {
-    margin-top: 24px; }
-  #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper {
-    margin: -10px; }
-    #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item {
-      padding: 10px; }
-      #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item .text-content {
-        padding: 15px; }
-        #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item .text-content .progress-bar-wrapper {
-          margin-top: 10px; }
-  #content-wrapper #home-page .funding-section .funding-container .action .covid-btn {
-    padding: 12px 38px;
-    font-size: 18px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .nav-pills {
-    display: none; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .common-select {
-    display: block; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item {
-    padding-bottom: 15px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item:not(:last-of-type) {
-      padding-right: 15px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner {
-      width: 206px;
-      padding: 20px 16px; }
-      #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner .text {
-        padding-left: 14px; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content table tr td:nth-child(2) {
-    font-size: 18px; }
-  #content-wrapper #login-page .custom-container {
-    padding-left: 0;
-    padding-right: 0; }
+  #content-wrapper {
+    padding-top: 80px; }
+    #content-wrapper #home-page .banner-section .banner-container .item:first-of-type {
+      padding-right: 10px; }
+    #content-wrapper #home-page .banner-section .banner-container .item:last-of-type {
+      padding-left: 30px; }
+    #content-wrapper #login-page .custom-container {
+      padding-left: 0;
+      padding-right: 0; }
+    #content-wrapper #donation-page .details-section .details-wrapper {
+      flex-wrap: wrap; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container {
+        width: 100%; }
+        #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item {
+          padding-right: 0;
+          padding-bottom: 30px; }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .img-container {
+            height: 215px; }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .title {
+            margin: 7px 0; }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .author {
+            margin-bottom: 7px; }
+        #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section {
+          padding-right: 0; }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container img {
+            height: 55px; }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text {
+            padding-left: 15px; }
+      #content-wrapper #donation-page .details-section .details-wrapper .donate-section {
+        width: 100%;
+        padding-top: 30px; }
+        #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper {
+          position: relative;
+          box-shadow: none;
+          padding: 0; }
+    #content-wrapper #fundraisers-page .heading-section .custom-container {
+      padding-bottom: 0; }
 
   /*--------------------------------- Content Wrapper Ends ----------------------------------*/
   /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
@@ -433,8 +447,45 @@
 
   /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
   /*----------------------------------- Components Starts -----------------------------------*/
+  .common-management-system-section .management-container .services-wrapper .service-item {
+    padding-bottom: 30px;
+    width: 50%; }
+    .common-management-system-section .management-container .services-wrapper .service-item a {
+      height: 140px;
+      width: 140px; }
+      .common-management-system-section .management-container .services-wrapper .service-item a .img-container {
+        margin-bottom: 8px; }
+        .common-management-system-section .management-container .services-wrapper .service-item a .img-container img {
+          width: 70%; }
+      .common-management-system-section .management-container .services-wrapper .service-item a .title p {
+        line-height: 20px; }
+
+  .common-funding-section .funding-container .action .covid-btn {
+    padding: 12px 38px;
+    font-size: 18px; }
+
+  .common-stories-section .story-item .text-section {
+    padding-right: 25px; }
+
+  .common-projects .project-item-wrapper .project-item {
+    width: 100%; }
+    .common-projects .project-item-wrapper .project-item img {
+      height: 100%; }
+
+  .common-page .banner-section .banner-wrapper .banner-text {
+    padding-right: 30px; }
+
   /*------------------------------------ Components Ends ------------------------------------*/
   /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  .slick-slider img {
+    height: 310px; }
+  .slick-slider .slick-prev {
+    left: -50px; }
+    .slick-slider .slick-prev:before {
+      padding: 0 25px; }
+  .slick-slider .slick-next:before {
+    padding: 0 25px; }
+
   /*----------------------------------- Slick Slider Ends -----------------------------------*/
   /*------------------------------------- Mcustom Starts ------------------------------------*/
   /*-------------------------------------- Mcustom Ends -------------------------------------*/ }
@@ -447,19 +498,23 @@
     font-size: 22px; }
 
   .section-title {
-    padding-bottom: 18px; }
+    padding-bottom: 13px; }
+
+  p {
+    line-height: 20px;
+    margin-bottom: 13px; }
 
   /*------------------------------------- Site Wide Ends ------------------------------------*/
   /*--------------------------------- Header Wrapper Starts ---------------------------------*/
-  #header-wrapper .custom-container .header-container {
+  #resp-header-wrapper .custom-container .header-container {
     flex-direction: row-reverse; }
-    #header-wrapper .custom-container .header-container .logo-container {
+    #resp-header-wrapper .custom-container .header-container .logo-container {
       margin-right: 0; }
-    #header-wrapper .custom-container .header-container .login-request {
+    #resp-header-wrapper .custom-container .header-container .login-request {
       display: none; }
-  #header-wrapper .custom-container .navigation ul li {
+  #resp-header-wrapper .custom-container .navigation ul li {
     padding-bottom: 26px; }
-    #header-wrapper .custom-container .navigation ul li a {
+    #resp-header-wrapper .custom-container .navigation ul li a {
       font-size: 16px; }
 
   body.show-menu #header-wrapper .navigation {
@@ -476,37 +531,10 @@
       margin-top: 30px; }
     #content-wrapper #home-page .banner-section .banner-container.common-flex .item:last-of-type {
       padding-left: 0; }
-  #content-wrapper #home-page .management-system-section .management-container .text-content {
-    padding-right: 0; }
-  #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item {
-    width: 100%;
-    margin-bottom: 30px; }
-    #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item:nth-child(1) a, #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item:nth-child(2) a {
-      margin-left: auto; }
-    #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a {
-      margin: auto;
-      height: 180px;
-      width: 180px; }
-      #content-wrapper #home-page .management-system-section .management-container .services-wrapper .service-item a img {
-        width: 100%;
-        margin-bottom: 15px; }
   #content-wrapper #home-page .ongoing-projects-section .projects-container .project-item-wrapper .project-item {
     width: 100%; }
-  #content-wrapper #bed-page .bed-request-section .request-container .area-filter .action .covid-btn {
-    margin-top: 24px;
-    margin-left: 0; }
-  #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item {
-    width: 100%; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner {
-      width: 100%;
-      justify-content: center; }
-      #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item .inner .text {
-        padding-left: 20px; }
-    #content-wrapper #bed-page .bed-request-section .nav-tab-wrapper .tab-content .beds-description .bed-item:not(:last-of-type) {
-      padding-right: 0; }
   #content-wrapper #login-page .custom-container {
-    padding-right: 0;
-    padding-left: 0; }
+    padding: 0; }
     #content-wrapper #login-page .custom-container .inner .img-container {
       padding-bottom: 100%;
       margin-bottom: 0; }
@@ -514,6 +542,18 @@
       padding: 30px 30px 50px; }
       #content-wrapper #login-page .custom-container .inner .login-form .logo-with-text .logo-container img {
         width: auto; }
+  #content-wrapper #request-page {
+    max-width: none;
+    padding: 30px; }
+    #content-wrapper #request-page .form-wrapper .information .search span {
+      width: 15%; }
+    #content-wrapper #request-page .form-wrapper .information .search input {
+      width: 85%; }
+    #content-wrapper #request-page #msform .common-btn {
+      padding: 12px 35px; }
+
+  .col-3 {
+    width: auto; }
 
   /*--------------------------------- Content Wrapper Ends ----------------------------------*/
   /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
@@ -524,8 +564,9 @@
     margin-top: 30px;
     justify-content: initial; }
     #footer-wrapper .footer-container .footer-nav-container .items {
-      width: 50%;
-      padding-bottom: 20px; }
+      width: 100%;
+      padding-bottom: 20px;
+      margin-left: 0; }
 
   /*---------------------------------- Footer Wrapper Ends ----------------------------------*/
   /*----------------------------------- Components Starts -----------------------------------*/
@@ -537,8 +578,56 @@
   .common-select select {
     width: 100%; }
 
+  .common-stories-section .story-item {
+    flex-direction: column-reverse; }
+    .common-stories-section .story-item .text-section {
+      padding-right: 0;
+      width: 100%;
+      padding-top: 20px; }
+    .common-stories-section .story-item .img-container {
+      width: 100%; }
+      .common-stories-section .story-item .img-container img {
+        height: 212px; }
+
+  .common-management-system-section .management-container .text-content {
+    padding-right: 0; }
+  .common-management-system-section .management-container .services-wrapper .service-item {
+    width: 100%;
+    margin-bottom: 30px; }
+    .common-management-system-section .management-container .services-wrapper .service-item:nth-child(1) a, .common-management-system-section .management-container .services-wrapper .service-item:nth-child(2) a {
+      margin-left: auto; }
+    .common-management-system-section .management-container .services-wrapper .service-item a {
+      margin: auto;
+      height: 180px;
+      width: 180px; }
+      .common-management-system-section .management-container .services-wrapper .service-item a img {
+        width: 100%;
+        margin-bottom: 15px; }
+
+  .common-page .banner-section .banner-wrapper {
+    flex-direction: column-reverse; }
+    .common-page .banner-section .banner-wrapper .banner-text {
+      padding-right: 0;
+      width: 100%; }
+    .common-page .banner-section .banner-wrapper .img-container {
+      width: 100%; }
+      .common-page .banner-section .banner-wrapper .img-container img {
+        height: 210px; }
+  .common-page .fund-information-section {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  .common-funding-section .custom-container {
+    padding-top: 0;
+    padding-bottom: 0; }
+
   /*------------------------------------ Components Ends ------------------------------------*/
   /*---------------------------------- Slick Slider Starts ----------------------------------*/
+  .slick-slider .slick-next {
+    right: 0px; }
+  .slick-slider .slick-prev {
+    left: -35px; }
+
   /*----------------------------------- Slick Slider Ends -----------------------------------*/
   /*------------------------------------- Mcustom Starts ------------------------------------*/
   /*-------------------------------------- Mcustom Ends -------------------------------------*/ }

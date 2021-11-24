@@ -24,7 +24,7 @@
                         <div class="project-item-wrapper">
 {{--                            @php($key = 0)--}}
                             {{--                        @php(dd($top))--}}
-                            @foreach($category->campaigns->sortByDesc('created_at')->take(3) as $value)
+                            @foreach($category->campaigns->sortByDesc('created_at')->where('status', 1)->take(3) as $value)
 {{--                                    @if($value->donations->sum('amount') < $value->target_amount)--}}
                                     <div class="project-item">
                                         <a href="{{route('frontend.campaign.detail', $value->slug)}}">
@@ -56,6 +56,9 @@
 {{--                                        @continue--}}
 {{--                                    @endif--}}
                             @endforeach
+                        </div>
+                        <div class="btn-section">
+                            <a href="{{route('frontend.campaign.category', $category->slug)}}" class="covid-btn btn-red">See More</a>
                         </div>
                     </div>
                 </div>
