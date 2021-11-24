@@ -137,8 +137,10 @@
                 dataType: 'html',
                 success:function(data)
                 {
-                    // console.log(data);
                     $('#donationAppend').append(data);
+                    if(data == ''){
+                        $('#loadMoreButton').hide();
+                    }
                 }
             });
         });

@@ -165,6 +165,9 @@
                 success:function(data)
                 {
                     $('#appendCampaign').append(data);
+                    if(data == ''){
+                        $('#loadMoreButton').hide();
+                    }
                 }
             });
         });

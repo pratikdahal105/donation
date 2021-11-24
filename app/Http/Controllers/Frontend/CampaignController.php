@@ -72,7 +72,7 @@ class CampaignController extends Controller
 
     public function loadMore(Request $request){
         $output = '';
-        $campaigns = Campaign::where('category_id', $request->category_id)->orderBy('created_at', 'DESC')->skip($request->campaignCount)->take(6)->with('donations')->get();
+        $campaigns = Campaign::where('category_id', $request->category_id)->where('status', 1)->orderBy('created_at', 'DESC')->skip($request->campaignCount)->take(6)->with('donations')->get();
 
         foreach ($campaigns as $campaign){
             $output .= '
