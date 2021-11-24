@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Campaign\Model\Campaign;
+use App\Modules\Donation\Model\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -37,5 +38,52 @@ class DonationController extends Controller
         Session::put('donation', $request->all());
 
         return redirect()->route('paypalPost');
+    }
+
+    public function loadMore(Request $request){
+        $output = '';
+        $donations = Donation::where('campaign_id', $request->campaign_id)->orderBy('created_at', 'DESC')->skip($request->countDonation)->take(6)->get();
+
+        foreach ($donations as $donation){
+            if($donation->anonymous != 1){
+                $output .= '
+                <div class="donation-item" id="countDonation">
+                    <div class="img-container">
+                        <img src="'.asset('client_assets').'/img/menu-icon/09-Doctor.png">
+                    </div>
+                    <div class="text">
+                        <div class="amount">
+                            <h3>'.$donation->user->name.'</h3>
+                            <h4>Donated Rs.'.$donation->amount.'</h4>
+                        </div>
+                        <div class="comment">
+                            <p>'.$donation->remarks.'</p>
+                        </div>
+                        <p>('.$donation->created_at->diffForHumans().')</p>
+                    </div>
+                </div>
+            ';
+            }else{
+                $output .= '
+                <div class="donation-item" id="countDonation">
+                    <div class="img-container">
+                        <img src="'.asset('client_assets').'/img/menu-icon/09-Doctor.png">
+                    </div>
+                    <div class="text">
+                        <div class="amount">
+                            <h3>Anonymous</h3>
+                            <h4>Donated Rs. '.$donation->amount.'}}</h4>
+                        </div>
+                        <div class="comment">
+                            <p>'.$donation->remarks.'</p>
+                        </div>
+                        <p>('.$donation->created_at->diffForHumans().')</p>
+                    </div>
+                </div>
+            ';
+            }
+        }
+
+        echo $output;
     }
 }

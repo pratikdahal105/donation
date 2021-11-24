@@ -60,7 +60,7 @@
                                         <div class="options-section">
                                             <p><a href="">Manage my account</a></p>
                                             <p><a href="">My Donation</a></p>
-                                            <p><a href="{{route('frontend.campaign.request')}}">New Fundraiser</a></p>
+                                            <p><a href="">My Fundraiser</a></p>
                                             <p><a href="#" onclick="submitLogoutForm()">Logout</a></p>
                                             <form action="{{route('logout')}}" id="logout_form" method="POST">
                                                 @csrf

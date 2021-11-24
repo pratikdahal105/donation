@@ -44,9 +44,9 @@
                             <div class="section-title">
                                 <h1>All Donations</h1>
                             </div>
-                            <div class="donation-items-section">
+                            <div class="donation-items-section" id="donationAppend">
                                 @foreach($campaign->donations->sortByDesc('created_at')->take(6) as $donation)
-                                <div class="donation-item">
+                                <div class="donation-item" id="countDonation">
                                     <div class="img-container">
                                         <img src="{{asset('client_assets')}}/img/menu-icon/09-Doctor.png">
                                     </div>
@@ -67,9 +67,9 @@
                                     </div>
                                 </div>
                                 @endforeach
-                                <div class="btn-section">
-                                    <a href="#" class="covid-btn btn-red">Load More</a>
-                                </div>
+                            </div>
+                            <div class="btn-section">
+                                <a id="loadMoreButton" class="covid-btn btn-red">Load More</a>
                             </div>
                         </div>
                         @endif
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-section">
-                                        <a href="#all" data-scroll="all" class="covid-btn btn-red">See all donations</a>
+                                        <a data-scroll="all" id="loadMoreButton" class="covid-btn btn-red">See all donations</a>
                                     </div>
                                 </div>
                             </div>
@@ -126,5 +126,21 @@
             </div>
         </section>
     </div>
-
+    <script>
+        $('#loadMoreButton').click(function(){
+            var countDonation = $("div[id*='countDonation']").length;
+            var campaign_id = {{$campaign->id}};
+            $.ajax({
+                url:"{{ route('frontend.donation.more') }}",
+                method:"GET",
+                data:{countDonation:countDonation, campaign_id:campaign_id},
+                dataType: 'html',
+                success:function(data)
+                {
+                    // console.log(data);
+                    $('#donationAppend').append(data);
+                }
+            });
+        });
+    </script>
 @endsection

@@ -118,9 +118,9 @@
 {{--                                condimentum cras.</p>--}}
 {{--                        </div>--}}
                     </div>
-                    <div class="project-item-wrapper">
+                    <div class="project-item-wrapper" id="appendCampaign">
                         @foreach($category_first->campaigns->sortByDesc('created_at')->where('status', 1)->take(6) as $campaign)
-                            <div class="project-item">
+                            <div class="project-item" id="countCampaign">
                                 <a href="{{route('frontend.campaign.detail', $campaign->slug)}}">
                                     <div class="img-container">
                                         <img src="{{asset('uploads/campaign/thumbnail/'.$campaign->thumbnail)}}" alt="">
@@ -148,11 +148,25 @@
                         @endforeach
                     </div>
                     <div class="btn-section text-center">
-                        <a href="#" class="covid-btn btn-red">Load More</a>
+                        <a id="loadMoreButton" class="covid-btn btn-red">Load More</a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
+    <script>
+        $('#loadMoreButton').click(function(){
+            var campaignCount = $("div[id*='countCampaign']").length;
+            var category_id = {{$category_first->id}};
+            $.ajax({
+                url:"{{ route('frontend.campaign.more') }}",
+                method:"GET",
+                data:{campaignCount:campaignCount, category_id:category_id},
+                success:function(data)
+                {
+                    $('#appendCampaign').append(data);
+                }
+            });
+        });
+    </script>
 @endsection

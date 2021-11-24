@@ -21,6 +21,8 @@ Route::group(['name' => 'Home'], function (){
     Route::get('campaignCategory\{slug}', 'Frontend\CategoriesController@campaignCategory')->name('frontend.campaign.category');
     Route::get('campaignAllCategory', 'Frontend\CategoriesController@allCategory')->name('frontend.all.category');
     Route::get('campaignDiscover', 'Frontend\CategoriesController@discoverCategory')->name('frontend.all.discover');
+    Route::get('campaignLoadMore', 'Frontend\CampaignController@loadMore')->name('frontend.campaign.more');
+    Route::get('donationLoadMore', 'Frontend\DonationController@loadMore')->name('frontend.donation.more');
     Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware('auth');
     Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
     Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
