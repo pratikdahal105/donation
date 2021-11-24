@@ -42,7 +42,7 @@
                             <div class="search">
                                 <span><img src="{{asset('client_assets')}}/images/search.png" ></span><span style="color:red">*</span>
 {{--                                <input type="text" placeholder="City Name">--}}
-                                <select class="form-control" name="location_id" id="location_id"  style="width: 100%">
+                                <select class="form-control" name="location_id" id="location_id">
 {{--                                    <option value="" disabled selected>-- Select City --</option>--}}
                                 </select>
                             </div>
@@ -120,7 +120,7 @@
                             </div>
                             <div class="item">
                                 <label for="">Why are you fundraising? <span style="color:red">*</span></label>
-                                <textarea name="body" id="body" cols="30" rows="10">{!! old('body') !!}</textarea>
+                                <textarea name="body" id="body">{!! old('body') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -168,6 +168,19 @@
     </div>
 
     <script>
+        $(document).ready(function() {
+            $('#body').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+        });
         $(document).ready(function(){
             $("#location_id").select2({
                 placeholder: "Select Your City",
