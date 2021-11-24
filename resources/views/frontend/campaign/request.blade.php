@@ -168,9 +168,6 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#body').summernote();
-        });
         $(document).ready(function(){
             $("#location_id").select2({
                 placeholder: "Select Your City",

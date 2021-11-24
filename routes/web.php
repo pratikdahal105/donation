@@ -19,6 +19,8 @@ Route::group(['name' => 'Home'], function (){
     Route::get('/', 'Frontend\FrontController@index')->name('frontend.home');
     Route::get('campaignDetail\{slug}', 'Frontend\CampaignController@campaignDetail')->name('frontend.campaign.detail');
     Route::get('campaignCategory\{slug}', 'Frontend\CategoriesController@campaignCategory')->name('frontend.campaign.category');
+    Route::get('campaignSearch', 'Frontend\CampaignController@searchResults')->name('frontend.campaign.search');
+    Route::get('SearchMore', 'Frontend\CampaignController@SearchMore')->name('frontend.search.more');
     Route::get('campaignAllCategory', 'Frontend\CategoriesController@allCategory')->name('frontend.all.category');
     Route::get('campaignDiscover', 'Frontend\CategoriesController@discoverCategory')->name('frontend.all.discover');
     Route::get('campaignLoadMore', 'Frontend\CampaignController@loadMore')->name('frontend.campaign.more');
@@ -31,7 +33,6 @@ Route::group(['name' => 'Home'], function (){
 });
 
 Route::group(['name' => 'Paypal'], function () {
-//    Route::get('paywithpaypal/{slug}', array('as' => 'paywithpaypal', 'uses' => 'Frontend\PaypalController@payWithPaypal',));
     Route::get('paypalPost', array('as' => 'paypalPost', 'uses' => 'Frontend\PaypalController@postPaymentWithpaypal',));
     Route::get('paypal', array('as' => 'status', 'uses' => 'Frontend\PaypalController@getPaymentStatus',));
 });

@@ -106,4 +106,48 @@ class CampaignController extends Controller
 
         echo $output;
     }
+
+    public function searchResults(Request $request){
+        $key = $request->search;
+        $page['title'] = 'Search | '.$key;
+        $campaigns = Campaign::where('search', 'like', '%'.$key.'%')->where('status', 1)->with('donations')->limit(12)->get();
+        return view('frontend.campaign.search')->with(compact('page', 'campaigns', 'key'));
+    }
+
+    public function SearchMore(Request $request){
+        $output = '';
+        $key = $request->key;
+        $campaigns = Campaign::where('search', 'like', '%'.$key.'%')->where('status', 1)->with('donations')->skip($request->searchCount)->take(12)->get();
+        foreach ($campaigns as $campaign){
+            $output .= '
+            <div class="project-item" id="searchCount">
+                <a href="'.route('frontend.campaign.detail', $campaign->slug).'">
+                    <div class="img-container">
+                        <img src="'.asset('uploads/campaign/thumbnail/'.$campaign->thumbnail).'" alt="">
+                    </div>
+                    <div class="text-content">
+                        <div class="title">
+                            <h5>'.$campaign->campaign_name.'</h5>
+                        </div>
+                        <div class="author">
+                            <h5>For '.$campaign->created_for.'</h5>
+                        </div>
+                        <div class="progress-bar-wrapper common-progress-bar">
+                            <div class="progress">
+                                <div class="bar progress-bar-striped-custom" data-value="'.$campaign->donations->sum('amount').'" max-value="'.$campaign->target_amount.'">
+                                    <div class="pct">
+                                        Rs. '.$campaign->donations->sum('amount').'
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Rs. '.$campaign->target_amount.'</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            ';
+        }
+
+        echo $output;
+    }
 }

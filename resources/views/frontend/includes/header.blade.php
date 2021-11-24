@@ -75,7 +75,11 @@
                     </div>
                     <div class="search-bar">
                         <span><img src="{{asset('client_assets')}}/images/search.png" > Search Here</span>
-                        <input type="text">
+                        <form action="{{route('frontend.campaign.search')}}" method="GET" enctype="multipart/form-data" class="col-12">
+                            @csrf
+                            <input type="text" name="search" id="search">
+                            <button type="submit" class="d-none"></button>
+                        </form>
                     </div>
                 </div>
                 <div class="navigation">
