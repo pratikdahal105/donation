@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['name' => 'Home'], function (){
+Route::group(['name' => 'Campaign'], function (){
     Route::get('/', 'Frontend\FrontController@index')->name('frontend.home');
     Route::get('campaignDetail\{slug}', 'Frontend\CampaignController@campaignDetail')->name('frontend.campaign.detail');
     Route::get('campaignCategory\{slug}', 'Frontend\CategoriesController@campaignCategory')->name('frontend.campaign.category');
@@ -24,12 +24,22 @@ Route::group(['name' => 'Home'], function (){
     Route::get('campaignAllCategory', 'Frontend\CategoriesController@allCategory')->name('frontend.all.category');
     Route::get('campaignDiscover', 'Frontend\CategoriesController@discoverCategory')->name('frontend.all.discover');
     Route::get('campaignLoadMore', 'Frontend\CampaignController@loadMore')->name('frontend.campaign.more');
-    Route::get('donationLoadMore', 'Frontend\DonationController@loadMore')->name('frontend.donation.more');
     Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware('auth');
     Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
     Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
+});
+
+Route::group(['name' => 'Donation'], function (){
     Route::post('donationRequest', 'Frontend\DonationController@donationRequest')->name('frontend.donation.request')->middleware('auth');
     Route::get('makeDonation/{slug}', 'Frontend\DonationController@donate')->name('frontend.donation.form')->middleware('auth');
+    Route::get('donationLoadMore', 'Frontend\DonationController@loadMore')->name('frontend.donation.more');
+});
+
+Route::group(['name' => 'User'], function (){
+    Route::get('userProfile', 'Frontend\UserProfileController@userProfile')->name('frontend.user.profile')->middleware('auth');
+    Route::post('userProfile', 'Frontend\UserProfileController@userProfile')->name('frontend.user.profile')->middleware('auth');
+    Route::get('userPassword', 'Frontend\UserProfileController@userPassword')->name('frontend.user.password')->middleware('auth');
+    Route::post('userPassword', 'Frontend\UserProfileController@userPassword')->name('frontend.user.password')->middleware('auth');
 });
 
 Route::group(['name' => 'Paypal'], function () {

@@ -58,7 +58,8 @@
                                             <h5>{{Auth::user()->name}}</h5>
                                         </div>
                                         <div class="options-section">
-                                            <p><a href="">Manage my account</a></p>
+                                            <p><a href="{{route('frontend.user.profile')}}">Manage my account</a></p>
+                                            <p><a href="{{route('frontend.user.password')}}">Change Password</a></p>
                                             <p><a href="">My Donation</a></p>
                                             <p><a href="">My Fundraiser</a></p>
                                             <p><a href="#" onclick="submitLogoutForm()">Logout</a></p>

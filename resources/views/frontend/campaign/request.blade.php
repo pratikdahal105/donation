@@ -41,9 +41,7 @@
                             </div>
                             <div class="search">
                                 <span><img src="{{asset('client_assets')}}/images/search.png" ></span><span style="color:red">*</span>
-{{--                                <input type="text" placeholder="City Name">--}}
                                 <select class="form-control" name="location_id" id="location_id">
-{{--                                    <option value="" disabled selected>-- Select City --</option>--}}
                                 </select>
                             </div>
                             <div class="item">
@@ -146,14 +144,10 @@
                                     <option value="1" selected>Allow Unlimited Donations</option>
                                 @endif
                             </select>
-{{--                            <label for="">Province</label>--}}
-{{--                            <input type="text">--}}
-{{--                            <label for="">Country</label>--}}
-{{--                            <input type="text">--}}
                         </div>
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous common-btn covid-btn btn-red" value="Back" />
-                    <button type="submit" class="action-button common-btn covid-btn btn-red">Next</button>
+                    <button type="submit" class="action-button common-btn covid-btn btn-red">Submit</button>
                 </fieldset>
 {{--                <fieldset>--}}
 {{--                    <div class="form-card">--}}
@@ -177,7 +171,9 @@
                     ['fontsize', ['fontsize']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
+                    ['height', ['height']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']]
                 ]
             });
         });
