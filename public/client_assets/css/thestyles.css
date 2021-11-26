@@ -407,9 +407,9 @@ body {
         align-items: center; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container {
           padding-bottom: 30px;
-          width: 25%; }
+          width: 13%; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container img {
-            height: 95px; }
+            height: 55px; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text {
           padding-bottom: 30px; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text .amount {
@@ -435,7 +435,10 @@ body {
         #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner {
           display: flex;
           align-items: center; }
-          #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .text {
+#content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .img-container img{
+    width: 25px;
+}
+#content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .text {
             display: flex;
             align-items: center;
             margin-left: 10px; }
@@ -513,7 +516,7 @@ body {
         width: 93%;
         border: none; }
       #content-wrapper #request-page .form-wrapper .information .search span {
-        width: 7%;
+        border: none;
         padding-left: 10px; }
     #content-wrapper #request-page .form-wrapper .information input {
       padding: 15px;
@@ -660,6 +663,10 @@ body {
 #content-wrapper #fundraisers-page .projects-container .btn-section, #content-wrapper .common-page .projects-container .btn-section {
   text-align: end; }
 
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    top: 143%;
+}
 /*--------------------------------- Content Wrapper Ends ----------------------------------*/
 /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
 #footer-wrapper {

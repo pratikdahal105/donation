@@ -86,4 +86,19 @@ class DonationController extends Controller
 
         echo $output;
     }
+
+    public function userDonation(Request $request, $slug){
+        if($request->isMethod('get')){
+            $page['title'] = 'Donation | Edit';
+            $donation = Donation::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+            return view('frontend.donation.edit', compact('page', 'donation'));
+        }
+        if($request->isMethod('post')){
+            $donation = Donation::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+            $data['remarks'] = $request->remarks;
+            $data['anonymous'] = $request->anonymous;
+            $donation->update($data);
+            return redirect()->route('frontend.user.donation')->with('success', 'record successfully updated!');
+        }
+    }
 }

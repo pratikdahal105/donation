@@ -86,7 +86,6 @@ function navInit() {
 }
 
 function mcustomInit() {
-    console.log('triggered');
     $( ".bar" ).each(function() {
         let value = $(this).attr('data-value');
         let maxvalue = $(this).attr('max-value');

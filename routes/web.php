@@ -27,12 +27,18 @@ Route::group(['name' => 'Campaign'], function (){
     Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware('auth');
     Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
     Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
+    Route::get('campaignEdit/{slug}', 'Frontend\CampaignController@editCampaign')->name('frontend.campaign.edit');
+    Route::post('campaignEdit/{slug}', 'Frontend\CampaignController@editCampaign')->name('frontend.campaign.edit');
+    Route::get('deleteLogo/{slug}', 'Frontend\CampaignController@logoDelete')->name('frontend.campaign.logo.delete');
+
 });
 
 Route::group(['name' => 'Donation'], function (){
     Route::post('donationRequest', 'Frontend\DonationController@donationRequest')->name('frontend.donation.request')->middleware('auth');
     Route::get('makeDonation/{slug}', 'Frontend\DonationController@donate')->name('frontend.donation.form')->middleware('auth');
     Route::get('donationLoadMore', 'Frontend\DonationController@loadMore')->name('frontend.donation.more');
+    Route::get('userDonation/{slug}', 'Frontend\DonationController@userDonation')->name('frontend.user.donation.edit');
+    Route::post('userDonation/{slug}', 'Frontend\DonationController@userDonation')->name('frontend.user.donation.edit');
 });
 
 Route::group(['name' => 'User', 'middleware' => 'auth'], function (){
@@ -42,6 +48,8 @@ Route::group(['name' => 'User', 'middleware' => 'auth'], function (){
     Route::post('userPassword', 'Frontend\UserProfileController@userPassword')->name('frontend.user.password');
     Route::get('userCampaign', 'Frontend\UserProfileController@campaignUser')->name('frontend.user.campaign');
     Route::get('loadMore', 'Frontend\UserProfileController@loadMore')->name('frontend.user.load.more');
+    Route::get('userDonation', 'Frontend\UserProfileController@userDonation')->name('frontend.user.donation');
+    Route::get('userMoreDonation', 'Frontend\UserProfileController@moreUserDonation')->name('frontend.user.donation.more');
 });
 
 Route::group(['name' => 'Paypal'], function () {

@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Campaign\Model\Campaign;
+use App\Modules\Category\Model\Category;
 use App\Modules\City\Model\City;
+use App\Modules\Country\Model\Country;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use File;
 
 class CampaignController extends Controller
 {
@@ -58,7 +61,7 @@ class CampaignController extends Controller
             return redirect()->back()->with('error', 'something went wrong please try again!');
         }
 
-        return redirect()->back()->with('success', 'Campaign Created Successfully!');
+        return redirect()->route('frontend.user.campaign')->with('success', 'Campaign Created Successfully!');
     }
 
     public function fileUpload($file, $path){
@@ -112,6 +115,67 @@ class CampaignController extends Controller
         $page['title'] = 'Search | '.$key;
         $campaigns = Campaign::where('search', 'like', '%'.$key.'%')->where('status', 1)->with('donations')->limit(12)->get();
         return view('frontend.campaign.search')->with(compact('page', 'campaigns', 'key'));
+    }
+
+    public function editCampaign(Request $request, $slug){
+        if($request->isMethod('get')) {
+            $page['title'] = 'Campaign | Edit';
+            $countries = Country::all();
+            $categories = Category::all();
+            $campaign = Campaign::where('user_id', Auth::user()->id)->where('slug', $slug)->with('location.state.country')->first();
+            return view('frontend.campaign.edit')->with(compact('page', 'campaign', 'countries', 'categories'));
+        }
+        if ($request->isMethod('post')){
+            $request->validate([
+                'country' => 'required',
+                'location_id' => 'required',
+                'category_id' => 'required',
+                'target_amount' => 'required',
+                'campaign_name' => 'required',
+                'body' => 'required',
+                'stop_limit' => 'required',
+                'created_for' => 'required',
+            ]);
+            $campaign = Campaign::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+            $data['location_id'] = $request->location_id;
+            $data['user_id'] = Auth::user()->id;
+            $data['category_id'] = $request->category_id;
+            $data['target_amount'] = $request->target_amount;
+            $data['campaign_name'] = $request->campaign_name;
+            $data['body'] = $request->body;
+            $data['created_for'] = $request->created_for;
+            $data['stop_limit'] = $request->stop_limit;
+            $data['slug'] = SlugService::createSlug(Campaign::class, 'slug', $request->campaign_name);
+            $city = City::where('id', $data['location_id'])->with('state.country')->first();
+            $data['search'] = $data['campaign_name'].','.$data['created_for'].','.$city->name.','.$city->state->name.','.$city->state->country->name.','.$data['body'].','.$data['target_amount'];
+            if ($request->hasFile('thumbnail')) {
+                $file = $request->file('thumbnail');
+                $uploadPath = public_path('uploads/campaign/thumbnail/');
+                File::delete($uploadPath.$campaign->thumbnail);
+                $data['thumbnail'] = $this->fileUpload($file, $uploadPath);
+            }
+            if ($request->hasFile('logo')) {
+                $file = $request->file('logo');
+                $uploadPath = public_path('uploads/campaign/logo/');
+                File::delete($uploadPath.$campaign->thumbnail);
+                $data['logo'] = $this->fileUpload($file, $uploadPath);
+            }
+            try {
+                $campaign->update($data);
+            }catch (\Exception $e){
+                return redirect()->back()->with('error', 'something went wrong please try again!');
+            }
+
+            return redirect()->route('frontend.user.campaign')->with('success', 'Campaign Updated Successfully!');
+        }
+    }
+
+    public function logoDelete($slug){
+        $campaign = Campaign::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+        File::delete(public_path('uploads/campaign/logo/').$campaign->logo);
+        $data['logo'] = null;
+        $campaign->update($data);
+        return redirect()->back()->with('warning', 'Logo Removed!');
     }
 
     public function SearchMore(Request $request){

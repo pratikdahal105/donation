@@ -1,6 +1,7 @@
 @extends('frontend.layouts.main')
 @section('content')
     <div id="fundraisers-page">
+        @include('frontend.includes.message')
         <div class="fundraisers-wrapper">
             <section class="common-management-system-section">
                 <div class="custom-container">
@@ -38,9 +39,10 @@
                                                         <span></span>
                                                         <span></span>
                                                         <div class="nav-content">
-                                                            <p><a href="">Post Updates</a></p>
-                                                            <p><a href="">Edit</a></p>
-                                                            <p><a href="">Delete</a></p>
+                                                            @if($campaign->status == 1)
+                                                                <p><a href="">Post Updates</a></p>
+                                                            @endif
+                                                            <p><a href="{{route('frontend.campaign.edit', $campaign->slug)}}">Edit</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -61,14 +63,6 @@
                                                 @else
                                                     <div class="progress-bar-wrapper common-progress-bar">
                                                         <h3 style="color:#de0d0d">Pending Approval</h3>
-{{--                                                        <div class="progress">--}}
-
-{{--                                                            <div class="bar progress-bar-striped-custom" data-value="{{$campaign->donations->sum('amount')}}" max-value="{{$campaign->target_amount}}">--}}
-{{--                                                                <div class="pct">--}}
-{{--                                                                    Rs. {{$campaign->donations->sum('amount')}}--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
                                                         <p>Target: Rs. {{$campaign->target_amount}}</p>
                                                     </div>
                                                 @endif
