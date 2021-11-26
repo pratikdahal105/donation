@@ -75,6 +75,7 @@
                     if(data == ''){
                         $('#loadMoreButton').hide();
                     }
+                    mcustomInit();
                 }
             });
         });

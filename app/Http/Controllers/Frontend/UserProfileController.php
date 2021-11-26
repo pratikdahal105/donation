@@ -57,4 +57,48 @@ class UserProfileController extends Controller
             }
         }
     }
+
+    public function campaignUser(Request $request){
+        if($request->isMethod('get')) {
+            $page['title'] = 'User | Campaign';
+            $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->limit(12)->get();
+            return view('frontend.user.campaign')->with(compact('page', 'campaigns'));
+        }
+    }
+
+    public function loadMore(Request $request){
+        $output = '';
+        $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->skip($request->searchCount)->take(12)->get();
+        foreach ($campaigns as $campaign){
+            $output .= '
+            <div class="project-item" id="searchCount">
+                <a href="'.route('frontend.campaign.detail', $campaign->slug).'">
+                    <div class="img-container">
+                        <img src="'.asset('uploads/campaign/thumbnail/'.$campaign->thumbnail).'" alt="">
+                    </div>
+                    <div class="text-content">
+                        <div class="title">
+                            <h5>'.$campaign->campaign_name.'</h5>
+                        </div>
+                        <div class="author">
+                            <h5>For '.$campaign->created_for.'</h5>
+                        </div>
+                        <div class="progress-bar-wrapper common-progress-bar">
+                            <div class="progress">
+                                <div class="bar progress-bar-striped-custom" data-value="'.$campaign->donations->sum('amount').'" max-value="'.$campaign->target_amount.'">
+                                    <div class="pct">
+                                        Rs. '.$campaign->donations->sum('amount').'
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Rs. '.$campaign->target_amount.'</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            ';
+        }
+
+        echo $output;
+    }
 }
