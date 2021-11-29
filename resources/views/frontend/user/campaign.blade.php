@@ -40,7 +40,7 @@
                                                         <span></span>
                                                         <div class="nav-content">
                                                             @if($campaign->status == 1)
-                                                                <p><a href="">Post Updates</a></p>
+                                                                <p><a href="{{route('frontend.user.campaign.update', $campaign->slug)}}">Post Updates</a></p>
                                                             @endif
                                                             <p><a href="{{route('frontend.campaign.edit', $campaign->slug)}}">Edit</a></p>
                                                         </div>

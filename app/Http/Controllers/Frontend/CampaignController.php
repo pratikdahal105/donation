@@ -17,7 +17,7 @@ class CampaignController extends Controller
 {
     public function campaignDetail(Request $request, $slug){
         $page['title'] = 'Campaign | Details';
-        $campaign = Campaign::where('slug', $slug)->with('user', 'donations.user')->first();
+        $campaign = Campaign::where('slug', $slug)->where('status', 1)->with('user', 'donations.user', 'campaign_updates')->first();
         return view('frontend.campaign.detail')->with(compact('page', 'campaign'));
     }
 

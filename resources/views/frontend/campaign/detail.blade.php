@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="all-donations-section" id="all">
+                            <div class="all-donations-section">
                                 <div class="section-title">
                                     <h2>Organized By</h2>
                                 </div>
@@ -38,6 +38,28 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($campaign->campaign_updates->first())
+                                <div class="all-donations-section">
+                                    <div class="section-title">
+                                        <h2>Campaign Updates</h2>
+                                    </div>
+                                    @foreach($campaign->campaign_updates as $update)
+                                    <div class="donation-items-section">
+                                        <div class="donation-item">
+                                            <div class="text">
+                                                <div class="amount">
+                                                    <p>{!! $update->body !!}</p><br>
+                                                    <b>{{$update->created_at->diffForHumans()}}</b><br>
+                                                    @if($campaign->user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                                                        <a href="{{route('frontend.user.campaign.update.edit', $update->id)}}" class="covid-btn btn-red">Edit</a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
                         @if($campaign->donations->first())
                         <div class="all-donations-section" id="all">
@@ -115,7 +137,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-section">
-                                        <a data-scroll="all" id="loadMoreButton" class="covid-btn btn-red">See all donations</a>
+                                        <a data-scroll="all" href="#all" class="covid-btn btn-red">See all donations</a>
                                     </div>
                                 </div>
                             </div>

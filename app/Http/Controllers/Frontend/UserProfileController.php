@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Campaign\Model\Campaign;
+use App\Modules\Campaign_update\Model\Campaign_update;
 use App\Modules\Category\Model\Category;
 use App\Modules\Country\Model\Country;
 use App\Modules\Donation\Model\Donation;
@@ -88,8 +89,8 @@ class UserProfileController extends Controller
                                     <span></span>
                                     <span></span>
                                     <div class="nav-content">
-                                        <p><a href="">Post Updates</a></p>
-                                        <p><a href="">Edit</a></p>
+                                        <p><a href="'.route('frontend.user.campaign.update', $campaign->slug).'">Post Updates</a></p>
+                                        <p><a href="'.route('frontend.campaign.edit', $campaign->slug).'">Edit</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +127,7 @@ class UserProfileController extends Controller
                                     <span></span>
                                     <span></span>
                                     <div class="nav-content">
-                                        <p><a href="">Edit</a></p>
+                                        <p><a href="'.route('frontend.campaign.edit', $campaign->slug).'">Edit</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -202,5 +203,63 @@ class UserProfileController extends Controller
         }
 
         echo $output;
+    }
+
+    public function campaignUpdate(Request $request, $slug){
+        if ($request->isMethod('get')){
+            $page['title'] = 'Campaign | Updates';
+            $campaign = Campaign::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+            $edit = false;
+            return view('frontend.user.campaignUpdate')->with(compact('page', 'campaign', 'edit'));
+        }
+        if ($request->isMethod('post')){
+            $campaign = Campaign::where('slug', $slug)->where('user_id', Auth::user()->id)->first();
+            $update = new Campaign_update();
+            if($campaign->first()){
+                $data['body'] = $request->body;
+                $data['campaign_id'] = $campaign->id;
+                if($update->create($data)){
+                    return redirect()->route('frontend.campaign.detail', $campaign->slug);
+                }
+            }
+        }
+    }
+
+    public function campaignUpdateEdit(Request $request, $id){
+        if ($request->isMethod('get')){
+            $page['title'] = 'Campaign | Updates';
+            $update = Campaign_update::where('id', $id)->with('campaign')->first();
+            $edit = true;
+            if($update->campaign->user_id == Auth::user()->id){
+                return view('frontend.user.campaignUpdate')->with(compact('page', 'update', 'edit'));
+            }else{
+                return redirect()->back();
+            }
+        }
+        if ($request->isMethod('post')){
+            $update = Campaign_update::where('id', $id)->with('campaign')->first();
+            if($update->campaign->user_id == Auth::user()->id){
+                $data['body'] = $request->body;
+                $data['campaign_id'] = $update->campaign->id;
+                if($update->update($data)){
+                    return redirect()->route('frontend.campaign.detail', $update->campaign->slug);
+                }
+            }else{
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function campaignUpdateDelete($id){
+        $update = Campaign_update::where('id', $id)->with('campaign')->first();
+        $slug = $update->campaign->slug;
+        if($update->campaign->user_id == Auth::user()->id){
+            $update->unsetRelation('campaign');
+            if($update->delete()){
+                return redirect()->route('frontend.campaign.detail', $slug);
+            }
+        }else{
+            return redirect()->back();
+        }
     }
 }
