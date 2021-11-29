@@ -114,8 +114,8 @@ class PaypalController extends Controller
             $data = Session::get('donation');
             $campaign = Campaign::where('slug', Session::get('slug'))->first();
             $donation = new Donation();
-            $data['reference_no'] = $this->referenceNumber();
-            $data['slug'] = base64_encode($data['reference_no']);
+            $donation['reference_no'] = $this->referenceNumber();
+            $donation['slug'] = base64_encode($donation['reference_no']);
             $donation['amount'] = $data['amount'];
             $donation['remarks'] = $data['remarks'];
             $donation['tip'] = $data['actual_amount']-$data['amount'];

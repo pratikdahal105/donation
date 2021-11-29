@@ -13,6 +13,18 @@
                         @else
                             <div class="section-title">
                                 <h3>No Campaigns To Show</h3>
+                                <section class="common-funding-section">
+                                    <div class="custom-container">
+                                        <div class="funding-container center-align">
+                                            <div class="text">
+                                                <h3>Start Your First Fundraising Campaign</h3>
+                                            </div>
+                                            <div class="action">
+                                                <a href="{{route('frontend.campaign.request')}}" class="covid-btn btn-red">Request Funding</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
                         @endif
                     </div>
