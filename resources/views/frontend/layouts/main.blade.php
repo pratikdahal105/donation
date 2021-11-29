@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>{{ $page['title'] }}</title>
+    <title>{{ $page['title'] ?? 'Donation'}}</title>
 
     <?php $cssVersion = "1.1"; ?>
 

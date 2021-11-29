@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('frontend.layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding-top: 10%; padding-bottom: 10%">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -16,6 +16,7 @@
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }},
+                    {{ __('check your spam folder or') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.

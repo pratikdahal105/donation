@@ -11,9 +11,12 @@
 |
 */
 
+//Auth::routes(['verify' => true]);
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['name' => 'Admin','middleware' => ['web','auth', 'can:control_panel']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
 
 Route::group(['name' => 'Campaign'], function (){
     Route::get('/', 'Frontend\FrontController@index')->name('frontend.home');
@@ -24,9 +27,9 @@ Route::group(['name' => 'Campaign'], function (){
     Route::get('campaignAllCategory', 'Frontend\CategoriesController@allCategory')->name('frontend.all.category');
     Route::get('campaignDiscover', 'Frontend\CategoriesController@discoverCategory')->name('frontend.all.discover');
     Route::get('campaignLoadMore', 'Frontend\CampaignController@loadMore')->name('frontend.campaign.more');
-    Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware('auth');
-    Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware('auth');
-    Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware('auth');
+    Route::get('campaignRequest', 'Frontend\RequestController@requestDonation')->name('frontend.campaign.request')->middleware(['auth', 'verified']);
+    Route::get('campaignLocation', 'Frontend\RequestController@getLocation')->name('frontend.campaign.location')->middleware(['auth', 'verified']);
+    Route::post('createCampaign', 'Frontend\CampaignController@createCampaign')->name('frontend.campaign.create')->middleware(['auth', 'verified']);
     Route::get('campaignEdit/{slug}', 'Frontend\CampaignController@editCampaign')->name('frontend.campaign.edit');
     Route::post('campaignEdit/{slug}', 'Frontend\CampaignController@editCampaign')->name('frontend.campaign.edit');
     Route::get('deleteLogo/{slug}', 'Frontend\CampaignController@logoDelete')->name('frontend.campaign.logo.delete');
@@ -34,14 +37,14 @@ Route::group(['name' => 'Campaign'], function (){
 });
 
 Route::group(['name' => 'Donation'], function (){
-    Route::post('donationRequest', 'Frontend\DonationController@donationRequest')->name('frontend.donation.request')->middleware('auth');
-    Route::get('makeDonation/{slug}', 'Frontend\DonationController@donate')->name('frontend.donation.form')->middleware('auth');
+    Route::post('donationRequest', 'Frontend\DonationController@donationRequest')->name('frontend.donation.request')->middleware(['auth', 'verified']);
+    Route::get('makeDonation/{slug}', 'Frontend\DonationController@donate')->name('frontend.donation.form')->middleware(['auth', 'verified']);
     Route::get('donationLoadMore', 'Frontend\DonationController@loadMore')->name('frontend.donation.more');
     Route::get('userDonation/{slug}', 'Frontend\DonationController@userDonation')->name('frontend.user.donation.edit');
     Route::post('userDonation/{slug}', 'Frontend\DonationController@userDonation')->name('frontend.user.donation.edit');
 });
 
-Route::group(['name' => 'User', 'middleware' => 'auth'], function (){
+Route::group(['name' => 'User', 'middleware' => ['auth', 'verified']], function (){
     Route::get('userProfile', 'Frontend\UserProfileController@userProfile')->name('frontend.user.profile');
     Route::post('userProfile', 'Frontend\UserProfileController@userProfile')->name('frontend.user.profile');
     Route::get('userPassword', 'Frontend\UserProfileController@userPassword')->name('frontend.user.password');
@@ -52,7 +55,7 @@ Route::group(['name' => 'User', 'middleware' => 'auth'], function (){
     Route::get('userMoreDonation', 'Frontend\UserProfileController@moreUserDonation')->name('frontend.user.donation.more');
 });
 
-Route::group(['name' => 'Paypal'], function () {
+Route::group(['name' => 'Paypal', 'middleware' => ['auth', 'verified']], function () {
     Route::get('paypalPost', array('as' => 'paypalPost', 'uses' => 'Frontend\PaypalController@postPaymentWithpaypal',));
     Route::get('paypal', array('as' => 'status', 'uses' => 'Frontend\PaypalController@getPaymentStatus',));
 });
