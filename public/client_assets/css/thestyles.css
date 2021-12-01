@@ -88,7 +88,8 @@
               box-shadow: 0px 2px 4px 0px;
               background-color: white;
               top: 35px;
-              border-radius: 2px; }
+              border-radius: 2px;
+              z-index: 99; }
               #header-wrapper .custom-container .header-container .menu-items ul li:hover ul li {
                 padding: 15px 20px; }
                 #header-wrapper .custom-container .header-container .menu-items ul li:hover ul li:last-of-type {
@@ -101,8 +102,8 @@
               margin-left: 0px; }
             #header-wrapper .custom-container .header-container .menu-items ul li ul {
               display: none; }
-            #header-wrapper .custom-container .header-container .menu-items ul li ul li{
-                margin-left:0; }
+              #header-wrapper .custom-container .header-container .menu-items ul li ul li {
+                margin-left: 0; }
             #header-wrapper .custom-container .header-container .menu-items ul li:last-of-type:hover span img {
               transform: none; }
             #header-wrapper .custom-container .header-container .menu-items ul li input {
@@ -398,6 +399,36 @@ body {
         margin: 20px 0; }
       #content-wrapper #donation-page .details-section .details-wrapper .information-container .project-item .text-content .author {
         margin-bottom: 20px; }
+    #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section {
+      padding-right: 40px;
+      padding-bottom: 60px; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .donation-items-section .donation-item {
+        display: flex;
+        align-items: center; }
+        #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .donation-items-section .donation-item .img-container {
+          width: 15%;
+            padding-right: 10px;
+        }
+          #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .donation-items-section .donation-item .img-container img {
+            height: 95px;
+              width: 100%;
+              object-fit: cover;
+              object-position: center;
+          }
+        #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .donation-items-section .donation-item .text p {
+          font-weight: bold; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .modal .modal-dialog {
+        max-width: 660px;
+        margin-top: 7%; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .modal .modal-header button {
+        border: none;
+        background: transparent; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .modal .modal-body textarea {
+        width: 100%; }
+      #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .modal .modal-footer {
+        border-top: none; }
+        #content-wrapper #donation-page .details-section .details-wrapper .information-container .contact-section .modal .modal-footer a {
+          margin-top: 0; }
     #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section {
       padding-right: 40px; }
       #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item {
@@ -407,9 +438,9 @@ body {
         align-items: center; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container {
           padding-bottom: 30px;
-          width: 13%; }
+          width: 15%; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .img-container img {
-            height: 55px; }
+            height: 95px; }
         #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text {
           padding-bottom: 30px; }
           #content-wrapper #donation-page .details-section .details-wrapper .information-container .all-donations-section .donation-items-section .donation-item .text .amount {
@@ -435,15 +466,14 @@ body {
         #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner {
           display: flex;
           align-items: center; }
-#content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .img-container img{
-    width: 25px;
-}
-#content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .text {
+          #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .text {
             display: flex;
             align-items: center;
             margin-left: 10px; }
             #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .text p {
               margin-bottom: 0; }
+          #content-wrapper #donation-page .details-section .details-wrapper .donate-section .donation-wrapper .donation-text .top-donation .inner .img-container img {
+            width: 25px; }
 #content-wrapper #login-page .custom-container {
   padding-bottom: 30px;
   padding-top: 30px; }
@@ -494,9 +524,12 @@ body {
 #content-wrapper #request-page {
   position: relative;
   min-height: 400px;
-  max-width: 430px;
+  max-width: 700px;
   margin: auto;
   padding: 60px 0; }
+#content-wrapper #request-page .note-editing-area{
+    height: 250px;
+}
   #content-wrapper #request-page .form-wrapper .information {
     display: flex;
     flex-direction: column; }
@@ -663,10 +696,9 @@ body {
 #content-wrapper #fundraisers-page .projects-container .btn-section, #content-wrapper .common-page .projects-container .btn-section {
   text-align: end; }
 
-
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    top: 143%;
-}
+  top: 143%; }
+
 /*--------------------------------- Content Wrapper Ends ----------------------------------*/
 /*--------------------------------- Footer Wrapper Starts ---------------------------------*/
 #footer-wrapper {
@@ -784,8 +816,7 @@ body {
             display: block;
             margin-bottom: 3px; }
           .common-projects .project-item-wrapper .project-item .text-content .title .dot-nav:hover .nav-content {
-            display: block;
-            z-index: 999; }
+            display: block; }
           .common-projects .project-item-wrapper .project-item .text-content .title .dot-nav .nav-content {
             width: max-content;
             display: none;

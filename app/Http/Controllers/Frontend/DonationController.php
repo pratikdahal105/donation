@@ -34,8 +34,9 @@ class DonationController extends Controller
         } else{
             $request['notification'] = 0;
         }
-//        Session::forget('donation');
+        Session::forget('donation');
         Session::put('donation', $request->all());
+//        dd(Session::get('donation'));
 
         return redirect()->route('paypalPost');
     }

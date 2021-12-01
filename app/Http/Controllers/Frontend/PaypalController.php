@@ -124,11 +124,11 @@ class PaypalController extends Controller
             $donation['anonymous'] = $data['anonymous'];
             if($donation->save()){
                 Session::forget('donation');
-                return Redirect::route('frontend.donation.form', Session::get('slug'))->with('success', 'Payment successful !!');
+                return Redirect::route('frontend.campaign.detail', Session::get('slug'))->with('success', 'Payment successful !!');
             }
         }
 
-        return Redirect::route('frontend.donation.form', Session::get('slug'))->with('error','Payment failed !!');
+        return Redirect::route('frontend.campaign.detail', Session::get('slug'))->with('error','Payment failed !!');
     }
 
     function convertCurrency($amount,$from_currency,$to_currency){

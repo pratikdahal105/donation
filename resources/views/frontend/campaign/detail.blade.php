@@ -4,6 +4,7 @@
     <div id="donation-page">
         <section class="details-section">
             <div class="custom-container">
+                @include('frontend.includes.message')
                 <div class="details-wrapper">
                     <div class="information-container">
                         <div class="project-item">
@@ -23,21 +24,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="all-donations-section">
-                                <div class="section-title">
-                                    <h2>Organized By</h2>
-                                </div>
-                                <div class="donation-items-section">
-                                    <div class="donation-item">
-                                        <div class="text">
-                                            <div class="amount">
-                                                <h3>{{$campaign->user->name}}</h3><br>
-                                                <button class="btn btn-success btn-sm">Contact</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             @if($campaign->campaign_updates->first())
                                 <div class="all-donations-section">
                                     <div class="section-title">
@@ -60,6 +47,54 @@
                                     @endforeach
                                 </div>
                             @endif
+                        </div>
+                        <div class="contact-section">
+                            <div class="section-title">
+                                <h2>Organized By</h2>
+                            </div>
+                            <div class="donation-items-section">
+                                <div class="donation-item">
+                                    @if($campaign->logo)
+                                        <div class="img-container">
+                                            <img src="{{asset('uploads/campaign/logo/'.$campaign->logo)}}">
+                                        </div>
+                                    @else
+                                        <div class="img-container">
+                                            <img src="{{asset('client_assets')}}/img/menu-icon/09-Doctor.png">
+                                        </div>
+                                    @endif
+                                    <div class="text">
+                                        <p>Name: {{$campaign->user->name}}</p>
+                                        {{--                                            <p>Phone Number: <a href="tel:9800000000">9800000000</a></p>--}}
+                                        {{--                                            <p>Email: <a href="mailto:john_doe@gmail.com">john_doe@gmail.com</a></p>--}}
+                                    </div>
+                                </div>
+                                <div class="btn-section">
+                                    <a href="#" class="covid-btn btn-red" data-toggle="modal" data-target="#exampleModal">Contact</a>
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Enter your message here:</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <img src="{{asset('client_assets')}}/img/icons/close.png" alt="">
+                                                </button>
+                                            </div>
+                                            <form action="{{route('frontend.user.campaign.contact')}}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="campaign_slug" id="campaign_slug" value="{{$campaign->slug}}">
+                                                <div class="modal-body">
+                                                    <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="covid-btn btn-red">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         @if($campaign->donations->first())
                         <div class="all-donations-section" id="all">

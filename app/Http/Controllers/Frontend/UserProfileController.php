@@ -65,14 +65,14 @@ class UserProfileController extends Controller
     public function campaignUser(Request $request){
         if($request->isMethod('get')) {
             $page['title'] = 'User | Campaign';
-            $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->limit(12)->get();
+            $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->orderBy('created_at', 'DESC')->limit(12)->get();
             return view('frontend.user.campaign')->with(compact('page', 'campaigns'));
         }
     }
 
     public function loadMore(Request $request){
         $output = '';
-        $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->skip($request->searchCount)->take(12)->get();
+        $campaigns = Campaign::where('user_id', Auth::user()->id)->with('donations')->skip($request->searchCount)->orderBy('created_at', 'DESC')->take(12)->get();
         foreach ($campaigns as $campaign){
             if($campaign->status == 1){
                 $output .= '
@@ -150,7 +150,7 @@ class UserProfileController extends Controller
 
     public function userDonation(){
         $page['title'] = 'User | Donation';
-        $donations = Donation::where('user_id', Auth::user()->id)->with('campaign')->limit(6)->get();
+        $donations = Donation::where('user_id', Auth::user()->id)->with('campaign')->orderBy('created_at', 'DESC')->limit(6)->get();
         return view('frontend.user.donation')->with(compact('page', 'donations'));
     }
 

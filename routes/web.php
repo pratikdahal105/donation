@@ -58,6 +58,7 @@ Route::group(['name' => 'User', 'middleware' => ['auth']], function (){
     Route::get('postUpdateEdit/{id}', 'Frontend\UserProfileController@campaignUpdateEdit')->name('frontend.user.campaign.update.edit');
     Route::post('postUpdateEdit/{id}', 'Frontend\UserProfileController@campaignUpdateEdit')->name('frontend.user.campaign.update.edit');
     Route::get('postUpdateDelete/{id}', 'Frontend\UserProfileController@campaignUpdateDelete')->name('frontend.user.campaign.update.delete');
+    Route::post('campaignContactForm', 'Frontend\ContactFormController@campaignContact')->name('frontend.user.campaign.contact');
 });
 
 Route::group(['name' => 'Paypal', 'middleware' => ['auth']], function () {
