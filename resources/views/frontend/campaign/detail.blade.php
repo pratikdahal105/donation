@@ -83,6 +83,7 @@
                                             </div>
                                             <form action="{{route('frontend.user.campaign.contact')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
+                                                <input type="hidden" name="filter" id="filter" value="">
                                                 <input type="hidden" name="campaign_slug" id="campaign_slug" value="{{$campaign->slug}}">
                                                 <div class="modal-body">
                                                     <textarea name="message" id="message" cols="30" rows="10" required></textarea>
