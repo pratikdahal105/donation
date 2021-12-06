@@ -15,7 +15,7 @@ class ContactFormController extends Controller
         $campaign = Campaign::where('slug', $request->campaign_slug)->with('user')->first();
         if(!$request->filter){
             $data = [
-                'to' => 'pratikdahal105@gmail.com',
+                'to' => 'pratik@pagodalabs.com',
 //                'to' => $campaign->user->email,
                 'message' => $request->message,
                 'subject' => 'Regarding '.$campaign->campaign_name.' Fundraiser',
@@ -26,13 +26,7 @@ class ContactFormController extends Controller
             }else{
                 return redirect()->back()->with('error', 'Message failed!');
             }
-//            try {
-//                Mail::to($data['to'])->send(new CampaignContactMail($data));
-//            }catch (\Exception $e){
-//                return redirect()->back()->with('error', $e->getMessage());
-//            }
-//
-//            return redirect()->back()->with('success', "Sent!");
         }
+        return redirect()->back()->with('success', 'Message Sent Successfully!');
     }
 }

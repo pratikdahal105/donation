@@ -39,11 +39,6 @@
                         <div class="section-title">
                             <h1>Top Fundraisers</h1>
                         </div>
-{{--                        <div class="description">--}}
-{{--                            <p>Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat.--}}
-{{--                                Vitae, laoreet commodo tellus nunc facilisis tincidunt nisl, quam sagittis. Laoreet iaculis posuere id sapien--}}
-{{--                                condimentum cras.</p>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
                         @php($key = 0)
@@ -62,9 +57,6 @@
                                                 <div class="author">
                                                     <h5>For {{$campaign->created_for}}</h5>
                                                 </div>
-    {{--                                            <div class="description">--}}
-    {{--                                                <p>{{str_limit($campaign->body, 30)}}</p>--}}
-    {{--                                            </div>--}}
                                                 <div class="progress-bar-wrapper common-progress-bar">
                                                     <div class="progress">
                                                         <div class="bar progress-bar-striped-custom" data-value="{{$campaign->sum}}" max-value="{{$campaign->target_amount}}">
@@ -111,80 +103,11 @@
                                 </div>
                             </div>
                         @endforeach
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Simple setup</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="service-item">--}}
-{{--                            <div class="inner">--}}
-{{--                                <div class="img-container">--}}
-{{--                                    <img src="{{asset('client_assets')}}/img/icons/02-Medical%20Result.png" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="title">--}}
-{{--                                    <p>Oxygen Availability</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>
         </section>
+        @if($success_stories->first())
         <section class="common-stories-section">
             <div class="custom-container">
                 <div class="section-title text-center">
@@ -196,12 +119,10 @@
                         <div class="text-section">
                             <div class="section-title">
                                 <h1>{{$success_story->title}}</h1>
-{{--                                <h3>{{$success_story->by}}</h3>--}}
                             </div>
                             <div class="story">
                                 <p>"{{$success_story->body}}"</p>
                                 <p>- {{$success_story->by}} </p>
-{{--                                <p>John raised $19k to help kids earn books with exercise.</p>--}}
                             </div>
                         </div>
                         <div class="img-container">
@@ -209,39 +130,10 @@
                         </div>
                     </div>
                     @endforeach
-{{--                    <div class="story-item">--}}
-{{--                        <div class="text-section">--}}
-{{--                            <div class="section-title">--}}
-{{--                                <h3>FUNDRAISING STORIES</h3>--}}
-{{--                                <h1>Meet Jane</h1>--}}
-{{--                            </div>--}}
-{{--                            <div class="story">--}}
-{{--                                <p>"Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat. Vitae, laoreet commodo tellus nunc facilisis tincidunt nisl, quam sagittis. Laoreet iaculis posuere id sapien condimentum cras."</p>--}}
-{{--                                <p>John raised $19k to help kids earn books with exercise.</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="img-container">--}}
-{{--                            <img src="{{asset('client_assets')}}/img/streetshop.png">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="story-item">--}}
-{{--                        <div class="text-section">--}}
-{{--                            <div class="section-title">--}}
-{{--                                <h3>FUNDRAISING STORIES</h3>--}}
-{{--                                <h1>Meet John</h1>--}}
-{{--                            </div>--}}
-{{--                            <div class="story">--}}
-{{--                                <p>"Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat. Vitae, laoreet commodo tellus nunc facilisis tincidunt nisl, quam sagittis. Laoreet iaculis posuere id sapien condimentum cras."</p>--}}
-{{--                                <p>John raised $19k to help kids earn books with exercise.</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="img-container">--}}
-{{--                            <img src="{{asset('client_assets')}}/img/streetshop.png">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </section>
+        @endif
         <section class="ongoing-projects-section">
             <div class="custom-container">
                 <div class="projects-container common-projects">
@@ -249,11 +141,6 @@
                         <div class="section-title">
                             <h1>Recent Projects</h1>
                         </div>
-{{--                        <div class="description">--}}
-{{--                            <p>Euismod amet, quam cras a condimentum maecenas vestibulum, imperdiet pulvinar. Proin proin cras quis consequat.--}}
-{{--                                Vitae, laoreet commodo tellus nunc facilisis tincidunt nisl, quam sagittis. Laoreet iaculis posuere id sapien--}}
-{{--                                condimentum cras.</p>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="project-item-wrapper">
                         @foreach($campaigns as $campaign)
